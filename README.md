@@ -25,7 +25,7 @@ https://developer.android.com/studio
 
 ------------
 
-###Yarn
+### Yarn
 Só rodar esse comando to terminal (não precisa ser necessariamente executado na pasta do projeto).
 `npm install --global yarn`
 
