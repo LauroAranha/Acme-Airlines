@@ -1,26 +1,35 @@
 # Projeto Integrador
 Repositório destinado ao desenvolvimento do projeto integrador.
 
+
 ## Quick start:
 Pro projeto, precisamos instalar o React Native, NodeJS, Android Studio e Yarn.
 ### React native
-------------
+
 #### Assiste aí.
 https://www.youtube.com/watch?v=09X9gDj3fec
 
-### NodeJS
 ------------
+### NodeJS
+
 #### Página de instação:
 https://nodejs.org/en/download/
 
-### Android Studio
 ------------
+
+
+### Android Studio
+
 #### **Página de instação**
 https://developer.android.com/studio
 
-###Yarn
 ------------
+
+###Yarn
+Só rodar esse comando to terminal (não precisa ser necessariamente executado na pasta do projeto).
 `npm install --global yarn`
+
+------------
 
 ### Bibliotecas Npm
 ------------
