@@ -17,7 +17,6 @@ https://nodejs.org/en/download/
 
 ------------
 
-
 ### Android Studio
 
 #### **Página de instação**
@@ -41,5 +40,5 @@ A branch **main** é a nossa branch principal, NÃO FAÇA COMMIT DIRETAMENTE nel
 ### GitHub Desktop
 Caso se sintam confortáveis, o GitHub Desktop facilita o trabalho e manutenção do fluxo de commits do repositório.
 
-#### **Página de instação: **
+#### **Página de instação:**
 https://desktop.github.com
