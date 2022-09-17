@@ -32,7 +32,7 @@ const LoginRegisScreen = ({ navigation }) => {
                     placeholder="**********"
                     onChangeNumber={(text) => onChangeNumber(text)}
                 ></TextInput>
-                <TouchableOpacity>
+                <TouchableOpacity style={styles.forgotPass}>
                     <Text style={styles.forgotPassword}>
                         Esqueci minha senha
                     </Text>
