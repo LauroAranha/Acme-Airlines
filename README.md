@@ -1,6 +1,14 @@
 # Projeto Integrador
 Repositório destinado ao desenvolvimento do projeto integrador.
 
+## GitHub:
+A branch **main** é a nossa branch principal, NÃO FAÇA COMMIT DIRETAMENTE nela pra que evitemos conflitos entre arquivos e pra que possamos manter um bom monitoramento do projeto. Pra adicionar novas funcionalidades tanto de front, quanto de back ao projeto, **façam uma branch paralela à main e façam suas alterações e commits nela pra que posteriormente seja feito um merge seguro entre as branchs**.
+
+### GitHub Desktop
+Caso se sintam confortáveis, o GitHub Desktop facilita o trabalho e manutenção do fluxo de commits do repositório.
+
+#### **Página de instação:**
+https://desktop.github.com
 
 ## Quick start:
 Pro projeto, precisamos instalar o React Native, NodeJS, Android Studio e Yarn.
@@ -33,12 +41,3 @@ Só rodar esse comando to terminal (não precisa ser necessariamente executado n
 
 ### Bibliotecas Npm
 ------------
-
-## GitHub:
-A branch **main** é a nossa branch principal, NÃO FAÇA COMMIT DIRETAMENTE nela pra que evitemos conflitos entre arquivos e pra que possamos manter um bom monitoramento do projeto. Pra adicionar novas funcionalidades tanto de front, quanto de back ao projeto, **façam uma branch paralela à main e façam suas alterações e commits nela pra que posteriormente seja feito um merge seguro entre as branchs**.
-
-### GitHub Desktop
-Caso se sintam confortáveis, o GitHub Desktop facilita o trabalho e manutenção do fluxo de commits do repositório.
-
-#### **Página de instação:**
-https://desktop.github.com
