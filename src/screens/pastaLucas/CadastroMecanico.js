@@ -50,6 +50,7 @@ const style = StyleSheet.create({
         paddingTop: '20%',
     },
     texto: {
+        textAlign: 'left',
         padding: 5,
         fontSize: 13,
         fontWeight: 'bold',
@@ -65,7 +66,7 @@ const style = StyleSheet.create({
         borderRadius: 15,
         minWidth: '85%',
         justifyContent: 'space-around',
-        textAlign: 'center',
+        textAlign: 'left',
     },
 
 });

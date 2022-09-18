@@ -7,6 +7,7 @@ import ProfileScreen from './src/screens/Profile/ProfileScreen';
 import ComponentsTemplate from './src/screens/ComponentsTemplate/ComponentsTemplate';
 import InfoAeronaves from './src/screens/InfoAero/InfoAeronaves';
 import CadMecanico from './src/screens/pastaLucas/CadastroMecanico';
+import CadAero from './src/screens/CadAero/CadastroAeronave';
 
 const AppStack = createStackNavigator();
 
@@ -28,9 +29,15 @@ const App = () => {
             >
 
                 <AppStack.Screen
-                    name="Cadastro Mêcanico"
+                    name="Cadastro Mecânico"
                     component={CadMecanico}
                     options={{ headerShown: true }}
+                />
+
+                <AppStack.Screen
+                    name="Cadastro Aeronaves"
+                    component={CadAero}
+                    options={{ headerShown: false }}
                 />
                 <AppStack.Screen
                     name="ComponentsTemplate"

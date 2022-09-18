@@ -14,13 +14,14 @@ const styles = StyleSheet.create({
     loginBox: {
         backgroundColor: '#f4f4f4',
         padding: 15,
+        width: 350,
         maxHeight: '95%',
         maxWidth: '95%',
         marginBottom: 20,
         borderRadius: 15,
         minWidth: '85%',
         justifyContent: 'space-around',
-        textAlign: 'center',
+        textAlign: 'left',
     },
     loginText: {
         padding: 5,
