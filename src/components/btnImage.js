@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 const BtnImage = () => {
     return (
         <View>
+            <Text>A</Text>
             <TouchableOpacity
                 Opacitystyle={styles.btnImagem}
                 onPress={() => navigation.navigate('')}

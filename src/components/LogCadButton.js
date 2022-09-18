@@ -1,11 +1,11 @@
 import React from 'react';
 import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const  LogCadButton = () => {
+const  LogCadButton = (props) => {
     return (
         <TouchableOpacity Opacitystyle={styles.button}
         onPress={() => navigation.navigate('')}> 
-        <Text style={styles.textStyle}>Botao</Text>
+        <Text style={styles.textStyle}>{props.name}</Text>
         </TouchableOpacity>
 
         );
