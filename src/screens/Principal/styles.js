@@ -12,11 +12,11 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        fontSize: 18,
+        fontSize: 25,
         fontWeight: 'bold',
         color: 'black',
-        width: '220%',
-        marginLeft: '37%',
+        width: '103%',
+        textAlign: 'center',
         marginTop: '5%',
         marginBottom: '15%',
         fontFamily: 'Arial',
@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
         height: 60,
         resizeMode: 'contain',
     },
-
     loginText: {
         padding: 5,
         fontSize: 18,
