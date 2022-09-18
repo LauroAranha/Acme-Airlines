@@ -9,8 +9,9 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 1,
         backgroundColor: 'black',
-        margin: 4,
-    }
+        margin: 10,
+    },
+    
 });
 
 export default styles;

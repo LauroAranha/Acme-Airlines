@@ -4,6 +4,8 @@ import { TextInput } from 'react-native-gesture-handler';
 import { TextInputMask } from 'react-native-masked-text';
 import styles from './styles';
 
+import BtnImage from '../../components/btnImage';
+import LogCadButton from '../../components/LogCadButton';
 import ExemploComponente from '../../components/ExemploComponente'
 import InputText from '../../components/InputText';
 
@@ -18,7 +20,16 @@ const ComponentsTemplate = () => {
             <InputText name='Input data'/>
 
             <View style={styles.divisao} />
-            
+
+            <View>botao com imagem</View>
+            <BtnImage />
+
+            <View style={styles.divisao} />
+
+            <View>botao de login e cadastro</View>
+            <LogCadButton />
+
+            <View style={styles.divisao} />
 
 
         </View>
