@@ -4,11 +4,14 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { TextInputMask } from 'react-native-masked-text';
 
+import ExemploComponente from '../../components/ExemploComponente'
+
 const LoginRegisScreen = ({ navigation }) => {
     const [cpf, onChangeText] = React.useState('');
     const [password, onChangeNumber] = React.useState(null);
     return (
         <View style={styles.container}>
+            <ExemploComponente />
             {/* Lugar da logo */}
             <Image
                 style={styles.logo}
