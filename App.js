@@ -8,6 +8,8 @@ import ComponentsTemplate from './src/screens/ComponentsTemplate/ComponentsTempl
 import InfoAeronaves from './src/screens/InfoAero/InfoAeronaves';
 import CadMecanico from './src/screens/CadMecanico/CadastroMecanico';
 import CadAero from './src/screens/CadAero/CadastroAeronave';
+import ListaAero from './src/screens/ListaAero/ListaAeronaves';
+import AbertManutencao from './src/screens/AbertManutencao/AberturaManutencao';
 
 const AppStack = createStackNavigator();
 
@@ -27,6 +29,16 @@ const App = () => {
                     headerTitleAlign: 'center',
                 }}
             >
+                <AppStack.Screen
+                    name="Abertura da manutenção"
+                    component={AbertManutencao}
+                    options={{ headerShown: false }}
+                />
+                <AppStack.Screen
+                    name="Lista de Aeronaves"
+                    component={ListaAero}
+                    options={{ headerShown: false }}
+                />
 
                 <AppStack.Screen
                     name="Cadastro Mecânico"
