@@ -1,38 +1,60 @@
 import styles from './styles';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import {
+    View,
+    Text,
+    Image,
+    SafeAreaView,
+    TouchableOpacity,
+} from 'react-native';
 
-const PlaneInfoScreen = ({ navigation }) => {
+const Principal = ({ navigation }) => {
     return (
-        <View>
+        <SafeAreaView>
             <View style={styles.header}>
                 <Image
                     style={styles.logo}
                     source={require('../../../assets/Acmelogo.png')}
                 />
-                <Text style={styles.text}>Tela Principal</Text>
+                <Image
+                    style={styles.perfil}
+                    source={require('../../../assets/user.png')}
+                />
             </View>
-            <View style={styles.container}>
+            <Text style={styles.text}>Tela Principal</Text>
+            <View style={styles.containerBtn}>
                 <TouchableOpacity
                     style={styles.btnPrincipal}
-                    onPress={() => navigation.navigate('Principal')}
+                    onPress={() => navigation.navigate('Tela Principal')}
                 >
+                    <Image
+                        style={styles.imageBtn}
+                        source={require('../../../assets/service.png')}
+                    />
+                    <Text style={styles.btnText}>Serviços</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.btnPrincipal}
+                    onPress={() => navigation.navigate('Tela Principal')}
+                >
+                    <Image
+                        style={styles.imageBtn}
+                        source={require('../../../assets/worker.png')}
+                    />
                     <Text style={styles.btnText}>Manutenção</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.btnPrincipal}
-                    onPress={() => navigation.navigate('Principal')}
+                    onPress={() => navigation.navigate('Tela Principal')}
                 >
+                    <Image
+                        style={styles.perfil}
+                        source={require('../../../assets/engine.png')}
+                    />
                     <Text style={styles.btnText}>Aeronaves</Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.btnPrincipal}
-                    onPress={() => navigation.navigate('Principal')}
-                >
-                    <Text style={styles.btnText}>Serviços</Text>
-                </TouchableOpacity>
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 
-export default PlaneInfoScreen;
+export default Principal;

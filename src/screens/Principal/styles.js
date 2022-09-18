@@ -1,31 +1,43 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#030A31',
-        paddingTop: '40%',
-        paddingBottom: '120%',
-    },
     header: {
         backgroundColor: '#4589FF',
-        paddingRight: '80%',
-        paddingTop: '5%',
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingRight: 10,
+        paddingLeft: 10,
+        paddingTop: 15,
     },
+
     text: {
         fontSize: 18,
         fontWeight: 'bold',
-        color: 'white',
+        color: 'black',
         width: '220%',
+        marginLeft: '37%',
+        marginTop: '5%',
+        marginBottom: '15%',
+        fontFamily: 'Arial',
     },
     logo: {
-        width: 90,
-        height: 90,
+        width: 120,
+        height: 100,
         resizeMode: 'contain',
-        marginLeft: '30%',
-        marginRight: '50%',
     },
+
+    perfil: {
+        width: 80,
+        height: 60,
+        resizeMode: 'contain',
+    },
+    imageBtn: {
+        width: 80,
+        height: 60,
+        resizeMode: 'contain',
+    },
+
     loginText: {
         padding: 5,
         fontSize: 18,
@@ -35,11 +47,17 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         backgroundColor: '#4589FF',
         margin: 10,
-        padding: 10,
+        padding: 13,
         maxWidth: '50%',
         minWidth: '30%',
         alignSelf: 'center',
         alignItems: 'center',
+        marginTop: 10,
+    },
+    containerBtn: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
     },
     btnText: {
         fontSize: 18,
