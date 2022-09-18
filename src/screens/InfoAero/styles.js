@@ -1,11 +1,10 @@
 import { StyleSheet } from 'react-native';
+import { withSafeAreaInsets } from 'react-native-safe-area-context';
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
         backgroundColor: '#D0E2FF',
-        paddingTop: '20%'
     },
     imagem: {
         width: 300,
@@ -57,6 +56,45 @@ const styles = StyleSheet.create({
         borderColor: "#002D9C",
         
     },
+    BottomBar: {
+        backgroundColor: '#00063A',
+        padding: 15,
+        height: '10%',
+        borderTopLeftRadius:15,
+        borderTopRightRadius:15,
+        maxWidth: '100%',
+        minWidth: '100%',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    IconTab: {
+        
+    },
+    header: {
+        backgroundColor: '#4589FF',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingRight: 10,
+        paddingLeft: 10,
+        paddingTop: 15,
+    },
+    logo: {
+        width: 120,
+        height: 100,
+        resizeMode: 'contain',
+    },
+
+    perfil: {
+        width: 80,
+        height: 60,
+        resizeMode: 'contain',
+    },
+    scrollview: {
+        alignItems: 'center',
+        justifyContent:'space-around',
+       },
 });
 
 export default styles;

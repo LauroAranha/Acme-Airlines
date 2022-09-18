@@ -7,6 +7,11 @@ const InfoAeronaves = () => {
   return (
     <View style={styles.container}>
         <ScrollView>
+        <View style={styles.header}>
+            <Image style={styles.logo}source={require('../../../assets/Acmelogo.png')}/>
+            <Image style={styles.perfil} source={require('../../../assets/user.png')}/>
+         </View>
+         <View style = {styles.scrollview}>
             <Text style = {styles.baseText}>INFORMAÇÕES DA AERONAVE:</Text>
             <Image style = {styles.imagem} source={require('../Assets/plane.jpg')} />
             <Text style={styles.loginText}>Matricula da Aeronave:</Text>
@@ -19,12 +24,10 @@ const InfoAeronaves = () => {
                 <TextInput style={styles.loginBox}></TextInput>
             <Text style = {styles.baseText}>INFORMAÇÕES TECNICAS:</Text>
             <View style = {{flexDirection: 'row',}}>
-            <TouchableOpacity Opacitystyle={styles.btnImagem}
-            onPress={() => navigation.navigate('PlaneInfoScreen')}> 
+            <TouchableOpacity Opacitystyle={styles.btnImagem}> 
             <Image style = {styles.btnImagem} source={require('../Assets/ButtonPeças.png')} />
             </TouchableOpacity>
-            <TouchableOpacity Opacitystyle={styles.btnImagem}
-            onPress={() => navigation.navigate('PlaneInfoScreen')}> 
+            <TouchableOpacity Opacitystyle={styles.btnImagem}> 
             <Image style = {styles.btnImagem} source={require('../Assets/buttonA.png')} />
             </TouchableOpacity>
             </View>
@@ -33,11 +36,22 @@ const InfoAeronaves = () => {
             <Text style={styles.loginText}>Total de horas de Rotores atuais:</Text>
                 <TextInput style={styles.loginBox}></TextInput>
             <Text style = {styles.baseText}>MANUTENÇÕES:</Text>
-            <TouchableOpacity Opacitystyle={styles.btnImagemBig}
-            onPress={() => navigation.navigate('PlaneInfoScreen')}> 
+            <TouchableOpacity Opacitystyle={styles.btnImagemBig}> 
             <Image style = {styles.btnImagemBig} source={require('../Assets/ButtonB.png')} />
             </TouchableOpacity>
+            </View>
             </ScrollView>
+            <View style ={styles.BottomBar}>
+            <TouchableOpacity>
+            <Image style = {styles.IconTab} source={require('../Assets/historia.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+            <Image style = {styles.IconTab} source={require('../Assets/engine1.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+            <Image style = {styles.IconTab} source={require('../Assets/form.png')} />
+            </TouchableOpacity>
+            </View>
         </View>
   );
 }

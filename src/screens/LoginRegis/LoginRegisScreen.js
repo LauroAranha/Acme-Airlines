@@ -4,14 +4,11 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { TextInputMask } from 'react-native-masked-text';
 
-import ExemploComponente from '../../components/ExemploComponente'
-
 const LoginRegisScreen = ({ navigation }) => {
     const [cpf, onChangeText] = React.useState('');
     const [password, onChangeNumber] = React.useState(null);
     return (
         <View style={styles.container}>
-            <ExemploComponente />
             {/* Lugar da logo */}
             <Image
                 style={styles.logo}
@@ -42,11 +39,11 @@ const LoginRegisScreen = ({ navigation }) => {
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.btnLogin}
-                    onPress={() => navigation.navigate('PlaneInfoScreen')}
+                    onPress={() => navigation.navigate('Principal')}
                 >
                     <Text style={styles.btnText}>Entrar</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.registerBtn}>
+                <TouchableOpacity style={styles.registerBtn} onPress={() => navigation.navigate('CadMecanico')}>
                     <Text>Ainda não possui uma conta?</Text>
                     <Text style={styles.registerText}>Cadastre-se!</Text>
                 </TouchableOpacity>

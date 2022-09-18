@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         backgroundColor: '#030A31',
-        paddingTop: '20%',
+        paddingBottom: '23%',
     },
     logo: {
         width: 300,
@@ -23,12 +23,10 @@ const styles = StyleSheet.create({
     loginBox: {
         backgroundColor: '#f4f4f4',
         padding: 15,
-        maxHeight: '60%',
+        maxHeight: '150%',
         maxWidth: '95%',
-        marginBottom: 70,
         borderRadius: 15,
         minWidth: '75%',
-        justifyContent: 'space-around',
     },
     forgotPass: {
         paddingTop: 10,
@@ -44,12 +42,13 @@ const styles = StyleSheet.create({
         color: '#002D9C',
     },
     btnLogin: {
+        marginTop: 10,
         borderRadius: 15,
         padding: 10,
         marginBottom: 10,
         backgroundColor: '#4589FF',
-        maxWidth: '50%',
-        minWidth: '30%',
+        maxWidth: '70%',
+        minWidth: '50%',
         alignSelf: 'center',
         alignItems: 'center',
     },
@@ -64,6 +63,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         alignContent: 'center',
+    },
+    btnCadastro: {
+        marginTop: 10,
+        borderRadius: 15,
+        padding: 10,
+        marginBottom: 10,
+        backgroundColor: '#4589FF',
+        maxWidth: '50%',
+        minWidth: '30%',
+        alignSelf: 'center',
+        alignItems: 'center',
     },
 });
 

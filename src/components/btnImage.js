@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 const BtnImage = (props) => {
-    var imagePath = require('../screens/Assets/' + props.imageName);
+    var imagePath = require('../screens/Assets/buttonA.png');
     let button;
 
     if (props.size == 'small') {
