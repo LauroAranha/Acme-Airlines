@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginRegisScreen from './src/screens/LoginRegis/LoginRegisScreen';
 import PlaneInfoScreen from './src/screens/PlaneInfo/PlaneInfoScreen';
 import ProfileScreen from './src/screens/Profile/ProfileScreen';
+import Principal from './src/screens/Principal/Principal';
 
 const AppStack = createStackNavigator();
 
@@ -11,7 +12,6 @@ const App = () => {
     return (
         <NavigationContainer>
             <AppStack.Navigator
-                headerModel="none"
                 screenOptions={{
                     headerTintColor: '#fff',
                     headerStyle: {
@@ -36,6 +36,11 @@ const App = () => {
                 <AppStack.Screen
                     name="ProfileScreen"
                     component={ProfileScreen}
+                    options={{ headerShown: false }}
+                />
+                <AppStack.Screen
+                    name="Tela Principal"
+                    component={Principal}
                     options={{ headerShown: false }}
                 />
             </AppStack.Navigator>

@@ -39,7 +39,7 @@ const LoginRegisScreen = ({ navigation }) => {
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.btnLogin}
-                    onPress={() => navigation.navigate('PlaneInfoScreen')}
+                    onPress={() => navigation.navigate('Tela Principal')}
                 >
                     <Text style={styles.btnText}>Entrar</Text>
                 </TouchableOpacity>
