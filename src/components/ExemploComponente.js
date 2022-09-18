@@ -3,7 +3,7 @@ import { Text, StyleSheet } from 'react-native';
 
 const  ExemploComponente = () => {
     return (
-        <Text style={styles.textStyle}>Exemplo de componente exportado (text)</Text>
+        <Text style={styles.textStyle}>Página de componentes</Text>
     );
 };
 
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         alignItems:"center",
         display:"flex",
         justifyContent:"center",
-        fontSize:30,
+        fontSize:25,
     }
 })
 

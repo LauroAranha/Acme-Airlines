@@ -5,6 +5,7 @@ import LoginRegisScreen from './src/screens/LoginRegis/LoginRegisScreen';
 import PlaneInfoScreen from './src/screens/PlaneInfo/PlaneInfoScreen';
 import ProfileScreen from './src/screens/Profile/ProfileScreen';
 import ComponentsTemplate from './src/screens/ComponentsTemplate/ComponentsTemplate';
+import InfoAeronaves from './src/screens/InfoAero/InfoAeronaves';
 
 const AppStack = createStackNavigator();
 
@@ -27,6 +28,11 @@ const App = () => {
                 <AppStack.Screen
                     name="ComponentsTemplate"
                     component={ComponentsTemplate}
+                    options={{ headerShown: false }}
+                />
+                <AppStack.Screen
+                    name="InfoAeronaves"
+                    component={InfoAeronaves}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
