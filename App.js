@@ -6,7 +6,7 @@ import PlaneInfoScreen from './src/screens/PlaneInfo/PlaneInfoScreen';
 import ProfileScreen from './src/screens/Profile/ProfileScreen';
 import ComponentsTemplate from './src/screens/ComponentsTemplate/ComponentsTemplate';
 import InfoAeronaves from './src/screens/InfoAero/InfoAeronaves';
-import CadMecanico from './src/screens/pastaLucas/CadastroMecanico';
+import CadMecanico from './src/screens/CadMecanico/CadastroMecanico';
 import CadAero from './src/screens/CadAero/CadastroAeronave';
 
 const AppStack = createStackNavigator();
