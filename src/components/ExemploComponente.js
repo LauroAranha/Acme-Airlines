@@ -9,7 +9,7 @@ const  ExemploComponente = () => {
 
 const styles = StyleSheet.create({
     textStyle:{
-        color:'red',
+        color:'black',
         alignItems:"center",
         display:"flex",
         justifyContent:"center",
