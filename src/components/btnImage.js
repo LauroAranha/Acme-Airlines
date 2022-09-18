@@ -1,30 +1,30 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-const BtnImage = () => {
-    return (
-        <View>
-            <Text>A</Text>
+const BtnImage = (props) => {
+    var imagePath = require('../screens/Assets/' + props.imageName);
+    let button;
+
+    if (props.size == 'small') {
+        button = (
             <TouchableOpacity
                 Opacitystyle={styles.btnImagem}
                 onPress={() => navigation.navigate('')}
             >
-                <Image
-                    style={styles.btnImagem}
-                    source={require('../screens/Assets/ButtonPeças.png')}
-                />
+                <Image style={styles.btnImagem} source={imagePath} />
             </TouchableOpacity>
+        );
+    } else if (props.size == 'big') {
+        button = (
             <TouchableOpacity
                 Opacitystyle={styles.btnImagemBig}
                 onPress={() => navigation.navigate('PlaneInfoScreen')}
             >
-                <Image
-                    style={styles.btnImagemBig}
-                    source={require('../screens/Assets/ButtonB.png')}
-                />
+                <Image style={styles.btnImagemBig} source={imagePath} />
             </TouchableOpacity>
-        </View>
-    );
+        );
+    }
+    return <View>{button}</View>;
 };
 
 const styles = StyleSheet.create({

@@ -4,9 +4,9 @@ import { TextInput } from 'react-native-gesture-handler';
 import { TextInputMask } from 'react-native-masked-text';
 import styles from './styles';
 
-import BtnImage from '../../components/btnImage';
+import BtnImage from '../../components/BtnImage';
 import LogCadButton from '../../components/LogCadButton';
-import ExemploComponente from '../../components/ExemploComponente'
+import ExemploComponente from '../../components/ExemploComponente';
 import InputText from '../../components/InputText';
 
 const ComponentsTemplate = () => {
@@ -16,22 +16,25 @@ const ComponentsTemplate = () => {
 
             <View style={styles.divisao} />
 
-            <View>Pra alterar a label, insira o parametro name="exemplo"</View>
-            <InputText name='Input data'/>
+            <Text>Pra alterar a label, insira o parametro name="exemplo"</Text>
+            <InputText name="Input data" />
 
             <View style={styles.divisao} />
 
-            <View>botao com imagem</View>
-            <BtnImage />
+            <Text>
+                Botão com imagem. 
+                {'\n'}
+                Parâmetros: imageName =
+                'nomedaimagem.png' / size='small'/'big'
+            </Text>
+            <BtnImage imageName="plane.jpg" size="small" />
 
             <View style={styles.divisao} />
 
-            <View>botao de login e cadastro</View>
+            <Text>botao de login e cadastro</Text>
             <LogCadButton />
 
             <View style={styles.divisao} />
-
-
         </View>
     );
 };
