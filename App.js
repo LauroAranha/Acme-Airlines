@@ -1,15 +1,15 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { View,Text } from 'react-native';
+import { View, Text } from 'react-native';
 
 import Principal from './src/screens/Principal/Principal';
 import ListaAeronaves from './src/screens/ListaAero/ListaAeronaves';
 import LoginRegisScreen from './src/screens/LoginRegis/LoginRegisScreen';
-import CadMecanico from './src/screens/CadMecanico/CadastroMecanico';  
+import CadMecanico from './src/screens/CadMecanico/CadastroMecanico';
 import PlaneInfoScreen from './src/screens/PlaneInfo/PlaneInfoScreen';
 import ProfileScreen from './src/screens/Profile/ProfileScreen';
 import ComponentsTemplate from './src/screens/ComponentsTemplate/ComponentsTemplate';
-import InfoAeronaves from './src/screens/InfoAero/InfoAeronaves';
+import InfoAeronaves from './src/screens/InfoAero/infoAeronaves';
 import CadAero from './src/screens/CadAero/CadastroAeronave';
 import SelectServ from './src/screens/SelectService/Select';
 import ServicoSelecionado from './src/screens/ServSelecionado/ServicoSelecionado';

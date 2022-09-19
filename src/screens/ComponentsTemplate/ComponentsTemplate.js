@@ -4,7 +4,7 @@ import { TextInput } from 'react-native-gesture-handler';
 import { TextInputMask } from 'react-native-masked-text';
 import styles from './styles';
 
-import BtnImage from '../../components/BtnImage';
+import BtnImage from '../../components/btnImage';
 import LogCadButton from '../../components/LogCadButton';
 import ExemploComponente from '../../components/ExemploComponente';
 import InputText from '../../components/InputText';
@@ -22,10 +22,9 @@ const ComponentsTemplate = () => {
             <View style={styles.divisao} />
 
             <Text>
-                Botão com imagem. 
+                Botão com imagem.
                 {'\n'}
-                Parâmetros: imageName =
-                'nomedaimagem.png' / size='small'/'big'
+                Parâmetros: imageName = 'nomedaimagem.png' / size='small'/'big'
             </Text>
             <BtnImage imageName="plane.jpg" size="small" />
 
