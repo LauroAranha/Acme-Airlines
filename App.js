@@ -36,8 +36,8 @@ const App = () => {
                 }}
             >
                 <AppStack.Screen
-                    name="LoginRegisScreen"
-                    component={LoginRegisScreen}
+                    name="Login"
+                    component={Login}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen

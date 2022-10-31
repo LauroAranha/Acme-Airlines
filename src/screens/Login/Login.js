@@ -4,7 +4,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { TextInputMask } from 'react-native-masked-text';
 
-const LoginRegisScreen = ({ navigation }) => {
+const Login= ({ navigation }) => {
     const [cpf, onChangeText] = React.useState('');
     const [password, onChangeNumber] = React.useState(null);
     return (
@@ -52,4 +52,4 @@ const LoginRegisScreen = ({ navigation }) => {
     );
 };
 
-export default LoginRegisScreen;
+export default Login;

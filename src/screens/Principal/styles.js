@@ -2,9 +2,49 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#030A31',
-        height: '100%',
+        flex: 1,
+        backgroundColor: '#D0E2FF',
     },
+    baseText: {
+        marginTop:'5%',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        color: "#002D9C",
+        fontSize: 20,
+      },
+
+    BottomBar: {
+        backgroundColor: '#00063A',
+        padding: 15,
+        height: '10%',
+        borderTopLeftRadius:15,
+        borderTopRightRadius:15,
+        maxWidth: '100%',
+        minWidth: '100%',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+    },
+    btnImagem: {
+        marginTop: 10,
+        width: 100,
+        height: 100,
+        resizeMode: 'contain',
+        borderRadius: 17,
+        borderWidth: 7,
+        borderColor: "#002D9C",
+        
+    },
+    IconTab: {
+       width: 40,
+       height: 40,
+    },
+    TextTab1: {
+        color: 'white',
+     },
+     TextTab2: {
+        color: 'white',
+     },
     header: {
         backgroundColor: '#4589FF',
         flexDirection: 'row',
@@ -13,15 +53,6 @@ const styles = StyleSheet.create({
         paddingRight: 10,
         paddingLeft: 10,
         paddingTop: 15,
-    },
-    text: {
-        fontSize: 25,
-        fontWeight: 'bold',
-        color: 'white',
-        width: '103%',
-        textAlign: 'center',
-        marginTop: '5%',
-        marginBottom: '15%',
     },
     logo: {
         width: 120,
@@ -34,36 +65,16 @@ const styles = StyleSheet.create({
         height: 60,
         resizeMode: 'contain',
     },
-    imageBtn: {
-        width: 80,
-        height: 60,
-        resizeMode: 'contain',
-    },
-    loginText: {
-        padding: 5,
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-    btnPrincipal: {
-        borderRadius: 15,
-        backgroundColor: '#4589FF',
-        margin: 10,
-        padding: 13,
-        maxWidth: '50%',
-        minWidth: '30%',
-        alignSelf: 'center',
+    scrollview: {
         alignItems: 'center',
-        marginTop: 10,
-    },
-    containerBtn: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-    },
-    btnText: {
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
+        justifyContent:'space-around',
+       },
+    ListItem: {
+     marginTop: '5%',
+     backgroundColor: 'white',
+     width: '90%',
+     borderRadius: '20px',
+    }
 });
 
 export default styles;
