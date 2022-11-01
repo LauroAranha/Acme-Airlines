@@ -6,21 +6,22 @@ const styles = StyleSheet.create({
         backgroundColor: '#D0E2FF',
     },
     baseText: {
-        marginTop:'5%',
+        marginTop: '5%',
         fontWeight: 'bold',
         textAlign: 'center',
-        color: "#002D9C",
+        color: '#002D9C',
         fontSize: 20,
-      },
+    },
 
     BottomBar: {
         backgroundColor: '#00063A',
+        position: 'absolute',
+        bottom: '0%',
         padding: 15,
         height: '10%',
-        borderTopLeftRadius:15,
-        borderTopRightRadius:15,
-        maxWidth: '100%',
-        minWidth: '100%',
+        borderTopLeftRadius: 15,
+        borderTopRightRadius: 15,
+        width: '100%',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-evenly',
@@ -32,19 +33,18 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         borderRadius: 17,
         borderWidth: 7,
-        borderColor: "#002D9C",
-        
+        borderColor: '#002D9C',
     },
     IconTab: {
-       width: 40,
-       height: 40,
+        width: 40,
+        height: 40,
     },
     TextTab1: {
         color: 'white',
-     },
-     TextTab2: {
+    },
+    TextTab2: {
         color: 'white',
-     },
+    },
     header: {
         backgroundColor: '#4589FF',
         flexDirection: 'row',
@@ -67,14 +67,14 @@ const styles = StyleSheet.create({
     },
     scrollview: {
         alignItems: 'center',
-        justifyContent:'space-around',
-       },
+        justifyContent: 'space-around',
+    },
     ListItem: {
-     marginTop: '5%',
-     backgroundColor: 'white',
-     width: '90%',
-     borderRadius: '20px',
-    }
+        marginTop: '5%',
+        backgroundColor: 'white',
+        width: '90%',
+        borderRadius: 20,
+    },
 });
 
 export default styles;

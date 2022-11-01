@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 
 import Principal from './src/screens/Principal/Principal';
 import ListaAeronaves from './src/screens/ListaAero/ListaAeronaves';
-import LoginRegisScreen from './src/screens/LoginRegis/LoginRegisScreen';
+import Login from './src/screens/Login/Login';
 import CadMecanico from './src/screens/CadMecanico/CadastroMecanico';
 import PlaneInfoScreen from './src/screens/PlaneInfo/PlaneInfoScreen';
 import ProfileScreen from './src/screens/Profile/ProfileScreen';
