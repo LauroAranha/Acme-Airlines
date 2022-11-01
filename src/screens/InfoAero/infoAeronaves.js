@@ -16,11 +16,11 @@ const InfoAeronaves = () => {
             <Image style = {styles.imagem} source={require('../Assets/plane.jpg')} />
             <Text style={styles.loginText}>Matricula da Aeronave:</Text>
                 <TextInput style={styles.loginBox}></TextInput>
-            <Text style={styles.loginText}>Modelo da Aeronave:</Text>
+            <Text style={styles.loginText}>Ultimo voo</Text>
+                <TextInput style={styles.loginBox}></TextInput>
+            <Text style={styles.loginText}>Matrícula do Avião:</Text>
                 <TextInput style={styles.loginBox}></TextInput>
             <Text style={styles.loginText}>Nacionalidade do Avião:</Text>
-                <TextInput style={styles.loginBox}></TextInput>
-            <Text style={styles.loginText}>Categoria do Modelo:</Text>
                 <TextInput style={styles.loginBox}></TextInput>
             <Text style = {styles.baseText}>INFORMAÇÕES TECNICAS:</Text>
             <View style = {{flexDirection: 'row',}}>

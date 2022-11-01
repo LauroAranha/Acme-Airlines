@@ -33,7 +33,7 @@ const Principal = ({ navigation }) => {
                 <ScrollView>
                     <View style={styles.scrollview}>
                         <Text style={styles.baseText}>
-                            Manutenções concluidas:
+                            Manutenções a fazer:
                         </Text>
 
                         <View style={styles.ListItem}>
@@ -46,7 +46,7 @@ const Principal = ({ navigation }) => {
                             <Text style={styles.texto}>Prioridade: <Text style={styles.textoCorAlta}>Alta</Text></Text>
                             <Text style={styles.texto}>Tipo: Conserto</Text>
                             <Text style={styles.texto}>Solicitante: Mecânico - Vitor Gomes</Text>
-                            <Text style={styles.texto}>Status: <Text style={styles.textoCorMedia}>A fazer</Text></Text>
+                            <Text style={styles.texto}>Status: <Text style={styles.textoCorBaixa}>Concluida</Text></Text>
                         </View>
 
                         <View style={styles.ListItem}>
@@ -59,7 +59,7 @@ const Principal = ({ navigation }) => {
                             <Text style={styles.texto}>Prioridade: <Text style={styles.textoCorMedia}>Média</Text></Text>
                             <Text style={styles.texto}>Tipo: Conserto</Text>
                             <Text style={styles.texto}>Solicitante: Mecânico - Rogério Oliveira</Text>
-                            <Text style={styles.texto}>Status: <Text style={styles.textoCorMedia}>A fazer</Text></Text>
+                            <Text style={styles.texto}>Status: <Text style={styles.textoCorBaixa}>Concluida</Text></Text>
                         </View>
 
                         <View style={styles.ListItem}>
@@ -72,7 +72,7 @@ const Principal = ({ navigation }) => {
                             <Text style={styles.texto}>Prioridade: <Text style={styles.textoCorBaixa}>Baixa</Text></Text>
                             <Text style={styles.texto}>Tipo: Recorrente</Text>
                             <Text style={styles.texto}>Solicitante: Mecânico - Pedro Vieira</Text>
-                            <Text style={styles.texto}>Status: <Text style={styles.textoCorMedia}>A fazer</Text></Text>
+                            <Text style={styles.texto}>Status: <Text style={styles.textoCorBaixa}>Concluida</Text></Text>
                         </View>
                     </View>
                 </ScrollView>
