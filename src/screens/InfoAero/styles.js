@@ -95,6 +95,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent:'space-around',
        },
+    mostrar: {
+        justifyContent: 'right',
+        fontSize: 10,
+    },
+    texto: {
+        fontSize: 10,
+        justifyContent: 'center',
+    },
+    checkBox: {
+        marginTop: '5%',
+        borderRadius: 12,
+        borderWidth: 5,
+        borderColor: 'black',
+        alignItems: 'center',
+    },
 });
 
 export default styles;

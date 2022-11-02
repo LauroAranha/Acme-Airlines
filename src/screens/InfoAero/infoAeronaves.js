@@ -25,27 +25,27 @@ const InfoAeronaves = () => {
 
             <Text style = {styles.baseText}>MANUTENÇÕES PREVENTIVAS:</Text>
             
-            <View>
-            <Text>🔲 Troca de óleo</Text>
-            <Text>🔲 Revisão de trens de pouso</Text>
-            <Text>🔲 Verificação na cabine</Text>
-            <Text>🔲 Verificação das turbinas</Text>
-            <Text>🔲 Reabastecer água</Text>
+            <View style={styles.checkBox}>
+            <Text style={styles.texto}>🔲 Troca de óleo</Text>
+            <Text style={styles.texto}>🔲 Revisão de trens de pouso</Text>
+            <Text style={styles.texto}>🔲 Verificação na cabine</Text>
+            <Text style={styles.texto}>🔲 Verificação das turbinas</Text>
+            <Text style={styles.texto}>🔲 Reabastecer água</Text>
             <TouchableOpacity>
-                <Text>Mostrar mais...</Text>
+                <Text style={styles.mostrar}>Mostrar mais...</Text>
             </TouchableOpacity>
             </View>
 
             <Text style = {styles.baseText}>MANUTENÇÕES:</Text>
             
-            <View>
-            <Text>🔲 Reparos na Asa</Text>
-            <Text>🔲 Verificar motor</Text>
-            <Text>🔲 Trocar vidros trincados</Text>
-            <Text>🔲 Concerto de portas</Text>
-            <Text>🔲 Trocar filtros de ar-condicionado</Text>
+            <View style={styles.checkBox}>
+            <Text style={styles.texto}>🔲 Reparos na Asa</Text>
+            <Text style={styles.texto}>🔲 Verificar motor</Text>
+            <Text style={styles.texto}>🔲 Trocar vidros trincados</Text>
+            <Text style={styles.texto}>🔲 Concerto de portas</Text>
+            <Text style={styles.texto}>🔲 Trocar filtros de ar-condicionado</Text>
             <TouchableOpacity>
-                <Text>Mostrar mais...</Text>
+                <Text style={styles.mostrar}>Mostrar mais...</Text>
             </TouchableOpacity>
             </View>
 
@@ -60,8 +60,7 @@ const InfoAeronaves = () => {
             
             <Text style = {styles.baseText}>FERRAMENTAS:</Text>
             <TouchableOpacity Opacitystyle={styles.btnImagemBig}> 
-            <Image style = {styles.btnImagemBig} source={require('../Assets/ButtonB.png')} />
-            <Text>Solicitar ferramentas</Text>
+            <Image style = {styles.btnImagemBig} source={require('../Assets/solicitarFerramenta.png')} />
             </TouchableOpacity>
             </View>
             </ScrollView>
