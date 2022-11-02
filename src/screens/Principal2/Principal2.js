@@ -37,6 +37,7 @@ const Principal = ({ navigation }) => {
                         </Text>
 
                         <View style={styles.ListItem}>
+                        <TouchableOpacity onPress={() => navigation.navigate('infoAeronaves')}>
                             <Image
                                 style={styles.btnImagem}
                                 source={require('../Assets/plane.jpg')}
@@ -47,9 +48,11 @@ const Principal = ({ navigation }) => {
                             <Text style={styles.texto}>Tipo: Conserto</Text>
                             <Text style={styles.texto}>Solicitante: Mecânico - Vitor Gomes</Text>
                             <Text style={styles.texto}>Status: <Text style={styles.textoCorBaixa}>Concluida</Text></Text>
+                            </TouchableOpacity>
                         </View>
 
                         <View style={styles.ListItem}>
+                        <TouchableOpacity onPress={() => navigation.navigate('infoAeronaves')}>
                             <Image
                                 style={styles.btnImagem}
                                 source={require('../Assets/plane.jpg')}
@@ -60,9 +63,11 @@ const Principal = ({ navigation }) => {
                             <Text style={styles.texto}>Tipo: Conserto</Text>
                             <Text style={styles.texto}>Solicitante: Mecânico - Rogério Oliveira</Text>
                             <Text style={styles.texto}>Status: <Text style={styles.textoCorBaixa}>Concluida</Text></Text>
+                            </TouchableOpacity>
                         </View>
 
                         <View style={styles.ListItem}>
+                        <TouchableOpacity onPress={() => navigation.navigate('infoAeronaves')}>
                             <Image
                                 style={styles.btnImagem}
                                 source={require('../Assets/plane.jpg')}
@@ -73,6 +78,7 @@ const Principal = ({ navigation }) => {
                             <Text style={styles.texto}>Tipo: Recorrente</Text>
                             <Text style={styles.texto}>Solicitante: Mecânico - Pedro Vieira</Text>
                             <Text style={styles.texto}>Status: <Text style={styles.textoCorBaixa}>Concluida</Text></Text>
+                            </TouchableOpacity>
                         </View>
                     </View>
                 </ScrollView>
