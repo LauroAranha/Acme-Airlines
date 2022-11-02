@@ -9,7 +9,7 @@ import {
     TextInput,
 } from 'react-native';
 
-const Principal = ({ navigation }) => {
+const Principal2 = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
@@ -37,13 +37,13 @@ const Principal = ({ navigation }) => {
                         </Text>
 
                         <View style={styles.ListItem}>
-                        <TouchableOpacity onPress={() => navigation.navigate('infoAeronaves')}>
+                        <TouchableOpacity onPress={() => navigation.navigate('InfoAeronaves')}>
                             <Image
                                 style={styles.btnImagem}
                                 source={require('../Assets/plane.jpg')}
                             />
                             <Text style={styles.title}>Boeing 737</Text>
-                            <Text style={styles.texto}>Horário de chegada: 12:00</Text>
+                            <Text style={styles.texto}>Horário de chegada: --:--</Text>
                             <Text style={styles.texto}>Prioridade: <Text style={styles.textoCorAlta}>Alta</Text></Text>
                             <Text style={styles.texto}>Tipo: Conserto</Text>
                             <Text style={styles.texto}>Solicitante: Mecânico - Vitor Gomes</Text>
@@ -52,13 +52,13 @@ const Principal = ({ navigation }) => {
                         </View>
 
                         <View style={styles.ListItem}>
-                        <TouchableOpacity onPress={() => navigation.navigate('infoAeronaves')}>
+                        <TouchableOpacity onPress={() => navigation.navigate('InfoAeronaves')}>
                             <Image
                                 style={styles.btnImagem}
                                 source={require('../Assets/plane.jpg')}
                             />
                             <Text style={styles.title}>Boeing 738</Text>
-                            <Text style={styles.texto}>Horário de chegada: 13:00</Text>
+                            <Text style={styles.texto}>Horário de chegada: --:--</Text>
                             <Text style={styles.texto}>Prioridade: <Text style={styles.textoCorMedia}>Média</Text></Text>
                             <Text style={styles.texto}>Tipo: Conserto</Text>
                             <Text style={styles.texto}>Solicitante: Mecânico - Rogério Oliveira</Text>
@@ -67,13 +67,13 @@ const Principal = ({ navigation }) => {
                         </View>
 
                         <View style={styles.ListItem}>
-                        <TouchableOpacity onPress={() => navigation.navigate('infoAeronaves')}>
+                        <TouchableOpacity onPress={() => navigation.navigate('InfoAeronaves')}>
                             <Image
                                 style={styles.btnImagem}
                                 source={require('../Assets/plane.jpg')}
                             />
                             <Text style={styles.title}>Boeing 739</Text>
-                            <Text style={styles.texto}>Horário de chegada: 14:00</Text>
+                            <Text style={styles.texto}>Horário de chegada: --:--</Text>
                             <Text style={styles.texto}>Prioridade: <Text style={styles.textoCorBaixa}>Baixa</Text></Text>
                             <Text style={styles.texto}>Tipo: Recorrente</Text>
                             <Text style={styles.texto}>Solicitante: Mecânico - Pedro Vieira</Text>
@@ -103,4 +103,4 @@ const Principal = ({ navigation }) => {
     );
 };
 
-export default Principal;
+export default Principal2;

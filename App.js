@@ -16,6 +16,7 @@ import ServicoSelecionado from './src/screens/ServSelecionado/ServicoSelecionado
 import ManutencoesAndamento from './src/screens/ManutencoesAnd/ManutencoesAndamento';
 import AberturaManutencao from './src/screens/OpenManutencao/AberturaManutencao';
 import DetalhesManutencao from './src/screens/DetalhesManutencao/DetalhesManutencao';
+import Principal2 from './src/screens/Principal2/Principal2';
 
 const AppStack = createStackNavigator();
 
@@ -48,6 +49,11 @@ const App = () => {
                 <AppStack.Screen
                     name="Principal"
                     component={Principal}
+                    options={{ headerShown: false }}
+                />
+                <AppStack.Screen
+                    name="Principal2"
+                    component={Principal2}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen

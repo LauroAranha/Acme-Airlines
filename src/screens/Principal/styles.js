@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#D0E2FF',
+        backgroundColor: '#030A31',
     },
     baseText: {
         marginTop: '5%',
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
         marginTop: '5%',
         marginRight: '5%',
         marginLeft: '5%',
-        backgroundColor: 'white',
+        backgroundColor: '#DBD9D9',
         width: '90%',
         borderRadius: 20,
     },
