@@ -43,10 +43,6 @@ const LoginRegisScreen = ({ navigation }) => {
                 >
                     <Text style={styles.btnText}>Entrar</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.registerBtn} onPress={() => navigation.navigate('CadMecanico')}>
-                    <Text>Ainda não possui uma conta?</Text>
-                    <Text style={styles.registerText}>Cadastre-se!</Text>
-                </TouchableOpacity>
             </View>
         </View>
     );

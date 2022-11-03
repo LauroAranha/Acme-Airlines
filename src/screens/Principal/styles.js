@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     btnText: {
+        textAlign: 'center',
         fontSize: 18,
         fontWeight: 'bold',
     },

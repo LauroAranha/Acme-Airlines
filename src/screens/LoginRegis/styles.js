@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#030A31',
+        backgroundColor: '#4842ff',
         paddingTop: '20%',
     },
     logo: {
@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
         padding: 10,
         marginBottom: 10,
         backgroundColor: '#4589FF',
+        color: '#ffffff',
         maxWidth: '50%',
         minWidth: '30%',
         alignSelf: 'center',

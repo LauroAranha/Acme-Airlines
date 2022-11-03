@@ -2,20 +2,19 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { View, Text } from 'react-native';
 
-import Principal from './src/screens/Principal/Principal';
-import ListaAeronaves from './src/screens/ListaAero/ListaAeronaves';
+
 import LoginRegisScreen from './src/screens/LoginRegis/LoginRegisScreen';
-import CadMecanico from './src/screens/CadMecanico/CadastroMecanico';
-import PlaneInfoScreen from './src/screens/PlaneInfo/PlaneInfoScreen';
-import ProfileScreen from './src/screens/Profile/ProfileScreen';
-import ComponentsTemplate from './src/screens/ComponentsTemplate/ComponentsTemplate';
-import InfoAeronaves from './src/screens/InfoAero/infoAeronaves';
-import CadAero from './src/screens/CadAero/CadastroAeronave';
-import SelectServ from './src/screens/SelectService/Select';
-import ServicoSelecionado from './src/screens/ServSelecionado/ServicoSelecionado';
-import ManutencoesAndamento from './src/screens/ManutencoesAnd/ManutencoesAndamento';
-import AberturaManutencao from './src/screens/OpenManutencao/AberturaManutencao';
-import DetalhesManutencao from './src/screens/DetalhesManutencao/DetalhesManutencao';
+import Principal from './src/screens/Principal/Principal';
+import AddManutencao from './src/screens/AddManutenção/AddManutencao'
+import TipoManutencao from './src/screens/TipoManutenção/TipoManutenção';
+import AddTarefa from './src/screens/AddTarefa/AddTarefa';
+import AddP from './src/screens/AddPeças/AddPecas';
+import CadastroM from './src/screens/CadastroMecanico/CadastroM';
+import CadastroA from './src/screens/CadastroAeronaves/CadastroA';
+import ListaManuten from './src/screens/ListaManutenções/ListaManuten';
+import ErrorEnc from './src/screens/ErrosEncontrados/ErrorEnc';
+import Descricao from './src/screens/Descrição Erro/Descricao';
+import Perfil from './src/screens/Perfil/Perfil';
 
 const AppStack = createStackNavigator();
 
@@ -41,53 +40,58 @@ const App = () => {
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="CadMecanico"
-                    component={CadMecanico}
-                    options={{ headerShown: false }}
-                />
-                <AppStack.Screen
                     name="Principal"
                     component={Principal}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="ListaAeronaves"
-                    component={ListaAeronaves}
+                    name="AddManutencao"
+                    component={AddManutencao}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="InfoAeronaves"
-                    component={InfoAeronaves}
+                    name="TipoManutencao"
+                    component={TipoManutencao}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="CadAero"
-                    component={CadAero}
+                    name="AddTarefa"
+                    component={AddTarefa}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="SelectServ"
-                    component={SelectServ}
+                    name="AddPecas"
+                    component={AddP}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="ServicoSelecionado"
-                    component={ServicoSelecionado}
+                    name="CadastroM"
+                    component={CadastroM}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="ManutencoesAndamento"
-                    component={ManutencoesAndamento}
+                    name="CadastroA"
+                    component={CadastroA}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="AberturaManutencao"
-                    component={AberturaManutencao}
+                    name="ListaManuten"
+                    component={ListaManuten}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="DetalhesManutencao"
-                    component={DetalhesManutencao}
+                    name="ErrorEnc"
+                    component={ErrorEnc}
+                    options={{ headerShown: false }}
+                />
+                 <AppStack.Screen
+                    name="Descricao"
+                    component={Descricao}
+                    options={{ headerShown: false }}
+                />
+                <AppStack.Screen
+                    name="Perfil"
+                    component={Perfil}
                     options={{ headerShown: false }}
                 />
             </AppStack.Navigator>
