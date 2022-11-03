@@ -62,7 +62,22 @@ const InfoAeronaves = () => {
             <TouchableOpacity Opacitystyle={styles.btnImagemBig}> 
             <Image style = {styles.btnImagemBig} source={require('../Assets/solicitarFerramenta.png')} />
             </TouchableOpacity>
+            
+            <Text style = {styles.baseText}>RELATAR PROBLEMA:</Text>
+            <TouchableOpacity Opacitystyle={styles.btnImagem}> 
+            <Image style = {styles.btnImagem} source={require('../Assets/relatarProblema.png')} />
+            </TouchableOpacity>
+
+            <Text style = {styles.baseText}>FINALIZAR MANUTENÇÃO:</Text>
+            <TouchableOpacity Opacitystyle={styles.btnImagem}> 
+            <Text>Salvar Alterações</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity Opacitystyle={styles.btnImagem}> 
+            <Text>Concluir Manutenção</Text>
+            </TouchableOpacity>
             </View>
+            
             </View>
             </ScrollView>
             </View>
