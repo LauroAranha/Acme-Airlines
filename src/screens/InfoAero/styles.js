@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
         paddingRight: '20%',
         color: "#002D9C",
         fontSize: 15,
+        marginTop: '5%'
       },
       loginBox: {
         backgroundColor: '#f4f4f4',
@@ -96,19 +97,17 @@ const styles = StyleSheet.create({
         justifyContent:'space-around',
        },
     mostrar: {
-        justifyContent: 'right',
         fontSize: 10,
     },
     texto: {
-        fontSize: 10,
-        justifyContent: 'center',
+        fontSize: 20,
     },
     checkBox: {
         marginTop: '5%',
         borderRadius: 12,
         borderWidth: 5,
         borderColor: 'black',
-        alignItems: 'center',
+        padding: '3%',
     },
 });
 

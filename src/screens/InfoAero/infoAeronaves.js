@@ -12,7 +12,7 @@ const InfoAeronaves = () => {
             <Image style={styles.perfil} source={require('../../../assets/user.png')}/>
          </View>
          <View style = {styles.scrollview}>
-
+          <View style={styles.loginBox}>
             <Text style = {styles.baseText}>INFORMAÇÕES DA AERONAVE:</Text>
 
             <Image style = {styles.imagem} source={require('../Assets/plane.jpg')} />
@@ -63,19 +63,9 @@ const InfoAeronaves = () => {
             <Image style = {styles.btnImagemBig} source={require('../Assets/solicitarFerramenta.png')} />
             </TouchableOpacity>
             </View>
-            </ScrollView>
-            <View style ={styles.BottomBar}>
-            <TouchableOpacity>
-            <Image style = {styles.IconTab} source={require('../Assets/historia.png')} />
-            </TouchableOpacity>
-            <TouchableOpacity>
-            <Image style = {styles.IconTab} source={require('../Assets/engine1.png')} />
-            </TouchableOpacity>
-            <TouchableOpacity>
-            <Image style = {styles.IconTab} source={require('../Assets/form.png')} />
-            </TouchableOpacity>
             </View>
-        </View>
+            </ScrollView>
+            </View>
   );
 }
 
