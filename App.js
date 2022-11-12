@@ -14,6 +14,8 @@ import ManutencoesAndamento from './src/screens/ManutencoesAnd/ManutencoesAndame
 import AberturaManutencao from './src/screens/OpenManutencao/AberturaManutencao';
 import DetalhesManutencao from './src/screens/DetalhesManutencao/DetalhesManutencao';
 import ManutencaoConcluida from './src/screens/ManutencoesConcluidas/ManutencaoConcluida';
+import RelatarProblem from './src/screens/RelatarProblem/RelatarProblem';
+
 
 const AppStack = createStackNavigator();
 
@@ -91,6 +93,11 @@ const App = () => {
                 <AppStack.Screen
                     name="DetalhesManutencao"
                     component={DetalhesManutencao}
+                    options={{ headerShown: false }}
+                />
+                <AppStack.Screen
+                    name="RelatarProblem"
+                    component={RelatarProblem}
                     options={{ headerShown: false }}
                 />
             </AppStack.Navigator>

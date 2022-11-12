@@ -196,7 +196,8 @@ const InfoAeronaves = ({ navigation }) => {
                         />
 
                         <Text style={styles.baseText}>RELATAR PROBLEMA:</Text>
-                        <TouchableOpacity Opacitystyle={styles.btnImagemBig}>
+                        <TouchableOpacity Opacitystyle={styles.btnImagemBig}
+                        onPress={() => navigation.navigate('RelatarProblem')} >
                             <Image
                                 style={styles.btnImagem}
                                 source={require('../Assets/relatarProblema.png')}

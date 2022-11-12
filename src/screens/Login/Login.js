@@ -14,15 +14,8 @@ const Login= ({ navigation }) => {
                 source={require('../../../assets/Acmelogo.png')}
             />
             <View style={styles.loginBox}>
-                <Text style={styles.loginText}>CPF:</Text>
-                <TextInput
-                    type={'cpf'}
-                    value={cpf}
-                    keyboardType="numeric"
-                    style={styles.input}
-                    placeholder="___.___.___-__"
-                    onChangeText={(text) => onChangeText(text)}
-                ></TextInput>
+                <Text style={styles.loginText}>Email:</Text>
+                <TextInput style={styles.input}></TextInput>
                 <Text style={styles.loginText}>Senha:</Text>
                 <TextInput
                     value={password}
