@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#D0E2FF',
     },
     imagem: {
-        width: 300,
+        width: 340,
         height: 200,
         resizeMode: 'contain',
         borderRadius: 15,
@@ -19,8 +19,18 @@ const styles = StyleSheet.create({
         paddingRight: '20%',
         color: "#002D9C",
         fontSize: 15,
-        marginTop: '5%'
+        marginTop: '5%',
+        marginBottom: '2%',
       },
+      input: {
+        height: 40,
+        marginLeft: 5,
+        borderWidth: 2,
+        borderRadius: 12,
+        backgroundColor: '#FFF',
+        borderColor: '#4589FF',
+        paddingStart: 12,
+    },
       loginBox: {
         backgroundColor: '#f4f4f4',
         padding: 15,
@@ -28,18 +38,19 @@ const styles = StyleSheet.create({
         maxWidth: '95%',
         marginBottom: 20,
         borderRadius: 15,
+        borderColor: 'blue',
         minWidth: '75%',
         justifyContent: 'space-around',
     },
     loginText: {
-        padding: 5,
-        fontSize: 13,
+        padding: 8,
         fontWeight: 'bold',
         fontSize: 15,
+        color: "#002D9C",
     },
     btnImagem: {
         marginTop: 10,
-        width: 130,
+        width: 340,
         height: 130,
         resizeMode: 'contain',
         borderRadius: 17,
@@ -48,14 +59,15 @@ const styles = StyleSheet.create({
         
     },
     btnImagemBig: {
+        marginBottom: 20,
         marginTop: 10,
-        width: 300,
+        width: 340,
         height: 150,
         resizeMode: 'contain',
         borderRadius: 17,
         borderWidth: 7,
         borderColor: "#002D9C",
-        
+        alignItems: 'center',
     },
     BottomBar: {
         backgroundColor: '#00063A',
@@ -68,6 +80,41 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+    },
+    btnManuten: {
+        borderRadius: 15,
+        padding: 10,
+        marginBottom: 10,
+        marginTop: 10,
+        backgroundColor: '#4589FF',
+        width: 300,
+        alignSelf: 'center',
+        alignItems: 'center',
+    },
+    btnConcManuten: {
+        borderRadius: 15,
+        padding: 10,
+        marginBottom: 10,
+        marginTop: 10,
+        backgroundColor: '#4589FF',
+        width: 300,
+        alignSelf: 'center',
+        alignItems: 'center',
+    },
+    btnVoltar: {
+        borderRadius: 15,
+        padding: 10,
+        backgroundColor: '#4589FF',
+        width: 300,
+        marginBottom: 2,
+        marginTop: -30,
+        alignSelf: 'center',
+        alignItems: 'center',
+    },
+    btnText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: 'white',
     },
     IconTab: {
         
@@ -97,7 +144,10 @@ const styles = StyleSheet.create({
         justifyContent:'space-around',
        },
     mostrar: {
-        fontSize: 10,
+        fontSize: 16,
+        marginTop: 8,
+        marginRight: 5,
+        textAlign: 'right',
     },
     texto: {
         fontSize: 20,
@@ -105,8 +155,9 @@ const styles = StyleSheet.create({
     checkBox: {
         marginTop: '5%',
         borderRadius: 12,
-        borderWidth: 5,
-        borderColor: 'black',
+        borderWidth: 2,
+        backgroundColor: 'white',
+        borderColor: "#002D9C",
         padding: '3%',
     },
 });

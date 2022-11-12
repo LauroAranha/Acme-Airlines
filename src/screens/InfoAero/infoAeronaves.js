@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, ScrollView, StatusBar,Image,TouchableOpacity} f
 import { TextInput } from 'react-native-gesture-handler';
 import styles from './styles';
 
-const InfoAeronaves = () => {
+const InfoAeronaves = ({ navigation }) => {
   return (
     <View style={styles.container}>
         <ScrollView>
@@ -17,11 +17,11 @@ const InfoAeronaves = () => {
 
             <Image style = {styles.imagem} source={require('../Assets/plane.jpg')} />
             <Text style={styles.loginText}>Último voo</Text>
-                <TextInput style={styles.loginBox}>--:--</TextInput>
+                <TextInput style={styles.input} placeholder="--:--"></TextInput>
             <Text style={styles.loginText}>Matrícula do Avião:</Text>
-                <TextInput style={styles.loginBox}>AA-AAA</TextInput>
+                <TextInput style={styles.input} placeholder="AA-AAA"></TextInput>
             <Text style={styles.loginText}>Nacionalidade do Avião:</Text>
-                <TextInput style={styles.loginBox}>BR</TextInput>
+                <TextInput style={styles.input} placeholder="BR"></TextInput>
 
             <Text style = {styles.baseText}>MANUTENÇÕES PREVENTIVAS:</Text>
             
@@ -31,10 +31,10 @@ const InfoAeronaves = () => {
             <Text style={styles.texto}>🔲 Verificação na cabine</Text>
             <Text style={styles.texto}>🔲 Verificação das turbinas</Text>
             <Text style={styles.texto}>🔲 Reabastecer água</Text>
+            </View>
             <TouchableOpacity>
                 <Text style={styles.mostrar}>Mostrar mais...</Text>
             </TouchableOpacity>
-            </View>
 
             <Text style = {styles.baseText}>MANUTENÇÕES:</Text>
             
@@ -44,40 +44,37 @@ const InfoAeronaves = () => {
             <Text style={styles.texto}>🔲 Trocar vidros trincados</Text>
             <Text style={styles.texto}>🔲 Concerto de portas</Text>
             <Text style={styles.texto}>🔲 Trocar filtros de ar-condicionado</Text>
+            </View>
             <TouchableOpacity>
                 <Text style={styles.mostrar}>Mostrar mais...</Text>
             </TouchableOpacity>
-            </View>
 
-         {/*   <View style = {{flexDirection: 'row',}}>
-            <TouchableOpacity Opacitystyle={styles.btnImagem}> 
-            <Image style = {styles.btnImagem} source={require('../Assets/ButtonPeças.png')} />
-            </TouchableOpacity>
-            <TouchableOpacity Opacitystyle={styles.btnImagem}> 
-            <Image style = {styles.btnImagem} source={require('../Assets/buttonA.png')} />
-            </TouchableOpacity>
-             </View> */}
-            
             <Text style = {styles.baseText}>FERRAMENTAS:</Text>
             <TouchableOpacity Opacitystyle={styles.btnImagemBig}> 
             <Image style = {styles.btnImagemBig} source={require('../Assets/solicitarFerramenta.png')} />
             </TouchableOpacity>
             
             <Text style = {styles.baseText}>RELATAR PROBLEMA:</Text>
-            <TouchableOpacity Opacitystyle={styles.btnImagem}> 
+            <TouchableOpacity Opacitystyle={styles.btnImagemBig}> 
             <Image style = {styles.btnImagem} source={require('../Assets/relatarProblema.png')} />
             </TouchableOpacity>
 
             <Text style = {styles.baseText}>FINALIZAR MANUTENÇÃO:</Text>
-            <TouchableOpacity Opacitystyle={styles.btnImagem}> 
-            <Text>Salvar Alterações</Text>
+            <TouchableOpacity style={styles.btnManuten}> 
+            <Text style={styles.btnText}>Salvar Alterações</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity Opacitystyle={styles.btnImagem}> 
-            <Text>Concluir Manutenção</Text>
+            <TouchableOpacity style={styles.btnConcManuten}> 
+            <Text style={styles.btnText}>Concluir Manutenção</Text>
             </TouchableOpacity>
             </View>
-            
+
+            <TouchableOpacity 
+            style={styles.btnVoltar}
+            onPress={() => navigation.navigate('Principal')}> 
+            <Text style={styles.btnText}>Voltar</Text>
+            </TouchableOpacity>
+
             </View>
             </ScrollView>
             </View>
