@@ -9,7 +9,7 @@ import {
     TextInput,
 } from 'react-native';
 
-const Principal2 = ({ navigation }) => {
+const ManutencaoConcluida = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
@@ -84,14 +84,14 @@ const Principal2 = ({ navigation }) => {
                 </ScrollView>
             </View>
             <View style={styles.BottomBar}>
-                <TouchableOpacity onPress={() => navigation.navigate('Principal2')}>
+                <TouchableOpacity onPress={() => navigation.navigate('ManutencaoConcluida')}>
                     <Image
                         style={styles.IconTab}
                         source={require('../Assets/dados-verificados.png')}
                     />
                     <Text style={styles.TextTab1}>Prontas</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('Principal')}>
+                <TouchableOpacity onPress={() => navigation.navigate('ManutencaoAFazer')}>
                     <Image
                         style={styles.IconTab}
                         source={require('../Assets/lista.png')}
@@ -103,4 +103,4 @@ const Principal2 = ({ navigation }) => {
     );
 };
 
-export default Principal2;
+export default ManutencaoConcluida;

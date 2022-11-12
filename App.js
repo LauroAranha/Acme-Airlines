@@ -2,13 +2,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { View, Text } from 'react-native';
 
-import Principal from './src/screens/Principal/Principal';
+import ManutencaoAFazer from './src/screens/ManutencoesAFazer/ManutencaoAFazer';
 import ListaAeronaves from './src/screens/ListaAero/ListaAeronaves';
 import Login from './src/screens/Login/Login';
 import CadMecanico from './src/screens/CadMecanico/CadastroMecanico';
-import PlaneInfoScreen from './src/screens/PlaneInfo/PlaneInfoScreen';
-import ProfileScreen from './src/screens/Profile/ProfileScreen';
-import ComponentsTemplate from './src/screens/ComponentsTemplate/ComponentsTemplate';
 import InfoAeronaves from './src/screens/InfoAero/infoAeronaves';
 import CadAero from './src/screens/CadAero/CadastroAeronave';
 import SelectServ from './src/screens/SelectService/Select';
@@ -16,7 +13,7 @@ import ServicoSelecionado from './src/screens/ServSelecionado/ServicoSelecionado
 import ManutencoesAndamento from './src/screens/ManutencoesAnd/ManutencoesAndamento';
 import AberturaManutencao from './src/screens/OpenManutencao/AberturaManutencao';
 import DetalhesManutencao from './src/screens/DetalhesManutencao/DetalhesManutencao';
-import Principal2 from './src/screens/Principal2/Principal2';
+import ManutencaoConcluida from './src/screens/ManutencoesConcluidas/ManutencaoConcluida';
 
 const AppStack = createStackNavigator();
 
@@ -47,13 +44,13 @@ const App = () => {
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="Principal"
-                    component={Principal}
+                    name="ManutencaoAFazer"
+                    component={ManutencaoAFazer}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="Principal2"
-                    component={Principal2}
+                    name="ManutencaoConcluida"
+                    component={ManutencaoConcluida}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen

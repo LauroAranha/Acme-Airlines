@@ -71,7 +71,7 @@ const InfoAeronaves = ({ navigation }) => {
 
             <TouchableOpacity 
             style={styles.btnVoltar}
-            onPress={() => navigation.navigate('Principal')}> 
+            onPress={() => navigation.navigate('ManutencaoAFazer')}> 
             <Text style={styles.btnText}>Voltar</Text>
             </TouchableOpacity>
 
