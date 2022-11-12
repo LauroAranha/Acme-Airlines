@@ -2,7 +2,6 @@ import styles from './styles';
 import React, { useState, useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
-import { TextInputMask } from 'react-native-masked-text';
 
 const Login= ({ navigation }) => {
     const [cpf, onChangeText] = React.useState('');
@@ -16,14 +15,14 @@ const Login= ({ navigation }) => {
             />
             <View style={styles.loginBox}>
                 <Text style={styles.loginText}>CPF:</Text>
-                <TextInputMask
+                <TextInput
                     type={'cpf'}
                     value={cpf}
                     keyboardType="numeric"
                     style={styles.input}
                     placeholder="___.___.___-__"
                     onChangeText={(text) => onChangeText(text)}
-                ></TextInputMask>
+                ></TextInput>
                 <Text style={styles.loginText}>Senha:</Text>
                 <TextInput
                     value={password}

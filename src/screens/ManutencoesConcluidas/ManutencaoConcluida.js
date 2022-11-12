@@ -45,7 +45,6 @@ const ManutencaoConcluida = ({ navigation }) => {
                             <Text style={styles.title}>Boeing 737</Text>
                             <Text style={styles.texto}>Horário de chegada: --:--</Text>
                             <Text style={styles.texto}>Prioridade: <Text style={styles.textoCorAlta}>Alta</Text></Text>
-                            <Text style={styles.texto}>Tipo: Conserto</Text>
                             <Text style={styles.texto}>Solicitante: Mecânico - Vitor Gomes</Text>
                             <Text style={styles.texto}>Status: <Text style={styles.textoCorBaixa}>Concluida</Text></Text>
                             </TouchableOpacity>
@@ -60,7 +59,6 @@ const ManutencaoConcluida = ({ navigation }) => {
                             <Text style={styles.title}>Boeing 738</Text>
                             <Text style={styles.texto}>Horário de chegada: --:--</Text>
                             <Text style={styles.texto}>Prioridade: <Text style={styles.textoCorMedia}>Média</Text></Text>
-                            <Text style={styles.texto}>Tipo: Conserto</Text>
                             <Text style={styles.texto}>Solicitante: Mecânico - Rogério Oliveira</Text>
                             <Text style={styles.texto}>Status: <Text style={styles.textoCorBaixa}>Concluida</Text></Text>
                             </TouchableOpacity>
@@ -75,7 +73,6 @@ const ManutencaoConcluida = ({ navigation }) => {
                             <Text style={styles.title}>Boeing 739</Text>
                             <Text style={styles.texto}>Horário de chegada: --:--</Text>
                             <Text style={styles.texto}>Prioridade: <Text style={styles.textoCorBaixa}>Baixa</Text></Text>
-                            <Text style={styles.texto}>Tipo: Recorrente</Text>
                             <Text style={styles.texto}>Solicitante: Mecânico - Pedro Vieira</Text>
                             <Text style={styles.texto}>Status: <Text style={styles.textoCorBaixa}>Concluida</Text></Text>
                             </TouchableOpacity>
