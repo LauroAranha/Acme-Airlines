@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#D0E2FF',
+        backgroundColor: '#030A31',
     },
     header: {
         backgroundColor: '#4589FF',
@@ -38,33 +38,31 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         position: 'relative',
     },
-    IconTab: {
-        
-    },
     loginText: {
         padding: 5,
         fontSize: 18,
         fontWeight: 'bold',
     },
-    btnLogin: {
-        marginTop: 18,
-        borderRadius: 15,
-        padding: 10,
-        marginBottom: 10,
-        backgroundColor: '#4589FF',
-        maxWidth: '50%',
-        minWidth: '30%',
-        alignSelf: 'center',
-        alignItems: 'center',
+    loginTextB: {
+        padding: 5,
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#2e7a9a',
+    },
+    loginTextR: {
+        padding: 5,
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#df5656',
     },
     btnCadastro: {
-        marginTop: 120,
+        marginTop: 15,
         borderRadius: 15,
         padding: 15,
         marginBottom: 10,
         backgroundColor: '#4589FF',
-        maxWidth: '50%',
-        minWidth: '50%',
+        maxWidth: '80%',
+        minWidth: '80%',
         alignSelf: 'center',
         alignItems: 'center',
     },
@@ -76,7 +74,25 @@ const styles = StyleSheet.create({
         borderColor: '#4589FF',
         paddingStart: 10,
     },
+    select: {
+        height: 55,
+        borderWidth: 1,
+        borderRadius: 10,
+        backgroundColor: '#FFF',
+        borderColor: '#4589FF',
+        paddingStart: 10,
+    },
+    Adicionado: {
+        marginTop: '4%',
+        height: 55,
+        borderWidth: 2,
+        borderRadius: 10,
+        borderColor: '#4589FF',
+        paddingStart: 10,
+        backgroundColor: '#ffffff',
+    },
     loginBox: {
+        marginTop: '3%',
         backgroundColor: '#f4f4f4',
         padding: 15,
         maxHeight: '300%',

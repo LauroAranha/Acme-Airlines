@@ -2,11 +2,7 @@ import styles from './styles';
 import React, { useState, useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity,ScrollView } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
-import { TextInputMask } from 'react-native-masked-text';
 
-import ExemploComponente from '../../components/ExemploComponente'
-import InputText from '../../components/InputText';
-import LogCadButton from '../../components/LogCadButton';
 
 const CadMecanico = ({ navigation }) => {
 
@@ -34,22 +30,16 @@ const CadMecanico = ({ navigation }) => {
                 <TextInput style={styles.input}/>
                 <Text style={styles.loginText}>Email:</Text> 
                 <TextInput style={styles.input}/>
-                <TouchableOpacity style={styles.btnUpload}>
-                    <Text style={styles.btnText}>Upload Habilitação PDF</Text> 
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.btnUpload}>
-                    <Text style={styles.btnText}>Upload Licença PDF</Text> 
-                </TouchableOpacity>
              <View style = {{flexDirection: 'row',justifyContent:'space-between',}}>
                 <TouchableOpacity
                     style={styles.btnCadastro}
-                    onPress={() => navigation.navigate('LoginRegisScreen')}
+                    onPress={() => navigation.navigate('Login')}
                 >
                     <Text style={styles.btnText}>Voltar</Text> 
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.btnLogin}
-                    onPress={() => navigation.navigate('LoginRegisScreen')}
+                    onPress={() => navigation.navigate('Login')}
                 >
                     <Text style={styles.btnText}>Cadastrar-se</Text> 
                 </TouchableOpacity>

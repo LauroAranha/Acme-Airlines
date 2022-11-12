@@ -15,6 +15,7 @@ import AberturaManutencao from './src/screens/OpenManutencao/AberturaManutencao'
 import DetalhesManutencao from './src/screens/DetalhesManutencao/DetalhesManutencao';
 import ManutencaoConcluida from './src/screens/ManutencoesConcluidas/ManutencaoConcluida';
 import RelatarProblem from './src/screens/RelatarProblem/RelatarProblem';
+import Perfil from './src/screens/Perfil/Perfil';
 
 
 const AppStack = createStackNavigator();
@@ -100,7 +101,13 @@ const App = () => {
                     component={RelatarProblem}
                     options={{ headerShown: false }}
                 />
+                <AppStack.Screen
+                    name="Perfil"
+                    component={Perfil}
+                    options={{ headerShown: false }}
+                />
             </AppStack.Navigator>
+
         </NavigationContainer>
     );
 };

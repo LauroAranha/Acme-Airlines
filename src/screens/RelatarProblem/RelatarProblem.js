@@ -50,6 +50,13 @@ const RelatarProblem = ({ navigation }) => {
                                 Relatar problema
                             </Text>
                         </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.btnCadastro}
+                            onPress={() => navigation.navigate('InfoAeronaves')}>
+                            <Text style={styles.btnText}>
+                                Voltar
+                            </Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </ScrollView>
