@@ -67,8 +67,9 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     scrollview: {
-        alignItems: 'center',
-        justifyContent: 'space-around',
+        width: '90%',
+        marginRight: '10%',
+        marginBottom: '40%'
     },
     ListItem: {
         marginTop: '5%',

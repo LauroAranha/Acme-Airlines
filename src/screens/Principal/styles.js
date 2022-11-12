@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#030A31',
+        backgroundColor: '#D0E2FF',
     },
     baseText: {
         marginTop: '5%',
@@ -67,14 +67,15 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     scrollview: {
-        alignItems: 'center',
-        justifyContent: 'space-around',
+        width: '90%',
+        marginRight: '10%',
+        marginBottom: '40%'
     },
     ListItem: {
         marginTop: '5%',
         marginRight: '5%',
         marginLeft: '5%',
-        backgroundColor: '#DBD9D9',
+        backgroundColor: 'white',
         width: '90%',
         borderRadius: 20,
     },
