@@ -30,7 +30,7 @@ const ErrorEnc = ({ navigation }) => {
                     alignItems: 'center',
                 }}
             >
-                <ScrollView>
+                <ScrollView style={{width: '90%' , marginRight: '10%', marginBottom: '20%'}}>
                     <View style={styles.scrollview}>
                         <Text style={styles.baseText}>
                             Problemas Relatados:

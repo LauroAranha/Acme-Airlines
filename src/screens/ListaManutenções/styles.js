@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#D0E2FF',
+        alignContent: 'center',
     },
     baseText: {
         marginTop: '5%',
