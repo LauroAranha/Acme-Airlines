@@ -41,10 +41,12 @@ const DetalhesManutencao = ({ navigation }) => {
                         style={styles.logo}
                         source={require('../../../assets/Acmelogo.png')}
                     />
-                    <Image
-                        style={styles.perfil}
-                        source={require('../../../assets/user.png')}
-                    />
+                    <TouchableOpacity  onPress={() => navigation.navigate('Perfil')}>
+                        <Image
+                            style={styles.perfil}
+                            source={require('../../../assets/user.png')}
+                        />
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.scrollview}>
                     <View style={styles.loginBox}>
@@ -89,29 +91,48 @@ const DetalhesManutencao = ({ navigation }) => {
                         </View>
                         <Text style={styles.loginText}>Resumo:</Text>
                         <TextInput style={styles.input} />
+                        <Text style={styles.loginText}>Adicionar Tarefa:</Text>
+                        <View
+                            style={{
+                                marginTop: '2%',
+                                borderBottomColor: 'black',
+                                borderBottomWidth: StyleSheet.hairlineWidth,
+                            }}
+                        />
                         <Text style={styles.loginText}>
-                            Adicionar Manutenção:
+                            Nome do Grupo de Tarefas:
                         </Text>
-                        <TouchableOpacity
-                            style={styles.btnCadastro}
-                            onPress={() =>
-                                navigation.navigate('TipoManutencao')
-                            }
-                        >
-                            <Text style={styles.btnText}>
-                                Adicionar Nova Manutenção
-                            </Text>
-                        </TouchableOpacity>
+                        <TextInput style={styles.input} />
                         <Text style={styles.loginText}>
-                            Manutenções Adicionadas:
+                            Checklist Tarefas:
                         </Text>
                         <View style={styles.Adicionado}>
                             <Text>
-                                Aqui aparecerão suas Manutenções Recorrentes :)
+                                ✅ Tarefa 1 {"\n"} ✅ Tarefa 2 {"\n"} ✅ Tarefa 3
                             </Text>
                         </View>
+                        <TouchableOpacity
+                            style={styles.btnCadastro}
+                            onPress={() => navigation.navigate('AddTarefa')}
+                        >
+                            <Text style={styles.btnText}>
+                                Adicionar nova Tarefa
+                            </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.btnCadastro}
+                        >
+                            <Text style={styles.btnText}>
+                                Salvar Grupo de Tarefas
+                            </Text>
+                        </TouchableOpacity>
+                        <Text style={styles.loginText}>
+                            Grupos Adicionados:
+                        </Text>
                         <View style={styles.Adicionado}>
-                            <Text>Aqui aparecerão suas Manutenções :)</Text>
+                            <Text>
+                               Aqui aparecerão os Grupos de Tarefas Adicionados
+                            </Text>
                         </View>
                         <Text style={styles.loginText}>Alocar Mecânico:</Text>
                         <View style={styles.select}>
@@ -124,17 +145,17 @@ const DetalhesManutencao = ({ navigation }) => {
                                 ]}
                             />
                         </View>
-                        <Text style={styles.loginText}>Adicionar Peças:</Text>
+                        <Text style={styles.loginText}>Troca de Componentes:</Text>
                         <TouchableOpacity
                             style={styles.btnCadastro}
                             onPress={() => navigation.navigate('AddPecas')}
                         >
                             <Text style={styles.btnText}>
-                                Adicionar Peças a serem Utilizadas
+                                Adicionar Troca de Componentes
                             </Text>
                         </TouchableOpacity>
                         <View style={styles.Adicionado}>
-                            <Text>Aqui aparecerão as Peças:)</Text>
+                            <Text>Aqui aparecerão os Componentes Adicionados:)</Text>
                         </View>
                     </View>
                 </View>

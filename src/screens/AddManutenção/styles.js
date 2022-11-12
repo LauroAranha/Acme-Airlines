@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
         paddingStart: 10,
     },
     loginBox: {
+        marginTop: '3%',
         backgroundColor: '#f4f4f4',
         padding: 15,
         maxHeight: '300%',

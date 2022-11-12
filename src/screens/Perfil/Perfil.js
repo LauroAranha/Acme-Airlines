@@ -22,10 +22,12 @@ const Perfil = ({ navigation }) => {
                         style={styles.logo}
                         source={require('../../../assets/Acmelogo.png')}
                     />
-                    <Image
-                        style={styles.perfil}
-                        source={require('../../../assets/user.png')}
-                    />
+                    <TouchableOpacity  onPress={() => navigation.navigate('Perfil')}>
+                        <Image
+                            style={styles.perfil}
+                            source={require('../../../assets/user.png')}
+                        />
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.scrollview}>
                     <View style={styles.loginBox}>
@@ -59,22 +61,7 @@ const Perfil = ({ navigation }) => {
                         />
                         <TouchableOpacity
                             style={{ flexDirection: 'row', marginTop: '5%' }}
-                        >
-                            <Image
-                                style={{ width: 30, height: 30 }}
-                                source={require('../Assets/gear.png')}
-                            />
-                            <Text style={styles.loginTextB}>Configurações</Text>
-                        </TouchableOpacity>
-                        <View
-                            style={{
-                                marginTop: '4%',
-                                borderBottomColor: 'black',
-                                borderBottomWidth: StyleSheet.hairlineWidth,
-                            }}
-                        />
-                        <TouchableOpacity
-                            style={{ flexDirection: 'row', marginTop: '5%' }}
+                            onPress={() => navigation.navigate('LoginRegisScreen')}
                         >
                             <Image
                                 style={{ width: 30, height: 30 }}

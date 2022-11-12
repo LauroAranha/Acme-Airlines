@@ -17,10 +17,12 @@ const ListaManuten = ({ navigation }) => {
                     style={styles.logo}
                     source={require('../../../assets/Acmelogo.png')}
                 />
-                <Image
-                    style={styles.perfil}
-                    source={require('../../../assets/user.png')}
-                />
+                <TouchableOpacity  onPress={() => navigation.navigate('Perfil')}>
+                        <Image
+                            style={styles.perfil}
+                            source={require('../../../assets/user.png')}
+                        />
+                    </TouchableOpacity>
             </View>
             <View
                 style={{
@@ -39,7 +41,7 @@ const ListaManuten = ({ navigation }) => {
                         <View style={styles.ListItem}>
                             <TouchableOpacity
                                 onPress={() =>
-                                    navigation.navigate('InfoAeronaves')
+                                    navigation.navigate('InfoManuten')
                                 }
                             >
                                 <Image
@@ -72,7 +74,7 @@ const ListaManuten = ({ navigation }) => {
                         <View style={styles.ListItem}>
                             <TouchableOpacity
                                 onPress={() =>
-                                    navigation.navigate('InfoAeronaves')
+                                    navigation.navigate('InfoManuten')
                                 }
                             >
                                 <Image
@@ -89,7 +91,6 @@ const ListaManuten = ({ navigation }) => {
                                         Média
                                     </Text>
                                 </Text>
-                                <Text style={styles.texto}>Tipo: Conserto</Text>
                                 <Text style={styles.texto}>
                                     Solicitante: Mecânico - Rogério Oliveira
                                 </Text>
@@ -105,7 +106,7 @@ const ListaManuten = ({ navigation }) => {
                         <View style={styles.ListItem}>
                             <TouchableOpacity
                                 onPress={() =>
-                                    navigation.navigate('InfoAeronaves')
+                                    navigation.navigate('InfoManuten')
                                 }
                             >
                                 <Image
@@ -121,9 +122,6 @@ const ListaManuten = ({ navigation }) => {
                                     <Text style={styles.textoCorBaixa}>
                                         Baixa
                                     </Text>
-                                </Text>
-                                <Text style={styles.texto}>
-                                    Tipo: Recorrente
                                 </Text>
                                 <Text style={styles.texto}>
                                     Solicitante: Mecânico - Pedro Vieira

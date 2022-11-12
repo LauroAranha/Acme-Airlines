@@ -6,7 +6,6 @@ import { View, Text } from 'react-native';
 import LoginRegisScreen from './src/screens/LoginRegis/LoginRegisScreen';
 import Principal from './src/screens/Principal/Principal';
 import AddManutencao from './src/screens/AddManutenção/AddManutencao'
-import TipoManutencao from './src/screens/TipoManutenção/TipoManutenção';
 import AddTarefa from './src/screens/AddTarefa/AddTarefa';
 import AddP from './src/screens/AddPeças/AddPecas';
 import CadastroM from './src/screens/CadastroMecanico/CadastroM';
@@ -15,6 +14,7 @@ import ListaManuten from './src/screens/ListaManutenções/ListaManuten';
 import ErrorEnc from './src/screens/ErrosEncontrados/ErrorEnc';
 import Descricao from './src/screens/Descrição Erro/Descricao';
 import Perfil from './src/screens/Perfil/Perfil';
+import InfoManuten from './src/screens/InfoManuten/InfoManuten';
 
 const AppStack = createStackNavigator();
 
@@ -47,11 +47,6 @@ const App = () => {
                 <AppStack.Screen
                     name="AddManutencao"
                     component={AddManutencao}
-                    options={{ headerShown: false }}
-                />
-                <AppStack.Screen
-                    name="TipoManutencao"
-                    component={TipoManutencao}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
@@ -92,6 +87,11 @@ const App = () => {
                 <AppStack.Screen
                     name="Perfil"
                     component={Perfil}
+                    options={{ headerShown: false }}
+                />
+                 <AppStack.Screen
+                    name="InfoManuten"
+                    component={InfoManuten}
                     options={{ headerShown: false }}
                 />
             </AppStack.Navigator>

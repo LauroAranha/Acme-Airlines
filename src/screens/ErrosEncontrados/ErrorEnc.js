@@ -17,10 +17,12 @@ const ErrorEnc = ({ navigation }) => {
                     style={styles.logo}
                     source={require('../../../assets/Acmelogo.png')}
                 />
-                <Image
-                    style={styles.perfil}
-                    source={require('../../../assets/user.png')}
-                />
+                <TouchableOpacity  onPress={() => navigation.navigate('Perfil')}>
+                        <Image
+                            style={styles.perfil}
+                            source={require('../../../assets/user.png')}
+                        />
+                    </TouchableOpacity>
             </View>
             <View
                 style={{

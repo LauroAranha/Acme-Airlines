@@ -28,14 +28,16 @@ const AddTarefa = ({ navigation }) => {
                         style={styles.logo}
                         source={require('../../../assets/Acmelogo.png')}
                     />
-                    <Image
-                        style={styles.perfil}
-                        source={require('../../../assets/user.png')}
-                    />
+                    <TouchableOpacity  onPress={() => navigation.navigate('Perfil')}>
+                        <Image
+                            style={styles.perfil}
+                            source={require('../../../assets/user.png')}
+                        />
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.scrollview}>
                     <View style={styles.loginBox}>
-                        <Text style={styles.loginText}>Titulo:</Text>
+                        <Text style={styles.loginText}>Nome:</Text>
                         <TextInput style={styles.input} />
                         <Text style={styles.loginText}>Resumo:</Text>
                         <TextInput style={styles.input} />
@@ -51,6 +53,12 @@ const AddTarefa = ({ navigation }) => {
                         </TouchableOpacity>
                     </View>
                 </View>
+                <TouchableOpacity
+                    style={styles.btnCadastro}
+                    onPress={() => navigation.navigate('AddManutencao')}
+                >
+                    <Text style={styles.btnText}>Voltar</Text>
+                </TouchableOpacity>
             </ScrollView>
         </View>
     );
