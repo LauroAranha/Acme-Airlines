@@ -16,6 +16,9 @@ import Descricao from './src/screens/Descrição Erro/Descricao';
 import Perfil from './src/screens/Perfil/Perfil';
 import InfoManuten from './src/screens/InfoManuten/InfoManuten';
 
+import PagList from './src/screens/PagList/PagListScreen'
+import PagInsert from './src/screens/PagInsert/PagInsertScreen'
+
 const AppStack = createStackNavigator();
 
 const App = () => {
@@ -34,6 +37,16 @@ const App = () => {
                     headerTitleAlign: 'center',
                 }}
             >
+                <AppStack.Screen
+                    name="PagInsert"
+                    component={PagInsert}
+                    options={{ headerShown: false }}
+                />
+                <AppStack.Screen
+                    name="PagList"
+                    component={PagList}
+                    options={{ headerShown: false }}
+                />
                 <AppStack.Screen
                     name="LoginRegisScreen"
                     component={LoginRegisScreen}
@@ -79,7 +92,7 @@ const App = () => {
                     component={ErrorEnc}
                     options={{ headerShown: false }}
                 />
-                 <AppStack.Screen
+                <AppStack.Screen
                     name="Descricao"
                     component={Descricao}
                     options={{ headerShown: false }}
@@ -89,7 +102,7 @@ const App = () => {
                     component={Perfil}
                     options={{ headerShown: false }}
                 />
-                 <AppStack.Screen
+                <AppStack.Screen
                     name="InfoManuten"
                     component={InfoManuten}
                     options={{ headerShown: false }}
