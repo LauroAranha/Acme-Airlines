@@ -51,7 +51,8 @@ const styles = StyleSheet.create({
 export default function AppItem(props) {
     return (
         <View style={styles.caixona}>
-            <Text style={styles.textoItem}>{props.item}</Text>
+            <Text style={styles.textoItem}>{props.nome}</Text>
+            <Text style={styles.textoItem}>{props.email}</Text>
             <View style={styles.botaoCaixona}>
                 <TouchableOpacity style={styles.botaoDeletar} >
                     <Text style={styles.botaoText}>X</Text>

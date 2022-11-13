@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableWithoutFeedback } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
     loginBox: {
         backgroundColor: '#f4f4f4',
         padding: 15,
-        maxHeight: '60%',
         maxWidth: '95%',
         marginBottom: 70,
         borderRadius: 15,
@@ -54,6 +53,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     btnRedirect: {
+        color: 'white',
         marginTop: 20,
         borderRadius: 15,
         padding: 10,

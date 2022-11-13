@@ -1,79 +1,105 @@
 import styles from './styles';
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { TextInput } from 'react-native-gesture-handler';
+import { TextInputMask } from 'react-native-masked-text';
 
-import AppItem from '../../components/AppItem'
+import AppItem from '../../components/AppItem';
 
-import { app, db } from "../../firebase"
-import { getFirestore, collection, addDoc, getDoc, getDocs } from 'firebase/firestore';
+import { app, db } from '../../firebase';
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    deleteDoc,
+    getDocs,
+    doc,
+} from 'firebase/firestore';
 
-const PagList = ({ navigation }) => {
-    const [cpf, onChangeText] = React.useState('');
+const PagInsert = ({ navigation }) => {
+    //atributos que serão adicionados no formulario
+    const [nome, setNome] = useState('');
+    const [email, setEmail] = useState('');
 
-    // console.log(db)
-    // const addMecanico = async () => {
-    //     try {
-    //         const docRef = await addDoc(collection(db, "mecanico"), {
-    //             nome: nome,
-    //             email: email,
-    //         });
-    //         console.log("Document written with ID: ", docRef.id);
-    //         //setTitle("");
-    //     } catch (e) {
-    //         console.error("Error adding document: ", e);
-    //     }
-    // }
-
-    const listUser = async () => {
-        const querySnapshot = await getDocs(collection(db, "user"));
-        querySnapshot.forEach((doc) => {
-            console.log(doc.id, doc.data());
-        });
+    //função para adicionar usuário
+    const addUser = async () => {
+        try {
+            // aqui é atribuido a função addDoc (cuja função é adicionar um documento no firebase) a constante docRef
+            // os parâmetros são a ligação pro firestore ( getFirestore()) e a collection que o documento será adicionado
+            const docRef = await addDoc(collection(db, 'user'), {
+                nome: nome,
+                email: email,
+            });
+            console.log("addUser");
+            console.log('Documento adicionado com sucesso! ID: ', docRef.id);
+            setNome('');
+            setEmail('');
+        } catch (e) {
+            console.error('Erro adicionando o documento: ', e);
+        }
     };
 
+    //função para adicionar usuário
+    const listUser = async () => {
+        try {
+            console.log("listUser");
+            const querySnapshot = await getDocs(collection(db, 'user'));
+            const list = [];
+            querySnapshot.forEach((doc) => {
+                list.push({ ...doc.data(), id: doc.id });
+            });
+            setNome(list);
+            setEmail(list);
+            console.log(list);
+        } catch (e) {
+            console.error('erro: ', e);
+        }
+    };
 
-    const estilo = StyleSheet.create({
-        container: {
-            width: "80%",
-            height: "auto",
-            backgroundColor: "white",
-        },
-        title: {
-        },
-        scrollContainer: {
-        },
-        itemsContainer: {
-        },
-    });
+    const excluirDocumento = async () => {
+        try {
+            console.log("excluirDocumento");
+            const res = await deleteDoc(doc(db, 'user', 'Doc'));
+            console.log('Dado excluido:', res);
+        } catch (e) {
+            console.error('erro: ', e);
+        }
+    };
+
+    useEffect(() => {
+        excluirDocumento();
+    }, []);
+
     return (
         <View style={styles.container}>
-            <View style={estilo.container}>
-                <ScrollView>
-                    <Text style={styles.loginText}>Listagem de registros:</Text>
-                    <ScrollView
-                        nestedScrollEnabled={true}
-                        style={estilo.scrollContainer}
-                        //{items.map(item => {
-                        //    return <AppItem key={item.id} id={item.id} item={item.quantidade + '  de ' + item.descricao} />
-                        //})}
-                        contentContainerStyle={estilo.itemsContainer}>
-                    </ScrollView>
-                    <TouchableOpacity
-                        style={styles.btnLogin}
-                        onPress={() => listUser()}
-                    >
-                        <Text style={styles.btnText}>Listar</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={styles.btnRedirect}
-                        onPress={() => navigation.navigate('PagInsert')}
-                    >
-                        <Text style={styles.btnText}>Ir pro insert</Text>
-                    </TouchableOpacity>
-                </ScrollView>
+            <View style={styles.loginBox}>
+                <Text style={styles.loginText}>Nome:</Text>
+                <TextInput
+                    keyboardType="text"
+                    style={styles.input}
+                    value={nome}
+                    onChangeText={(text) => setNome(text)}
+                />
+                <Text style={styles.loginText}>Email:</Text>
+                <TextInput
+                    keyboardType="text"
+                    style={styles.input}
+                    value={email}
+                    onChangeText={(text) => setEmail(text)}
+                />
+                <TouchableOpacity style={styles.btnLogin} onPress={listUser}>
+                    <Text style={styles.btnText}>fazer cadastro</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    style={styles.btnRedirect}
+                    onPress={listUser}
+                >
+                    <Text style={styles.btnText}>Listar</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
 };
 
-export default PagList;
+export default PagInsert;
