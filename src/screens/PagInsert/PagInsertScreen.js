@@ -59,7 +59,7 @@ const PagInsert = ({ navigation }) => {
                 setNome(list);
                 setEmail(list);
                 setJSON_DATA(list);
-                console.log(typeof(JSON_DATA))
+                console.log(typeof (JSON_DATA))
             } catch (e) {
                 console.error('erro: ', e);
             }
@@ -67,11 +67,11 @@ const PagInsert = ({ navigation }) => {
         listUser();
     }, [])
 
-    const excluirDocumento = async () => {
+    async function excluirDocumento(teste) {
         try {
             console.log('excluirDocumento');
             const res = await deleteDoc(
-                doc(db, 'user', '4FGwgNUyMKMMHbDPmhe7')
+                doc(db, 'user', teste)
             );
             console.log('Dado excluido:', res);
         } catch (e) {
@@ -112,7 +112,7 @@ const PagInsert = ({ navigation }) => {
 
                 <TouchableOpacity
                     style={styles.btnRedirect}
-                    onPress={() => excluirDocumento()}
+                    onPress={() => excluirDocumento('teste')}
                 >
                     <Text style={styles.btnText}>Excluir</Text>
                 </TouchableOpacity>
@@ -121,9 +121,9 @@ const PagInsert = ({ navigation }) => {
                     data={JSON_DATA}
                     renderItem={({ item }) => (
                         <AppItem
-                            style={styles.loginText}
-                            nome={"Nome: " + item.nome}
-                            email={"Email: " + item.email}
+                            id={item.id}
+                            nome={item.nome}
+                            email={item.email}
                         ></AppItem>
                     )}
                 />
