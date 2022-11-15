@@ -22,7 +22,7 @@ const Perfil = ({ navigation }) => {
                         style={styles.logo}
                         source={require('../../../assets/Acmelogo.png')}
                     />
-                    <TouchableOpacity  onPress={() => navigation.navigate('Perfil')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
                         <Image
                             style={styles.perfil}
                             source={require('../../../assets/user.png')}
@@ -32,7 +32,7 @@ const Perfil = ({ navigation }) => {
                 <View style={styles.scrollview}>
                     <View style={styles.loginBox}>
                         <TouchableOpacity
-                            style = {{marginBottom:'5%'}}
+                            style={{ marginBottom: '5%' }}
                             onPress={() => navigation.navigate('Principal')}
                         >
                             <Image
@@ -61,13 +61,13 @@ const Perfil = ({ navigation }) => {
                         />
                         <TouchableOpacity
                             style={{ flexDirection: 'row', marginTop: '5%' }}
-                            onPress={() => navigation.navigate('LoginRegisScreen')}
+                            onPress={() => navigation.navigate('Login')}
                         >
                             <Image
                                 style={{ width: 30, height: 30 }}
                                 source={require('../Assets/logout.png')}
                             />
-                             <Text style={styles.loginTextR}>Sair</Text>
+                            <Text style={styles.loginTextR}>Sair</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
