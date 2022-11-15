@@ -56,10 +56,6 @@ const PagInsert = ({ navigation }) => {
                 querySnapshot.forEach((doc) => {
                     list.push({ ...doc.data(), id: doc.id });
                 });
-                setNome(list);
-                setEmail(list);
-                setJSON_DATA(list);
-                console.log(typeof (JSON_DATA))
             } catch (e) {
                 console.error('erro: ', e);
             }
