@@ -15,7 +15,7 @@ const Principal = ({ navigation }) => {
             <ScrollView>
                 <View style={styles.container}>
                     <Header />
-                    <Text style={styles.text}>Olá Rogério!</Text>
+                    <Text style={styles.text}>Olá usuário!</Text>
                     <TouchableOpacity
                         style={styles.btnPrincipalTeste}
                         onPress={() => navigation.navigate('GerenciarEquipe')}

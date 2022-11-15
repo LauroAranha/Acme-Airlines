@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#00063A',
         padding: 15,
         height: '10%',
-        borderTopLeftRadius:15,
-        borderTopRightRadius:15,
+        borderTopLeftRadius: 15,
+        borderTopRightRadius: 15,
         maxWidth: '100%',
         minWidth: '100%',
         flexDirection: 'row',
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         position: 'relative',
     },
     IconTab: {
-        
+
     },
     loginText: {
         padding: 5,
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     btnCadastro: {
-        marginTop: 10,
+        marginTop: 30,
         borderRadius: 15,
         padding: 15,
         marginBottom: 10,
@@ -95,14 +95,15 @@ const styles = StyleSheet.create({
         minWidth: '90%',
     },
     btnText: {
-     color: 'white',
-     fontWeight: 'bold',
+        color: 'white',
+        fontWeight: 'bold',
     },
     scrollview: {
         alignItems: 'center',
-        justifyContent:'space-around',
-       },
-       select: {
+        justifyContent: 'space-around',
+        marginBottom: 40,
+    },
+    select: {
         height: 55,
         borderWidth: 1,
         borderRadius: 10,

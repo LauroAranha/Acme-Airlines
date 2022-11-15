@@ -10,9 +10,19 @@ import {
     TouchableOpacity,
     ScrollView,
 } from 'react-native';
+import Header from '../../components/Header';
+
 import { TextInput } from 'react-native-gesture-handler';
 import { TextInputMask } from 'react-native-masked-text';
 import * as ImagePicker from 'expo-image-picker';
+
+import { Ionicons } from '@expo/vector-icons';
+
+import { db } from '../../firebase';
+import {
+    collection,
+    addDoc,
+} from 'firebase/firestore';
 import styles from './styles';
 
 const pickImage = async () => {
@@ -31,37 +41,75 @@ const pickImage = async () => {
     }
 };
 
+createThreeButtonAlert = () =>
+    Alert.alert(
+        'Deseja Cadastrar essa Aeronave 🤔',
+        'Essa operação nâo pode ser desfeita mais tarde.',
+        [
+            {
+                text: 'Não',
+                onPress: () => console.log('Cancel Pressed'),
+                style: 'cancel',
+            },
+            { text: 'Sim', onPress: () => { { this.createThreeButtonAlert2; addUser() } } },
+        ]
+    );
+
 const CadastroA = ({ navigation }) => {
-    createThreeButtonAlert = () =>
-        Alert.alert(
-            'Deseja Cadastrar essa Aeronave 🤔',
-            'Essa operação nâo pode ser desfeita mais tarde.',
-            [
-                {
-                    text: 'Não',
-                    onPress: () => console.log('Cancel Pressed'),
-                    style: 'cancel',
-                },
-                { text: 'Sim', onPress: () => this.createThreeButtonAlert2 },
-            ]
-        );
+    const [nome, setNome] = useState([]);
+    const [matriculaAeronave, setMatriculaAeronave] = useState([]);
+    const [ultimoVoo, setUltimoVoo] = useState([]);
+    const [horarioChegada, setHorarioChegada] = useState([]);
+    const [nacionalidadeAeronave, setNacionalidadeAeronave] = useState([]);
+    const [modeloAeronave, setModeloAeronave] = useState([]);
+    const [JSON_DATA, setJSON_DATA] = useState('');
+    const [showIndicator, setShowIndicator] = useState(true);
+    const list = [];
+
+    const addUser = async () => {
+        try {
+            // aqui é atribuido a função addDoc (cuja função é adicionar um documento no firebase) a constante docRef
+            // os parâmetros são a ligação pro firestore ( getFirestore()) e a collection que o documento será adicionado
+            const docRef = await addDoc(collection(db, 'aeronave'), {
+                nome: nome,
+                matriculaAeronave: matriculaAeronave,
+                ultimoVoo: ultimoVoo,
+                horarioChegada: horarioChegada,
+                nacionalidadeAeronave: nacionalidadeAeronave,
+                modeloAeronave: modeloAeronave,
+            });
+            console.log('Documento adicionado com sucesso! ID: ', docRef.id);
+            setNome('');
+            setMatriculaAeronave('');
+            setUltimoVoo('');
+            setHorarioChegada('');
+            setNacionalidadeAeronave('');
+            setModeloAeronave('');
+        } catch (e) {
+            console.error('Erro adicionando o documento: ', e);
+        }
+    };
     const [image, setImage] = useState(null);
     const [time, onChangetime] = React.useState('');
     return (
         <View style={styles.container}>
+            <Header />
+            <TouchableOpacity
+                style={{
+                    marginRight: 350,
+                    borderRadius: 100,
+                    marginTop: 5,
+                    marginLeft: 5,
+                }}
+                onPress={() => navigation.navigate('GerenciarAeronave')}
+            >
+                <Ionicons
+                    name="ios-chevron-back-circle-sharp"
+                    size={40}
+                    color="#4840ff"
+                />
+            </TouchableOpacity>
             <ScrollView>
-                <View style={styles.header}>
-                    <Image
-                        style={styles.logo}
-                        source={require('../../../assets/Acmelogo.png')}
-                    />
-                    <TouchableOpacity  onPress={() => navigation.navigate('Perfil')}>
-                        <Image
-                            style={styles.perfil}
-                            source={require('../../../assets/user.png')}
-                        />
-                    </TouchableOpacity>
-                </View>
                 <View style={styles.scrollview}>
                     <View style={styles.loginBox}>
                         <Text style={styles.loginText}>
@@ -80,44 +128,55 @@ const CadastroA = ({ navigation }) => {
                             />
                         )}
                         <Text style={styles.loginText}>Nome da Aeronave:</Text>
-                        <TextInput style={styles.input} />
+                        <TextInput style={styles.input}
+                            value={nome}
+                            onChangeText={(text) => setNome(text)}
+                        />
+
                         <Text style={styles.loginText}>
                             Matricula da Aeronave:
                         </Text>
-                        <TextInput style={styles.input} />
+                        <TextInput
+                            style={styles.input}
+                            value={matriculaAeronave}
+                            onChangeText={(text) => setMatriculaAeronave(text)} />
+
                         <Text style={styles.loginText}>Ultimo Voo:</Text>
-                        <TextInput style={styles.input} />
+                        <TextInput style={styles.input}
+                            value={ultimoVoo}
+                            onChangeText={(text) => setUltimoVoo(text)} />
+
                         <Text style={styles.loginText}>
                             Horario de Chegada:
                         </Text>
-
                         <TextInputMask
                             type={'datetime'}
-                            value={time}
+                            value={horarioChegada}
                             options={{ format: 'HH:mm' }}
                             keyboardType="numeric"
                             placeholder="__:__"
-                            onChangeText={(text) => onChangetime(text)}
+                            onChangeText={(text) => setHorarioChegada(text)}
                             style={styles.inputLittle}
                         />
-                        <Text style={styles.loginText}>
-                            Nacionalidade da Aeronave
+
+                        <Text style={styles.loginText}>Nacionalidade da Aeronave
                         </Text>
-                        <TextInput style={styles.input} />
-                        <Text style={styles.loginText}>Modelo da Aeronave</Text>
-                        <TextInput style={styles.input} />
+                        <TextInput style={styles.input}
+                            value={nacionalidadeAeronave}
+                            onChangeText={(text) => setNacionalidadeAeronave(text)} />
+
+                        <Text style={styles.loginText}>Modelo da Aeronave
+                        </Text>
+                        <TextInput style={styles.input}
+                            value={modeloAeronave}
+                            onChangeText={(text) => setModeloAeronave(text)} />
+
                     </View>
                     <TouchableOpacity
                         style={styles.btnCadastro}
-                        onPress={this.createThreeButtonAlert}
+                        onPress={() => createThreeButtonAlert}
                     >
                         <Text style={styles.btnText}>Cadastar</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={styles.btnCadastro}
-                        onPress={() => navigation.navigate('Principal')}
-                    >
-                        <Text style={styles.btnText}>Voltar</Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>

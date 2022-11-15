@@ -106,8 +106,7 @@ const styles = StyleSheet.create({
     },
     botaoEditar: {
         marginLeft: 10,
-        height: 40,
-        backgroundColor: 'blue',
+        backgroundColor: '#D8D8D8',
         borderRadius: 10,
         padding: 10,
         fontSize: 12,

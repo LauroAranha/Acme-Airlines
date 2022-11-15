@@ -25,7 +25,6 @@ const Login = ({ navigation }) => {
             const res = await signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
             });
             console.log("Usuário autenticado!")
-            pepino = true
         } catch (e) {
             console.error(e);
             alert(e.message);
@@ -63,7 +62,7 @@ const Login = ({ navigation }) => {
                 <TouchableOpacity
                     style={styles.btnLogin}
                     onPress={() => {
-                        //logInWithEmailAndPassword(setEmail, setPassword)
+                        logInWithEmailAndPassword(setEmail, setPassword);
                         navigation.navigate('Principal')
                     }}
                 >
