@@ -5,7 +5,7 @@ import {
     Image,
     SafeAreaView,
     TouchableOpacity,
-    ScrollView
+    ScrollView,
 } from 'react-native';
 import Header from '../../components/Header';
 
@@ -18,7 +18,7 @@ const Principal = ({ navigation }) => {
                     <Text style={styles.text}>Olá Rogério!</Text>
                     <TouchableOpacity
                         style={styles.btnPrincipalTeste}
-                        onPress={() => navigation.navigate('CadastroM')}
+                        onPress={() => navigation.navigate('GerenciarEquipe')}
                     >
                         <Image
                             style={styles.imageBtnTeste}
@@ -45,7 +45,8 @@ const Principal = ({ navigation }) => {
                             <Text style={styles.btnTextTeste}>
                                 Gerencie as manutenções
                                 <Text style={styles.btnSubTextTeste}>
-                                    {'\n'}Uma lista simples de problemas relatados
+                                    {'\n'}Uma lista simples de problemas
+                                    relatados
                                 </Text>
                             </Text>
                         </View>
@@ -62,7 +63,8 @@ const Principal = ({ navigation }) => {
                             <Text style={styles.btnTextTeste}>
                                 Gerenciar aeronaves
                                 <Text style={styles.btnSubTextTeste}>
-                                    {'\n'}Gerencie as aeronaves cadastradas ou adicione novas.
+                                    {'\n'}Gerencie as aeronaves cadastradas ou
+                                    adicione novas.
                                 </Text>
                             </Text>
                         </View>
@@ -79,7 +81,8 @@ const Principal = ({ navigation }) => {
                             <Text style={styles.btnTextTeste}>
                                 Problemas Relatados
                                 <Text style={styles.btnSubTextTeste}>
-                                    {'\n'}Uma lista simples de problemas relatados
+                                    {'\n'}Uma lista simples de problemas
+                                    relatados
                                 </Text>
                             </Text>
                         </View>
@@ -103,7 +106,7 @@ const Principal = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
             </ScrollView>
-        </SafeAreaView >
+        </SafeAreaView>
     );
 };
 

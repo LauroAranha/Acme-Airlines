@@ -3,10 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { View, Text } from 'react-native';
 
-
 import Login from './src/screens/Login/LoginScreen';
 import Principal from './src/screens/Principal/Principal';
-import AddManutencao from './src/screens/AddManutenção/AddManutencao'
+import AddManutencao from './src/screens/AddManutenção/AddManutencao';
 import AddTarefa from './src/screens/AddTarefa/AddTarefa';
 import AddP from './src/screens/AddPeças/AddPecas';
 import CadastroM from './src/screens/CadastroMecanico/CadastroM';
@@ -16,13 +15,15 @@ import ErrorEnc from './src/screens/ErrosEncontrados/ErrorEnc';
 import DescricaoErro from './src/screens/DescricaoErro/DescricaoErroScreen';
 import Perfil from './src/screens/Perfil/Perfil';
 import InfoManutencao from './src/screens/InfoManutencao/InfoManutencaoScreen';
-
-import PagList from './src/screens/PagList/PagListScreen'
-import PagInsert from './src/screens/PagInsert/PagInsertScreen'
+import GerenciarEquipe from './src/screens/GerenciarEquipe/GerenciarEquipe';
+import PagList from './src/screens/PagList/PagListScreen';
+import PagInsert from './src/screens/PagInsert/PagInsertScreen';
 
 const AppStack = createStackNavigator();
 
-LogBox.ignoreLogs(["AsyncStorage has been extracted from react-native core and will be removed in a future release. It can now be installed and imported from '@react-native-async-storage/async-storage' instead of 'react-native'. See https://github.com/react-native-async-storage/async-storage"]);
+LogBox.ignoreLogs([
+    "AsyncStorage has been extracted from react-native core and will be removed in a future release. It can now be installed and imported from '@react-native-async-storage/async-storage' instead of 'react-native'. See https://github.com/react-native-async-storage/async-storage",
+]);
 
 const App = () => {
     return (
@@ -48,6 +49,11 @@ const App = () => {
                 <AppStack.Screen
                     name="PagInsert"
                     component={PagInsert}
+                    options={{ headerShown: false }}
+                />
+                <AppStack.Screen
+                    name="GerenciarEquipe"
+                    component={GerenciarEquipe}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
