@@ -47,13 +47,13 @@ const App = () => {
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="PagInsert"
-                    component={PagInsert}
+                    name="GerenciarEquipe"
+                    component={GerenciarEquipe}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="GerenciarEquipe"
-                    component={GerenciarEquipe}
+                    name="PagInsert"
+                    component={PagInsert}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen

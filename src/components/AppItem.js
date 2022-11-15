@@ -11,12 +11,57 @@ import {
 
 import { app, db } from '../firebase';
 
+async function excluirDocumento(input) {
+
+    let teste = (input)
+    try {
+        console.log('Documento a ser excluído: ' + teste);
+        const res = await deleteDoc(
+            doc(db, 'user', teste)
+        );
+        console.log('Dado excluido:', res);
+        this.state = {
+            showComponent: false,
+        };
+    } catch (e) {
+        console.error('erro: ', e);
+    }
+};
+
+export default function AppItem(props) {
+    var [visible, setVisible] = useState(true);
+    const removeElement = () => {
+        setVisible((prev) => !prev);
+    };
+    return (
+        <View>{visible && (
+            <View>
+                <View style={styles.caixona}>
+
+                    <View style={styles.esquerda}>
+                        <Text style={styles.textoItem}>Id: {props.id}</Text>
+                    </View>
+                    <View style={styles.botaoCaixona}>
+                        <TouchableOpacity style={styles.botaoDeletar} onPress={() => { removeElement(); excluirDocumento(props.id) }} >
+                            <Text style={styles.botaoText}>X</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.botaoEditar} >
+                            <Text style={styles.botaoText}>Editar</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>)}
+        </View>
+    );
+}
+
 const styles = StyleSheet.create({
     caixona: {
         backgroundColor: '#fff',
         marginTop: 20,
-        width: '100%'
-
+        width: '100%',
+        padding: 20,
+        alignSelf: 'center'
     },
     botaoCaixona: {
         flexDirection: 'row-reverse',
@@ -62,49 +107,3 @@ const styles = StyleSheet.create({
         maxWidth: "100%"
     }
 });
-
-async function excluirDocumento(input) {
-
-    let teste = (input)
-    try {
-        console.log('Documento a ser excluído: ' + teste);
-        const res = await deleteDoc(
-            doc(db, 'user', teste)
-        );
-        console.log('Dado excluido:', res);
-        this.state = {
-            showComponent: false,
-        };
-    } catch (e) {
-        console.error('erro: ', e);
-    }
-};
-
-export default function AppItem(props) {
-    var [visible, setVisible] = useState(true);
-    const removeElement = () => {
-        setVisible((prev) => !prev);
-    };
-    return (
-        <View>{visible && (
-            <View style={styles.caixona}>
-
-                <View style={styles.esquerda}>
-                    <Text style={styles.textoItem}>Id: {props.id}</Text>
-                    <Text style={styles.textoItem}>Nome: {props.nome}</Text>
-                    <Text style={styles.textoItem}>Email: {props.email}</Text>
-                </View>
-                <View style={styles.botaoCaixona}>
-
-                    <TouchableOpacity style={styles.botaoDeletar} onPress={() => { removeElement(); excluirDocumento(props.id) }} >
-                        <Text style={styles.botaoText}>X</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.botaoEditar} >
-                        <Text style={styles.botaoText}>Editar</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>)}
-        </View>
-    );
-}
