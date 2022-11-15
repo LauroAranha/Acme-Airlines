@@ -5,90 +5,105 @@ import {
     Image,
     SafeAreaView,
     TouchableOpacity,
+    ScrollView
 } from 'react-native';
+import Header from '../../components/Header';
 
 const Principal = ({ navigation }) => {
     return (
         <SafeAreaView>
-            <View style={styles.container}>
-                <View style={styles.header}>
-                    <Image
-                        style={styles.logo}
-                        source={require('../../../assets/Acmelogo.png')}
-                    />
-                    <TouchableOpacity  onPress={() => navigation.navigate('Perfil')}>
-                        <Image
-                            style={styles.perfil}
-                            source={require('../../../assets/user.png')}
-                        />
-                    </TouchableOpacity>
-                </View>
-                <Text style={styles.text}>Tela Principal</Text>
-
-                <View style={styles.containerBtn}>
+            <ScrollView>
+                <View style={styles.container}>
+                    <Header />
+                    <Text style={styles.text}>Olá Rogério!</Text>
                     <TouchableOpacity
-                        style={styles.btnPrincipal}
+                        style={styles.btnPrincipalTeste}
                         onPress={() => navigation.navigate('CadastroM')}
                     >
                         <Image
-                            style={styles.imageBtn}
+                            style={styles.imageBtnTeste}
                             source={require('../../../assets/worker.png')}
                         />
-                        <Text style={styles.btnText}>
-                            Cadastrar{'\n'}Mecanico
-                        </Text>
+                        <View style={styles.teste}>
+                            <Text style={styles.btnTextTeste}>
+                                Gerenciar equipe
+                                <Text style={styles.btnSubTextTeste}>
+                                    {'\n'}Gerencie sua equipe
+                                </Text>
+                            </Text>
+                        </View>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        style={styles.btnPrincipal}
+                        style={styles.btnPrincipalTeste}
                         onPress={() => navigation.navigate('AddManutencao')}
                     >
                         <Image
-                            style={styles.imageBtn}
+                            style={styles.imageBtnTeste}
                             source={require('../../../assets/service.png')}
                         />
-                        <Text style={styles.btnText}>
-                            Adicionar{'\n'}Manutenção
-                        </Text>
+                        <View style={styles.teste}>
+                            <Text style={styles.btnTextTeste}>
+                                Gerencie as manutenções
+                                <Text style={styles.btnSubTextTeste}>
+                                    {'\n'}Uma lista simples de problemas relatados
+                                </Text>
+                            </Text>
+                        </View>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        style={styles.btnPrincipal}
+                        style={styles.btnPrincipalTeste}
                         onPress={() => navigation.navigate('CadastroA')}
                     >
                         <Image
-                            style={styles.perfil}
+                            style={styles.imageBtnTeste}
                             source={require('../../../assets/engine.png')}
                         />
-                        <Text style={styles.btnText}>
-                            Cadastrar{'\n'}Aeronaves
-                        </Text>
+                        <View style={styles.teste}>
+                            <Text style={styles.btnTextTeste}>
+                                Gerenciar aeronaves
+                                <Text style={styles.btnSubTextTeste}>
+                                    {'\n'}Gerencie as aeronaves cadastradas ou adicione novas.
+                                </Text>
+                            </Text>
+                        </View>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        style={styles.btnPrincipal}
+                        style={styles.btnPrincipalTeste}
                         onPress={() => navigation.navigate('ErrorEnc')}
                     >
                         <Image
-                            style={styles.perfil}
+                            style={styles.imageBtnTeste}
                             source={require('../../screens/Assets/warning.png')}
                         />
-                        <Text style={styles.btnText}>
-                            Problemas{'\n'}Relatados
-                        </Text>
+                        <View style={styles.teste}>
+                            <Text style={styles.btnTextTeste}>
+                                Problemas Relatados
+                                <Text style={styles.btnSubTextTeste}>
+                                    {'\n'}Uma lista simples de problemas relatados
+                                </Text>
+                            </Text>
+                        </View>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        style={styles.btnPrincipal}
+                        style={styles.btnPrincipalTeste}
                         onPress={() => navigation.navigate('ListaManuten')}
                     >
                         <Image
-                            style={styles.perfil}
-                            source={require('../../screens/Assets/test.png')}
+                            style={styles.imageBtnTeste}
+                            source={require('../Assets/test.png')}
                         />
-                        <Text style={styles.btnText}>
-                            Lista{'\n'}Manutenções
-                        </Text>
+                        <View style={styles.teste}>
+                            <Text style={styles.btnTextTeste}>
+                                Listar manutenções
+                                <Text style={styles.btnSubTextTeste}>
+                                    {'\n'}Listagem de manutenções
+                                </Text>
+                            </Text>
+                        </View>
                     </TouchableOpacity>
                 </View>
-            </View>
-        </SafeAreaView>
+            </ScrollView>
+        </SafeAreaView >
     );
 };
 
