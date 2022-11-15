@@ -12,7 +12,7 @@ import {
 import { TextInput } from 'react-native-gesture-handler';
 import { TextInputMask } from 'react-native-masked-text';
 
-import AppItem from '../../components/AppItem';
+import CardMecanico from '../../components/CardMecanico';
 
 import { app, db } from '../../firebase';
 import {
@@ -26,8 +26,8 @@ import {
 
 const PagInsert = ({ navigation }) => {
     //atributos que serão adicionados no formulario
-    const [nome, setNome] = useState([]);
-    const [email, setEmail] = useState([]);
+    const [nome, setNome] = useState("Josinei Santos");
+    const [email, setEmail] = useState("Josinei@gmail.com");
     const [JSON_DATA, setJSON_DATA] = useState('');
     const [showIndicator, setShowIndicator] = useState(true);
     const list = [];
@@ -56,6 +56,7 @@ const PagInsert = ({ navigation }) => {
                 querySnapshot.forEach((doc) => {
                     list.push({ ...doc.data(), id: doc.id });
                 });
+                setJSON_DATA(list);
             } catch (e) {
                 console.error('erro: ', e);
             }
@@ -116,11 +117,11 @@ const PagInsert = ({ navigation }) => {
                 <FlatList
                     data={JSON_DATA}
                     renderItem={({ item }) => (
-                        <AppItem
+                        <CardMecanico
                             id={item.id}
                             nome={item.nome}
                             email={item.email}
-                        ></AppItem>
+                        ></CardMecanico>
                     )}
                 />
             </View>

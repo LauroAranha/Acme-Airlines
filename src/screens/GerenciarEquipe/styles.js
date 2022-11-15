@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         paddingStart: 10,
     },
     listBox: {
-        backgroundColor: 'red',
+        backgroundColor: '#f4f4f4',
         padding: 15,
         maxWidth: '95%',
         marginBottom: 70,

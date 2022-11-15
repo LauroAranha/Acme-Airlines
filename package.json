@@ -4,12 +4,13 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "first": "npm install & yarn install & yarn start -a",
-    "start": "expo start -a",
+    "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/vector-icons": "^13.0.0",
     "@react-native-async-storage/async-storage": "~1.17.3",
     "@react-native-firebase/firestore": "^16.4.3",
     "@react-navigation/bottom-tabs": "^6.4.0",

@@ -4,7 +4,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { TextInputMask } from 'react-native-masked-text';
 
-import AppItem from '../../components/AppItem';
+import CardMecanico from '../../components/CardMecanico';
 
 import { app, db } from '../../firebase';
 import {

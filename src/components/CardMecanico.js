@@ -1,25 +1,21 @@
 import React, { useState } from 'react';
 import { Text, StyleSheet, TouchableOpacity, View } from 'react-native';
 import {
-    getFirestore,
-    collection,
-    addDoc,
     deleteDoc,
-    getDocs,
     doc,
 } from 'firebase/firestore';
-
-import { app, db } from '../firebase';
+import { db } from '../firebase';
+import { AntDesign } from '@expo/vector-icons';
 
 async function excluirDocumento(input) {
-
+    console.log(input)
     let teste = (input)
     try {
         console.log('Documento a ser excluído: ' + teste);
         const res = await deleteDoc(
             doc(db, 'user', teste)
         );
-        console.log('Dado excluido:', res);
+        console.log('Dado excluido!');
         this.state = {
             showComponent: false,
         };
@@ -28,7 +24,7 @@ async function excluirDocumento(input) {
     }
 };
 
-export default function AppItem(props) {
+export default function CardMecanico(props) {
     var [visible, setVisible] = useState(true);
     const removeElement = () => {
         setVisible((prev) => !prev);
@@ -39,15 +35,21 @@ export default function AppItem(props) {
                 <View style={styles.caixona}>
 
                     <View style={styles.esquerda}>
-                        <Text style={styles.textoItem}>Id: {props.id}</Text>
+                        <Text style={styles.textoNome}>{props.nome}</Text>
+                        <Text style={styles.textoEmail}>{props.email}</Text>
                     </View>
                     <View style={styles.botaoCaixona}>
-                        <TouchableOpacity style={styles.botaoDeletar} onPress={() => { removeElement(); excluirDocumento(props.id) }} >
+                        {/* <TouchableOpacity style={styles.botaoDeletar} onPress={() => { removeElement(); excluirDocumento(props.id) }} >
                             <Text style={styles.botaoText}>X</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.botaoEditar} >
                             <Text style={styles.botaoText}>Editar</Text>
+                        </TouchableOpacity>  */}
+                        <TouchableOpacity style={styles.botaoDeletar} onPress={() => { removeElement(); excluirDocumento(props.id) }} >
+                            <AntDesign name="delete" size={40} color="white" />
                         </TouchableOpacity>
+                        <AntDesign name="edit" size={40} color="black" />
+
                     </View>
                 </View>
             </View>)}
@@ -58,10 +60,11 @@ export default function AppItem(props) {
 const styles = StyleSheet.create({
     caixona: {
         backgroundColor: '#fff',
-        marginTop: 20,
+        marginBottom: 20,
         width: '100%',
         padding: 20,
         alignSelf: 'center'
+
     },
     botaoCaixona: {
         flexDirection: 'row-reverse',
@@ -85,9 +88,7 @@ const styles = StyleSheet.create({
     },
     botaoDeletar: {
         marginLeft: 10,
-        height: 40,
-        width: 40,
-        backgroundColor: 'red',
+        backgroundColor: '#D11A2A',
         borderRadius: 10,
         padding: 10,
         fontSize: 12,
@@ -100,8 +101,11 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontWeight: 'bold',
     },
-    textoItem: {
+    textoNome: {
         fontSize: 20,
+    },
+    textoEmail: {
+        fontSize: 16,
     },
     esquerda: {
         maxWidth: "100%"

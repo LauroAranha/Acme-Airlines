@@ -8,11 +8,12 @@ import {
     FlatList,
     StyleSheet,
     ActivityIndicator,
+    ScrollView,
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { TextInputMask } from 'react-native-masked-text';
 
-import AppItem from '../../components/AppItem';
+import CardMecanico from '../../components/CardMecanico';
 
 import { app, db } from '../../firebase';
 import {
@@ -54,19 +55,18 @@ const GerenciarEquipe = ({ navigation }) => {
 
         <View>
             <Header />
-                <View>
-
-                    <FlatList
-                        data={JSON_DATA}
-                        renderItem={({ item }) => (
-                            <AppItem
-                                id={item.id}
-                                nome={item.nome}
-                                email={item.email}
-                            ></AppItem>
-                        )}
-                    />
-                </View>
+            <View style={styles.loginBox}>
+                <FlatList
+                    data={JSON_DATA}
+                    renderItem={({ item }) => (
+                        <CardMecanico
+                            id={item.id}
+                            nome={item.nome}
+                            email={item.email}
+                        ></CardMecanico>
+                    )}
+                />
+            </View>
         </View>
     );
 };
