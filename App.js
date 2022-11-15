@@ -1,3 +1,4 @@
+import { LogBox } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { View, Text } from 'react-native';
@@ -21,6 +22,8 @@ import PagInsert from './src/screens/PagInsert/PagInsertScreen'
 
 const AppStack = createStackNavigator();
 
+LogBox.ignoreLogs(["AsyncStorage has been extracted from react-native core and will be removed in a future release. It can now be installed and imported from '@react-native-async-storage/async-storage' instead of 'react-native'. See https://github.com/react-native-async-storage/async-storage"]);
+
 const App = () => {
     return (
         <NavigationContainer>
@@ -38,6 +41,11 @@ const App = () => {
                 }}
             >
                 <AppStack.Screen
+                    name="Principal"
+                    component={Principal}
+                    options={{ headerShown: false }}
+                />
+                <AppStack.Screen
                     name="PagInsert"
                     component={PagInsert}
                     options={{ headerShown: false }}
@@ -52,11 +60,7 @@ const App = () => {
                     component={LoginRegisScreen}
                     options={{ headerShown: false }}
                 />
-                <AppStack.Screen
-                    name="Principal"
-                    component={Principal}
-                    options={{ headerShown: false }}
-                />
+
                 <AppStack.Screen
                     name="AddManutencao"
                     component={AddManutencao}
