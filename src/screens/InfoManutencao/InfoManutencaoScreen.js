@@ -11,7 +11,7 @@ import {
 import { TextInput } from 'react-native-gesture-handler';
 import styles from './styles';
 
-const InfoManuten = ({ navigation }) => {
+const InfoManutencao = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <ScrollView>
@@ -181,4 +181,4 @@ const InfoManuten = ({ navigation }) => {
     );
 };
 
-export default InfoManuten;
+export default InfoManutencao;

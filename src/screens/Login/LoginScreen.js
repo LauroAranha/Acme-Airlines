@@ -15,7 +15,7 @@ import {
 } from 'firebase/firestore';
 import { signInWithEmailAndPassword } from 'firebase/auth'
 
-const LoginRegisScreen = ({ navigation }) => {
+const Login = ({ navigation }) => {
 
     const [email, setEmail] = useState("lauro@lauro.com");
     const [password, setPassword] = useState("lauro123");
@@ -74,4 +74,4 @@ const LoginRegisScreen = ({ navigation }) => {
     );
 };
 
-export default LoginRegisScreen;
+export default Login;

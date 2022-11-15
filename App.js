@@ -4,18 +4,18 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { View, Text } from 'react-native';
 
 
-import LoginRegisScreen from './src/screens/LoginRegis/LoginRegisScreen';
+import Login from './src/screens/Login/LoginScreen';
 import Principal from './src/screens/Principal/Principal';
 import AddManutencao from './src/screens/AddManutenção/AddManutencao'
 import AddTarefa from './src/screens/AddTarefa/AddTarefa';
 import AddP from './src/screens/AddPeças/AddPecas';
 import CadastroM from './src/screens/CadastroMecanico/CadastroM';
 import CadastroA from './src/screens/CadastroAeronaves/CadastroA';
-import ListaManuten from './src/screens/ListaManutenções/ListaManuten';
+import ListaManutencao from './src/screens/ListaManutencao/ListaManutencaoScreen';
 import ErrorEnc from './src/screens/ErrosEncontrados/ErrorEnc';
-import Descricao from './src/screens/Descrição Erro/Descricao';
+import DescricaoErro from './src/screens/DescricaoErro/DescricaoErroScreen';
 import Perfil from './src/screens/Perfil/Perfil';
-import InfoManuten from './src/screens/InfoManuten/InfoManuten';
+import InfoManutencao from './src/screens/InfoManutencao/InfoManutencaoScreen';
 
 import PagList from './src/screens/PagList/PagListScreen'
 import PagInsert from './src/screens/PagInsert/PagInsertScreen'
@@ -56,8 +56,8 @@ const App = () => {
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="LoginRegisScreen"
-                    component={LoginRegisScreen}
+                    name="Login"
+                    component={Login}
                     options={{ headerShown: false }}
                 />
 
@@ -87,8 +87,8 @@ const App = () => {
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="ListaManuten"
-                    component={ListaManuten}
+                    name="ListaManutencao"
+                    component={ListaManutencao}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
@@ -97,8 +97,8 @@ const App = () => {
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="Descricao"
-                    component={Descricao}
+                    name="DescricaoErro"
+                    component={DescricaoErro}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
@@ -107,8 +107,8 @@ const App = () => {
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="InfoManuten"
-                    component={InfoManuten}
+                    name="InfoManutencao"
+                    component={InfoManutencao}
                     options={{ headerShown: false }}
                 />
             </AppStack.Navigator>

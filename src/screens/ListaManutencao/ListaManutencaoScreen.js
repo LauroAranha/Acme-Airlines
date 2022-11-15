@@ -9,7 +9,7 @@ import {
     TextInput,
 } from 'react-native';
 
-const ListaManuten = ({ navigation }) => {
+const ListaManutencao = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
@@ -147,4 +147,4 @@ const ListaManuten = ({ navigation }) => {
     );
 };
 
-export default ListaManuten;
+export default ListaManutencao;

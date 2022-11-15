@@ -13,7 +13,7 @@ import { TextInput } from 'react-native-gesture-handler';
 import PickerSelect from 'react-native-picker-select';
 import styles from './styles';
 
-const Descricao = ({ navigation }) => {
+const DescricaoErro = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <ScrollView>
@@ -22,7 +22,7 @@ const Descricao = ({ navigation }) => {
                         style={styles.logo}
                         source={require('../../../assets/Acmelogo.png')}
                     />
-                   <TouchableOpacity  onPress={() => navigation.navigate('Perfil')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
                         <Image
                             style={styles.perfil}
                             source={require('../../../assets/user.png')}
@@ -61,4 +61,4 @@ const Descricao = ({ navigation }) => {
     );
 };
 
-export default Descricao;
+export default DescricaoErro;
