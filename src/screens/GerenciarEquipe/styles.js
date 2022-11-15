@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     },
     listBox: {
         backgroundColor: '#f4f4f4',
-        padding: 15,
+        paddingBottom: 120,
         maxWidth: '95%',
         marginBottom: 70,
         borderRadius: 15,
@@ -65,6 +65,22 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         alignContent: 'center',
+    },
+    buttonNewTask: {
+        width: 60,
+        height: 60,
+        position: "absolute",
+        bottom: 0,
+        left: 20,
+        backgroundColor: "#F92e6a",
+        borderRadius: 50,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    iconButton: {
+        color: "#ffffff",
+        fontSize: 25,
+        fontWeight: "bold",
     },
 });
 

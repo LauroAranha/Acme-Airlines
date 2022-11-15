@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { TextInputMask } from 'react-native-masked-text';
+import { MaterialIcons } from '@expo/vector-icons';
 
 import CardMecanico from '../../components/CardMecanico';
 
@@ -53,9 +54,9 @@ const GerenciarEquipe = ({ navigation }) => {
 
     return (
 
-        <View>
+        <View style={{ flex: 1 }}>
             <Header />
-            <View style={styles.loginBox}>
+            <View style={styles.listBox}>
                 <FlatList
                     data={JSON_DATA}
                     renderItem={({ item }) => (
@@ -67,7 +68,15 @@ const GerenciarEquipe = ({ navigation }) => {
                     )}
                 />
             </View>
+            <View
+                style={{ position: 'absolute', bottom: 0, alignSelf: 'flex-start', left: 5, bottom: 5 }}
+            >
+                <TouchableOpacity style={{ borderRadius: 100, }}>
+                    <MaterialIcons name="add-circle" size={65} color="#4842FF" />
+                </TouchableOpacity>
+            </View>
         </View>
+
     );
 };
 
