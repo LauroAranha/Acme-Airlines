@@ -16,6 +16,7 @@ import DescricaoErro from './src/screens/DescricaoErro/DescricaoErroScreen';
 import Perfil from './src/screens/Perfil/Perfil';
 import InfoManutencao from './src/screens/InfoManutencao/InfoManutencaoScreen';
 import GerenciarEquipe from './src/screens/GerenciarEquipe/GerenciarEquipe';
+import GerenciarAeronave from './src/screens/GerenciarAeronaves/GerenciarAeronave';
 import PagList from './src/screens/PagList/PagListScreen';
 import PagInsert from './src/screens/PagInsert/PagInsertScreen';
 
@@ -49,6 +50,11 @@ const App = () => {
                 <AppStack.Screen
                     name="GerenciarEquipe"
                     component={GerenciarEquipe}
+                    options={{ headerShown: false }}
+                />
+                <AppStack.Screen
+                    name="GerenciarAeronave"
+                    component={GerenciarAeronave}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen

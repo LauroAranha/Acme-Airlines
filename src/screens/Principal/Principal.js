@@ -53,7 +53,7 @@ const Principal = ({ navigation }) => {
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.btnPrincipalTeste}
-                        onPress={() => navigation.navigate('CadastroA')}
+                        onPress={() => navigation.navigate('GerenciarAeronave')}
                     >
                         <Image
                             style={styles.imageBtnTeste}
