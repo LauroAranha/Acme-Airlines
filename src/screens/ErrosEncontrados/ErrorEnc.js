@@ -9,21 +9,11 @@ import {
     TextInput,
 } from 'react-native';
 
+import Header from '../../components/Header';
 const ErrorEnc = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.header}>
-                <Image
-                    style={styles.logo}
-                    source={require('../../../assets/Acmelogo.png')}
-                />
-                <TouchableOpacity  onPress={() => navigation.navigate('Perfil')}>
-                        <Image
-                            style={styles.perfil}
-                            source={require('../../../assets/user.png')}
-                        />
-                    </TouchableOpacity>
-            </View>
+            <Header />
             <View
                 style={{
                     height: '90%',
@@ -32,7 +22,7 @@ const ErrorEnc = ({ navigation }) => {
                     alignItems: 'center',
                 }}
             >
-                <ScrollView style={{width: '90%' , marginRight: '10%', marginBottom: '20%'}}>
+                <ScrollView style={{ width: '90%', marginRight: '10%', marginBottom: '20%' }}>
                     <View style={styles.scrollview}>
                         <Text style={styles.baseText}>
                             Problemas Relatados:

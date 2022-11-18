@@ -10,25 +10,13 @@ import {
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import styles from './styles';
+import Header from '../../components/Header';
 
 const InfoManutencao = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <ScrollView>
-                <View style={styles.header}>
-                    <Image
-                        style={styles.logo}
-                        source={require('../../../assets/Acmelogo.png')}
-                    />
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Perfil')}
-                    >
-                        <Image
-                            style={styles.perfil}
-                            source={require('../../../assets/user.png')}
-                        />
-                    </TouchableOpacity>
-                </View>
+                <Header />
                 <View style={styles.scrollview}>
                     <View style={styles.loginBox}>
                         <Text style={styles.baseText}>IMAGEM DA AERONAVE:</Text>

@@ -14,6 +14,7 @@ import { TextInput } from 'react-native-gesture-handler';
 import { TextInputMask } from 'react-native-masked-text';
 import PickerSelect from 'react-native-picker-select';
 import styles from './styles';
+import Header from '../../components/Header';
 
 import { auth } from '../../firebase';
 import {
@@ -93,19 +94,8 @@ const CadastroM = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+            <Header />
             <ScrollView>
-                <View style={styles.header}>
-                    <Image
-                        style={styles.logo}
-                        source={require('../../../assets/Acmelogo.png')}
-                    />
-                    <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
-                        <Image
-                            style={styles.perfil}
-                            source={require('../../../assets/user.png')}
-                        />
-                    </TouchableOpacity>
-                </View>
                 <View style={styles.scrollview}>
                     <View style={styles.loginBox}>
                         <Text style={styles.loginText}>Nome:</Text>

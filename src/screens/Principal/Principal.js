@@ -12,9 +12,10 @@ import Header from '../../components/Header';
 const Principal = ({ navigation }) => {
     return (
         <SafeAreaView>
+            <Header />
             <ScrollView>
                 <View style={styles.container}>
-                    <Header />
+                    
                     <Text style={styles.text}>Olá usuário!</Text>
                     <TouchableOpacity
                         style={styles.btnPrincipalTeste}
