@@ -71,7 +71,17 @@ export default function CardAeronave(props) {
                             <TouchableOpacity
                                 style={styles.botaoEditar}
                                 onPress={() =>
-                                    navigation.navigate('EditarAeronave')
+                                    navigation.navigate('EditarAeronaves', {
+                                        id: props.id,
+                                        nome: props.nome,
+                                        matriculaAeronave:
+                                            props.matriculaAeronave,
+                                        ultimoVoo: props.ultimoVoo,
+                                        horarioChegada: props.horarioChegada,
+                                        nacionalidadeAeronave:
+                                            props.nacionalidadeAeronave,
+                                        modeloAeronave: props.modeloAeronave,
+                                    })
                                 }
                             >
                                 <AntDesign

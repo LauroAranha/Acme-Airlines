@@ -10,6 +10,7 @@ import AddTarefa from './src/screens/AddTarefa/AddTarefa';
 import AddP from './src/screens/AddPeças/AddPecas';
 import CadastroM from './src/screens/CadastroMecanico/CadastroM';
 import CadastroA from './src/screens/CadastroAeronaves/CadastroA';
+import EditarAeronave from './src/screens/EditarAeronave/EditarAeronave';
 import ListaManutencao from './src/screens/ListaManutencao/ListaManutencaoScreen';
 import ErrorEnc from './src/screens/ErrosEncontrados/ErrorEnc';
 import DescricaoErro from './src/screens/DescricaoErro/DescricaoErroScreen';
@@ -101,6 +102,12 @@ const App = () => {
                 <AppStack.Screen
                     name="ListaManutencao"
                     component={ListaManutencao}
+                    options={{ headerShown: false }}
+                />
+
+                <AppStack.Screen
+                    name="EditarAeronave"
+                    component={EditarAeronave}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
