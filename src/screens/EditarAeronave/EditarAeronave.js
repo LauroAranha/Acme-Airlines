@@ -19,7 +19,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons';
 
 import { db } from '../../firebase';
-import { collection, addDoc, updateDoc } from 'firebase/firestore';
+import { collection, addDoc, updateDoc, doc } from 'firebase/firestore';
 import styles from './styles';
 
 const pickImage = async () => {
@@ -38,43 +38,35 @@ const pickImage = async () => {
     }
 };
 
-createThreeButtonAlert = () =>
-    Alert.alert(
-        'Deseja Cadastrar essa Aeronave 🤔',
-        'Essa operação nâo pode ser desfeita mais tarde.',
-        [
-            {
-                text: 'Não',
-                onPress: () => console.log('Cancel Pressed'),
-                style: 'cancel',
-            },
-            {
-                text: 'Sim',
-                onPress: () => {
-                    {
-                        this.createThreeButtonAlert2;
-                        addUser();
-                    }
-                },
-            },
-        ]
-    );
+// createThreeButtonAlert = () =>
+//     Alert.alert(
+//         'Deseja Cadastrar essa Aeronave 🤔',
+//         'Essa operação nâo pode ser desfeita mais tarde.',
+//         [
+//             {
+//                 text: 'Não',
+//                 onPress: () => console.log('Cancel Pressed'),
+//                 style: 'cancel',
+//             },
+//             {
+//                 text: 'Sim',
+//                 onPress: () => {
+//                     {
+//                         this.createThreeButtonAlert2;
+//                         addUser();
+//                     }
+//                 },
+//             },
+//         ]
+//     );
 
 const EditarAeronave = ({ navigation, route }) => {
     const [nomeEdit, setNomeEdit] = useState(route.params.nome);
-    const [matriculaAeronaveEdit, setMatriculaAeronaveEdit] = useState(
-        route.params.setMatriculaAeronave
-    );
+    const [matriculaAeronaveEdit, setMatriculaAeronaveEdit] = useState(route.params.setMatriculaAeronave);
     const [ultimoVooEdit, setUltimoVooEdit] = useState(route.params.ultimoVoo);
-    const [horarioChegadaEdit, setHorarioChegadaEdit] = useState(
-        route.params.horarioChegada
-    );
-    const [nacionalidadeAeronaveEdit, setNacionalidadeAeronaveEdit] = useState(
-        route.params.nacionalidadeAeronave
-    );
-    const [modeloAeronaveEdit, setModeloAeronaveEdit] = useState(
-        route.params.modeloAeronave
-    );
+    const [horarioChegadaEdit, setHorarioChegadaEdit] = useState(route.params.horarioChegada);
+    const [nacionalidadeAeronaveEdit, setNacionalidadeAeronaveEdit] = useState(route.params.nacionalidadeAeronave);
+    const [modeloAeronaveEdit, setModeloAeronaveEdit] = useState(route.params.modeloAeronave);
     const idAeronave = route.params.id;
     // const [JSON_DATA, setJSON_DATA] = useState('');
     // const [showIndicator, setShowIndicator] = useState(true);
@@ -87,53 +79,31 @@ const EditarAeronave = ({ navigation, route }) => {
         horarioChegada,
         nacionalidadeAeronave,
         modeloAeronave,
-        idAeronave
+        id
     ) {
         try {
             // aqui é atribuido a função addDoc (cuja função é adicionar um documento no firebase) a constante docRef
             // os parâmetros são a ligação pro firestore ( getFirestore()) e a collection que o documento será adicionado
             const docRef = await updateDoc(
-                collection(db, 'aeronave', idAeronave),
-                {
-                    nome: nomeEdit,
-                    matriculaAeronave: matriculaAeronaveEdit,
-                    ultimoVoo: ultimoVooEdit,
-                    horarioChegada: horarioChegadaEdit,
-                    nacionalidadeAeronave: nacionalidadeAeronaveEdit,
-                    modeloAeronave: modeloAeronaveEdit,
-                }
+                doc(db, 'aeronave', 'UjB87vBA4kUYaHaU5EnA'), {
+                nome: nomeEdit,
+                matriculaAeronave: matriculaAeronaveEdit,
+                ultimoVoo: ultimoVooEdit,
+                horarioChegada: horarioChegadaEdit,
+                nacionalidadeAeronave: nacionalidadeAeronaveEdit,
+                modeloAeronave: modeloAeronaveEdit,
+            }
             );
 
             navigation.navigate('GerenciarAeronave');
         } catch (e) {
             console.error('Erro adicionando o documento: ', e);
+
+            console.log('Id: ', idAeronave);
+            console.log('Nome: ', nomeEdit);
         }
     }
-    // const adicionarAeronave = async () => {
-    //     try {
-    //         // aqui é atribuido a função addDoc (cuja função é adicionar um documento no firebase) a constante docRef
-    //         // os parâmetros são a ligação pro firestore ( getFirestore()) e a collection que o documento será adicionado
-    //         const docRef = await addDoc(collection(db, 'aeronave'), {
-    //             nome: nome,
-    //             matriculaAeronave: matriculaAeronave,
-    //             ultimoVoo: ultimoVoo,
-    //             horarioChegada:   ,
-    //             nacionalidadeAeronave: nacionalidadeAeronave,
-    //             modeloAeronave: modeloAeronave,
-    //         });
-    //         console.log('Documento adicionado com sucesso! ID: ', docRef.id);
-    //         setNome('');
-    //         setMatriculaAeronave('');
-    //         setUltimoVoo('');
-    //         setHorarioChegada('');
-    //         setNacionalidadeAeronave('');
-    //         setModeloAeronave('');
-    //     } catch (e) {
-    //         console.error('Erro adicionando o documento: ', e);
-    //     }
-    // };
-    // const [image, setImage] = useState(null);
-    // const [time, onChangetime] = React.useState('');
+
     return (
         <View style={styles.container}>
             <Header />
@@ -164,12 +134,12 @@ const EditarAeronave = ({ navigation, route }) => {
                         >
                             <Text>Selecione a imagem do Avião</Text>
                         </TouchableOpacity>
-                        {image && (
+                        {/* {image && (
                             <Image
                                 source={{ uri: image }}
                                 style={{ width: 200, height: 200 }}
                             />
-                        )}
+                        )} */}
                         <Text style={styles.loginText}>Nome da Aeronave:</Text>
                         <TextInput
                             style={styles.input}
@@ -183,8 +153,7 @@ const EditarAeronave = ({ navigation, route }) => {
                         <TextInput
                             style={styles.input}
                             value={matriculaAeronaveEdit}
-                            onChangeText={(text) =>
-                                setMatriculaAeronaveEdit(text)
+                            onChangeText={(text) => setMatriculaAeronaveEdit(text)
                             }
                         />
 

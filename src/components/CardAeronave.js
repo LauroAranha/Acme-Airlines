@@ -3,6 +3,8 @@ import { Text, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { deleteDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { AntDesign } from '@expo/vector-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
+
 
 async function excluirDocumento(input) {
     console.log(input);
@@ -24,6 +26,7 @@ export default function CardAeronave(props) {
     const removeElement = () => {
         setVisible((prev) => !prev);
     };
+    const navigation = useNavigation();
     return (
         <View>
             {visible && (
@@ -71,15 +74,13 @@ export default function CardAeronave(props) {
                             <TouchableOpacity
                                 style={styles.botaoEditar}
                                 onPress={() =>
-                                    navigation.navigate('EditarAeronaves', {
+                                    navigation.navigate('EditarAeronave', {
                                         id: props.id,
                                         nome: props.nome,
-                                        matriculaAeronave:
-                                            props.matriculaAeronave,
+                                        matriculaAeronave: props.matriculaAeronave,
                                         ultimoVoo: props.ultimoVoo,
                                         horarioChegada: props.horarioChegada,
-                                        nacionalidadeAeronave:
-                                            props.nacionalidadeAeronave,
+                                        nacionalidadeAeronave: props.nacionalidadeAeronave,
                                         modeloAeronave: props.modeloAeronave,
                                     })
                                 }
