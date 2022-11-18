@@ -9,11 +9,11 @@ import { AntDesign } from '@expo/vector-icons';
 
 async function excluirDocumento(input) {
     console.log(input)
-    let teste = (input)
+    let idDocumento = (input)
     try {
-        console.log('Documento a ser excluído: ' + teste);
+        console.log('Documento a ser excluído: ' + idDocumento);
         const res = await deleteDoc(
-            doc(db, 'user', teste)
+            doc(db, 'mecanicoGeral', idDocumento)
         );
         console.log('Dado excluido!');
         this.state = {

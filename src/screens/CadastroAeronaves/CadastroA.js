@@ -66,7 +66,7 @@ const CadastroA = ({ navigation }) => {
     const [showIndicator, setShowIndicator] = useState(true);
     const list = [];
 
-    const addUser = async () => {
+    const adicionarAeronave = async () => {
         try {
             // aqui é atribuido a função addDoc (cuja função é adicionar um documento no firebase) a constante docRef
             // os parâmetros são a ligação pro firestore ( getFirestore()) e a collection que o documento será adicionado
@@ -174,7 +174,7 @@ const CadastroA = ({ navigation }) => {
                     </View>
                     <TouchableOpacity
                         style={styles.btnCadastro}
-                        onPress={() => createThreeButtonAlert}
+                        onPress={() => adicionarAeronave()}
                     >
                         <Text style={styles.btnText}>Cadastar</Text>
                     </TouchableOpacity>
