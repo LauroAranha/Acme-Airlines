@@ -85,7 +85,7 @@ const EditarAeronave = ({ navigation, route }) => {
             // aqui é atribuido a função addDoc (cuja função é adicionar um documento no firebase) a constante docRef
             // os parâmetros são a ligação pro firestore ( getFirestore()) e a collection que o documento será adicionado
             const docRef = await updateDoc(
-                doc(db, 'aeronave', 'UjB87vBA4kUYaHaU5EnA'), {
+                doc(db, 'aeronave', idAeronave), {
                 nome: nomeEdit,
                 matriculaAeronave: matriculaAeronaveEdit,
                 ultimoVoo: ultimoVooEdit,
