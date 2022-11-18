@@ -38,7 +38,7 @@ const GerenciarEquipe = ({ navigation }) => {
     useEffect(() => {
         async function listUser() {
             try {
-                const querySnapshot = await getDocs(collection(db, 'user'));
+                const querySnapshot = await getDocs(collection(db, 'mecanicoGeral'));
                 querySnapshot.forEach((doc) => {
                     list.push({ ...doc.data(), id: doc.id });
                 });
