@@ -1,6 +1,6 @@
-import React from 'react';
-import {View, TouchableOpacity, Image, Text, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import React, { useState, useEffect } from 'react';
+import { View, TouchableOpacity, Image, Text, StyleSheet } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 const styles = StyleSheet.create({
     header: {
@@ -36,13 +36,30 @@ const styles = StyleSheet.create({
 
 export default function Header() {
     const navigation = useNavigation();
+
+    const route = useRoute();
+    console.log(route.name);
+
+
+
+    useEffect(() => {
+        if (route.name == 'Principal') {
+
+        } else {
+
+        }
+    }, []);
+
+
     return (
         <View>
             <View style={styles.header}>
-                <Image
-                    style={styles.logo}
-                    source={require('../../assets/Acmelogo.png')}
-                />
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <Image
+                        style={styles.logo}
+                        source={require('../../assets/Acmelogo.png')}
+                    />
+                </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
                     <Image
                         style={styles.perfil}
