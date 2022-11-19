@@ -44,6 +44,11 @@ const App = () => {
                 }}
             >
                 <AppStack.Screen
+                    name="Login"
+                    component={Login}
+                    options={{ headerShown: false }}
+                />
+                <AppStack.Screen
                     name="Principal"
                     component={Principal}
                     options={{ headerShown: false }}
@@ -68,12 +73,6 @@ const App = () => {
                     component={PagList}
                     options={{ headerShown: false }}
                 />
-                <AppStack.Screen
-                    name="Login"
-                    component={Login}
-                    options={{ headerShown: false }}
-                />
-
                 <AppStack.Screen
                     name="AddManutencao"
                     component={AddManutencao}
