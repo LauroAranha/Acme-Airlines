@@ -1,6 +1,6 @@
 import styles from './styles';
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { View, Text, Image, TouchableOpacity, KeyboardAvoidingView, Alert } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { TextInputMask } from 'react-native-masked-text';
 
@@ -17,19 +17,32 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 
 const Login = ({ navigation }) => {
 
-    const [email, setEmail] = useState("lauro@lauro.com");
-    const [password, setPassword] = useState("lauro123");
+    const [email, setEmail] = useState([]);
+    const [password, setPassword] = useState([]);
+    const [erroLogin, setErroLogin] = useState(false)
 
     const logInWithEmailAndPassword = async () => {
         try {
             const res = await signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+                let user = userCredential.user
+                console.log("Usuário autenticado! " + user.email)
+                navigation.navigate('Principal', { emailUser: user.email })
             });
-            console.log("Usuário autenticado!")
+            setEmail('')
+            setPassword('')
         } catch (e) {
-            console.error(e);
-            alert(e.message);
+            setErroLogin(true)
+            {
+                <View>
+                    {Alert.alert('Login inválido, revise seus dados.\n\n' + e.message)}
+                </View>
+            }
         }
     };
+
+    const handleLogin = async () => {
+        logInWithEmailAndPassword(setEmail, setPassword)
+    }
 
     return (
         <KeyboardAvoidingView
@@ -52,6 +65,7 @@ const Login = ({ navigation }) => {
                     value={password}
                     style={styles.input}
                     onChangeText={(text) => setPassword(text)}
+
                 />
 
                 <TouchableOpacity style={styles.forgotPass}>
@@ -62,12 +76,14 @@ const Login = ({ navigation }) => {
                 <TouchableOpacity
                     style={styles.btnLogin}
                     onPress={() => {
-                        logInWithEmailAndPassword(setEmail, setPassword);
-                        navigation.navigate('Principal')
+                        handleLogin();
+                        setErroLogin(false)
                     }}
                 >
                     <Text style={styles.btnText}>Entrar</Text>
                 </TouchableOpacity>
+                {
+                }
             </View>
         </KeyboardAvoidingView>
     );

@@ -8,15 +8,16 @@ import {
     ScrollView,
 } from 'react-native';
 import Header from '../../components/Header';
+import { roundToNearestPixel } from 'react-native/Libraries/Utilities/PixelRatio';
 
-const Principal = ({ navigation }) => {
+const Principal = ({ navigation, route }) => {
     return (
         <SafeAreaView>
             <Header />
             <ScrollView>
                 <View style={styles.container}>
-                    
-                    <Text style={styles.text}>Olá usuário!</Text>
+
+                    <Text style={styles.text}>Olá + {route.params.emailUser}!</Text>
                     <TouchableOpacity
                         style={styles.btnPrincipalTeste}
                         onPress={() => navigation.navigate('GerenciarEquipe')}
