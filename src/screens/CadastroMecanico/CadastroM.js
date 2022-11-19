@@ -30,11 +30,11 @@ import { createUserWithEmailAndPassword, sendPasswordResetEmail } from 'firebase
 
 const CadastroM = ({ navigation }) => {
 
-    const [nome, setNome] = useState("kawan ele mesmo");
-    const [cpf, setCpf] = useState("435.367.956-00");
-    const [rg, setRg] = useState("59.634.856-22");
-    const [email, setEmail] = useState("kawan.ximendes@gmail.com");
-    const [telefone, setTelefone] = useState("(+55)950234-6542");
+    const [nome, setNome] = useState([]);
+    const [cpf, setCpf] = useState([]);
+    const [rg, setRg] = useState([]);
+    const [email, setEmail] = useState([]);
+    const [telefone, setTelefone] = useState([]);
 
     const [password, setPassword] = useState("senha123");
 
@@ -114,7 +114,7 @@ const CadastroM = ({ navigation }) => {
                         ></TextInputMask>
 
                         <Text style={styles.loginText}>RG:</Text>
-                        <TextInputMask
+                        <TextInput
                             type={'custom'}
                             value={rg}
                             options={{
@@ -123,7 +123,7 @@ const CadastroM = ({ navigation }) => {
                             placeholder="000.000.000-00"
                             style={styles.input}
                             onChangeText={(text) => setRg(text)}
-                        ></TextInputMask>
+                        ></TextInput>
 
                         <Text style={styles.loginText}>Email:</Text>
                         <TextInput value={email}
@@ -131,7 +131,7 @@ const CadastroM = ({ navigation }) => {
                             style={styles.input} />
 
                         <Text style={styles.loginText}>Telefone:</Text>
-                        <TextInputMask
+                        <TextInput
                             type={'cel-phone'}
                             value={telefone}
                             options={{
@@ -143,7 +143,7 @@ const CadastroM = ({ navigation }) => {
                             keyboardType="numeric"
                             style={styles.input}
                             onChangeText={(text) => setTelefone(text)}
-                        ></TextInputMask>
+                        ></TextInput>
                     </View>
                     <TouchableOpacity
                         style={styles.btnCadastro}
