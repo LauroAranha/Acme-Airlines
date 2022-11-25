@@ -38,7 +38,7 @@ export default function Header() {
     const navigation = useNavigation();
 
     const route = useRoute();
-    console.log(route.name);
+    //console.log(route.name);
 
 
 
