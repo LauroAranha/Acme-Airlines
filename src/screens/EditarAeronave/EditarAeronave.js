@@ -62,7 +62,7 @@ const pickImage = async () => {
 
 const EditarAeronave = ({ navigation, route }) => {
     const [nomeEdit, setNomeEdit] = useState(route.params.nome);
-    const [matriculaAeronaveEdit, setMatriculaAeronaveEdit] = useState(route.params.setMatriculaAeronave);
+    const [matriculaAeronaveEdit, setMatriculaAeronaveEdit] = useState(route.params.matriculaAeronave);
     const [ultimoVooEdit, setUltimoVooEdit] = useState(route.params.ultimoVoo);
     const [horarioChegadaEdit, setHorarioChegadaEdit] = useState(route.params.horarioChegada);
     const [nacionalidadeAeronaveEdit, setNacionalidadeAeronaveEdit] = useState(route.params.nacionalidadeAeronave);
