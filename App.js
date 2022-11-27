@@ -5,11 +5,11 @@ import { View, Text } from 'react-native';
 
 import Login from './src/screens/Login/LoginScreen';
 import Principal from './src/screens/Principal/Principal';
-import AddManutencao from './src/screens/AddManutenção/AddManutencao';
+import AddManutencao from './src/screens/CadastroManutencao/CadastroManutencaoScreen';
 import AddTarefa from './src/screens/AddTarefa/AddTarefa';
 import AddP from './src/screens/AddPeças/AddPecas';
 import CadastroM from './src/screens/CadastroMecanico/CadastroM';
-import CadastroA from './src/screens/CadastroAeronaves/CadastroA';
+import CadastroAeronave from './src/screens/CadastroAeronave/CadastroAeronave';
 import EditarAeronave from './src/screens/EditarAeronave/EditarAeronave';
 import ListaManutencao from './src/screens/ListaManutencao/ListaManutencaoScreen';
 import ErrorEnc from './src/screens/ErrosEncontrados/ErrorEnc';
@@ -43,14 +43,15 @@ const App = () => {
                     headerTitleAlign: 'center',
                 }}
             >
-                <AppStack.Screen
-                    name="Login"
-                    component={Login}
-                    options={{ headerShown: false }}
-                />
+                
                 <AppStack.Screen
                     name="Principal"
                     component={Principal}
+                    options={{ headerShown: false }}
+                />
+                <AppStack.Screen
+                    name="Login"
+                    component={Login}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
@@ -95,7 +96,7 @@ const App = () => {
                 />
                 <AppStack.Screen
                     name="CadastroA"
-                    component={CadastroA}
+                    component={CadastroAeronave}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
