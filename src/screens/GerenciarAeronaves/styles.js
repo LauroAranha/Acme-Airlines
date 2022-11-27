@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     listBox: {
         backgroundColor: '#f4f4f4',
         paddingBottom: 120,
-        maxWidth: '95%',
+        maxWidth: '100%',
         marginBottom: 70,
         borderRadius: 15,
         minWidth: '75%',

@@ -18,28 +18,16 @@ import * as ImagePicker from 'expo-image-picker';
 
 import { Ionicons } from '@expo/vector-icons';
 
-import { db } from '../../firebase';
+import { db, storage } from '../../firebase';
 import {
     collection,
     addDoc,
 } from 'firebase/firestore';
+
+
+import { ref, uploadBytes } from "firebase/storage";
 import styles from './styles';
 
-const pickImage = async () => {
-    // No permissions request is necessary for launching the image library
-    let result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.All,
-        allowsEditing: true,
-        aspect: [4, 3],
-        quality: 1,
-    });
-
-    console.log(result);
-
-    if (!result.cancelled) {
-        setImage(result.uri);
-    }
-};
 
 createThreeButtonAlert = () =>
     Alert.alert(
@@ -55,16 +43,58 @@ createThreeButtonAlert = () =>
         ]
     );
 
-const CadastroA = ({ navigation }) => {
+const CadastroAeronave = ({ navigation }) => {
     const [nome, setNome] = useState([]);
     const [matriculaAeronave, setMatriculaAeronave] = useState([]);
     const [ultimoVoo, setUltimoVoo] = useState([]);
     const [horarioChegada, setHorarioChegada] = useState([]);
     const [nacionalidadeAeronave, setNacionalidadeAeronave] = useState([]);
     const [modeloAeronave, setModeloAeronave] = useState([]);
+    const [arquivo, setArquivo] = useState(null);
+    const [uploadArquivo, setUploadArquivo] = useState(false);
     const [JSON_DATA, setJSON_DATA] = useState('');
     const [showIndicator, setShowIndicator] = useState(true);
     const list = [];
+
+
+    const pickFile = async () => {
+        // No permissions request is necessary for launching the image library
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1,
+        });
+
+        const source = { uri: result.uri }
+        console.log(source)
+
+        if (!result.cancelled) {
+            setImage(source);
+        }
+    };
+
+
+    const uploadImage = async () => {
+        setUploadArquivo(true)
+        const response = await fetch(image.uri)
+        const blob = await response.blob();
+        const filename = image.uri.substring(image.uri.lastIndexOf('/') + 1)
+        //var ref = storage.ref().child(filename).put(blob);
+
+
+        try {
+            const storageRef = await ref(storageRef, '4263093d-2c0c-406a-9342-404e6b2a916d.jpeg').then((snapshot) => {
+                console.log('Uploaded a blob or file!');
+            });
+
+            console.log("Doc adicionado" + storageRef)
+        } catch (e) {
+            console.error('Erro fazendo upload de imagem: ', e);
+        }
+        setUploadArquivo(false)
+        setImage(null)
+    }
 
     const adicionarAeronave = async () => {
         try {
@@ -112,26 +142,6 @@ const CadastroA = ({ navigation }) => {
             <ScrollView>
                 <View style={styles.scrollview}>
                     <View style={styles.loginBox}>
-                        <Text style={styles.loginText}>
-                            Imagem da Aeronave:
-                        </Text>
-                        <TouchableOpacity
-                            style={styles.btnLogin}
-                            onPress={pickImage}
-                        >
-                            <Text>Selecione a imagem do Avião</Text>
-                        </TouchableOpacity>
-                        {image && (
-                            <Image
-                                source={{ uri: image }}
-                                style={{ width: 200, height: 200 }}
-                            />
-                        )}
-                        <Text style={styles.loginText}>Nome da Aeronave:</Text>
-                        <TextInput style={styles.input}
-                            value={nome}
-                            onChangeText={(text) => setNome(text)}
-                        />
 
                         <Text style={styles.loginText}>
                             Matricula da Aeronave:
@@ -170,7 +180,21 @@ const CadastroA = ({ navigation }) => {
                         <TextInput style={styles.input}
                             value={modeloAeronave}
                             onChangeText={(text) => setModeloAeronave(text)} />
-
+                        <Text style={styles.loginText}>
+                            Manual da Aeronave:
+                        </Text>
+                        <TouchableOpacity
+                            style={styles.btnLogin}
+                            onPress={pickFile}
+                        >
+                            <Text>Selecione a arquivo do manual</Text>
+                        </TouchableOpacity>
+                        {image && (
+                            <Image
+                                source={{ uri: image.uri }}
+                                style={{ width: 200, height: 200 }}
+                            />
+                        )}
                     </View>
                     <TouchableOpacity
                         style={styles.btnCadastro}
@@ -184,4 +208,4 @@ const CadastroA = ({ navigation }) => {
     );
 };
 
-export default CadastroA;
+export default CadastroAeronave;

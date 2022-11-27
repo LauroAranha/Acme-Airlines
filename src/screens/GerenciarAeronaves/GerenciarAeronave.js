@@ -67,6 +67,7 @@ const GerenciarAeronave = ({ navigation }) => {
             <Header />
             <View style={styles.listBox}>
                 <FlatList
+                    style={{ width: '100%', backgroundColor: 'red' }}
                     data={JSON_DATA}
                     renderItem={({ item }) => (
                         <CardAeronave
