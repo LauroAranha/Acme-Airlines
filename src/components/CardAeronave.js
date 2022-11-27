@@ -92,7 +92,14 @@ export default function CardAeronave(props) {
 const styles = StyleSheet.create({
     caixona: {
         backgroundColor: '#fff',
-        marginBottom: 20,
+        width: '100%',
+        padding: 20,
+        alignSelf: 'center',
+        borderBottomWidth: 4,
+        borderBottomColor: '#CCC',
+    },
+    'caixona:last-child': {
+        backgroundColor: '#fff',
         width: '100%',
         padding: 20,
         alignSelf: 'center',
@@ -100,8 +107,6 @@ const styles = StyleSheet.create({
     botaoCaixona: {
         flexDirection: 'row-reverse',
         alignItems: 'center',
-        borderBottomWidth: 1,
-        borderBottomColor: '#CCC',
         paddingBottom: 10,
         marginTop: 10,
     },
