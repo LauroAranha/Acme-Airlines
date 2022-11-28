@@ -140,21 +140,6 @@ const CadastroAeronave = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Header />
-            <TouchableOpacity
-                style={{
-                    marginRight: 350,
-                    borderRadius: 100,
-                    marginTop: 5,
-                    marginLeft: 5,
-                }}
-                onPress={() => navigation.navigate('GerenciarAeronave')}
-            >
-                <Ionicons
-                    name="ios-chevron-back-circle-sharp"
-                    size={40}
-                    color="#4840ff"
-                />
-            </TouchableOpacity>
             <ScrollView>
                 <View style={styles.scrollview}>
                     <View style={styles.loginBox}>

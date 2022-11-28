@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
         width: '100%',
         padding: 20,
         alignSelf: 'center',
-        borderBottomWidth: 4,
+        borderBottomWidth: 2,
         borderBottomColor: '#CCC',
     },
     'caixona:last-child': {

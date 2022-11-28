@@ -60,31 +60,34 @@ export default function CardMecanico(props) {
 const styles = StyleSheet.create({
     caixona: {
         backgroundColor: '#fff',
-        marginBottom: 20,
         width: '100%',
         padding: 20,
-        alignSelf: 'center'
-
+        alignSelf: 'center',
+        borderBottomWidth: 2,
+        borderBottomColor: '#CCC',
+    },
+    'caixona:last-child': {
+        backgroundColor: '#fff',
+        width: '100%',
+        padding: 20,
+        alignSelf: 'center',
     },
     botaoCaixona: {
         flexDirection: 'row-reverse',
         alignItems: 'center',
-        borderBottomWidth: 1,
-        borderBottomColor: '#CCC',
         paddingBottom: 10,
         marginTop: 10,
     },
     botaoEditar: {
         marginLeft: 10,
-        height: 40,
-        backgroundColor: 'blue',
+        backgroundColor: '#D8D8D8',
         borderRadius: 10,
         padding: 10,
         fontSize: 12,
         elevation: 10,
         shadowOpacity: 10,
         shadowColor: '#ccc',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     botaoDeletar: {
         marginLeft: 10,
@@ -95,7 +98,7 @@ const styles = StyleSheet.create({
         elevation: 10,
         shadowOpacity: 10,
         shadowColor: '#ccc',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     botaoText: {
         color: '#fff',
@@ -103,11 +106,12 @@ const styles = StyleSheet.create({
     },
     textoNome: {
         fontSize: 20,
+        fontWeight: 'bold'
     },
     textoEmail: {
         fontSize: 16,
     },
     esquerda: {
-        maxWidth: "100%"
-    }
+        maxWidth: '100%',
+    },
 });

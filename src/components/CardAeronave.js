@@ -34,19 +34,13 @@ export default function CardAeronave(props) {
                     <View style={styles.caixona}>
                         <View style={styles.esquerda}>
                             <Text style={styles.textoNome}>{props.matriculaAeronave}</Text>
-                            <Text style={styles.textoNacionalidadeAeronave}>{props.nacionalidadeAeronave}</Text>
-                            <Text style={styles.ModeloAeronave}>{props.modeloAeronave}</Text>
-                            <Text style={styles.ModeloAeronave}>{props.hangar}</Text>
-                            <Text style={styles.ModeloAeronave}>{props.status}</Text>
-                            <Text style={styles.ModeloAeronave}>{props.descricao}</Text>
+                            <Text style={styles.textoNacionalidadeAeronave}><Text style={{ fontWeight: 'bold' }}>Nacionalidade Aeronave </Text>{props.nacionalidadeAeronave}</Text>
+                            <Text style={styles.ModeloAeronave}><Text style={{ fontWeight: 'bold' }}>Modelo Aeronave </Text>{props.modeloAeronave}</Text>
+                            <Text style={styles.ModeloAeronave}><Text style={{ fontWeight: 'bold' }}>Hangar atual da aeronave </Text>{props.hangar}</Text>
+                            <Text style={styles.ModeloAeronave}><Text style={{ fontWeight: 'bold' }}>Status </Text>{props.status}</Text>
+                            <Text style={styles.ModeloAeronave}><Text style={{ fontWeight: 'bold' }}>Descrição </Text>{props.descricao}</Text>
                         </View>
                         <View style={styles.botaoCaixona}>
-                            {/* <TouchableOpacity style={styles.botaoDeletar} onPress={() => { removeElement(); excluirDocumento(props.id) }} >
-                            <Text style={styles.botaoText}>X</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.botaoEditar} >
-                            <Text style={styles.botaoText}>Editar</Text>
-                        </TouchableOpacity>  */}
                             <TouchableOpacity
                                 style={styles.botaoDeletar}
                                 onPress={() => {
@@ -95,7 +89,7 @@ const styles = StyleSheet.create({
         width: '100%',
         padding: 20,
         alignSelf: 'center',
-        borderBottomWidth: 4,
+        borderBottomWidth: 2,
         borderBottomColor: '#CCC',
     },
     'caixona:last-child': {
@@ -138,6 +132,7 @@ const styles = StyleSheet.create({
     },
     textoNome: {
         fontSize: 20,
+        fontWeight: 'bold'
     },
     textoEmail: {
         fontSize: 16,
