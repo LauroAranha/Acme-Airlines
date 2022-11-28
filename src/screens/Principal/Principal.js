@@ -20,7 +20,7 @@ const Principal = ({ navigation, route }) => {
                     {/* <Text style={styles.text}>Olá + {route.params.emailUser}!</Text> */}
                     <TouchableOpacity
                         style={styles.btnPrincipalTeste}
-                        onPress={() => navigation.navigate('GerenciarEquipe')}
+                        onPress={() => navigation.navigate('Gerenciar Equipe')}
                     >
                         <Image
                             style={styles.imageBtnTeste}
@@ -37,7 +37,7 @@ const Principal = ({ navigation, route }) => {
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.btnPrincipalTeste}
-                        onPress={() => navigation.navigate('AddManutencao')}
+                        onPress={() => navigation.navigate('Gerenciar Manutenção')}
                     >
                         <Image
                             style={styles.imageBtnTeste}
@@ -55,7 +55,7 @@ const Principal = ({ navigation, route }) => {
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.btnPrincipalTeste}
-                        onPress={() => navigation.navigate('GerenciarAeronave')}
+                        onPress={() => navigation.navigate('Gerenciar Aeronave')}
                     >
                         <Image
                             style={styles.imageBtnTeste}

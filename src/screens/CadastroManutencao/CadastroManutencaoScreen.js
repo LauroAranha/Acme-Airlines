@@ -7,23 +7,37 @@ import {
     ScrollView,
     FlatList
 } from 'react-native';
-import { Button, Paragraph, Dialog, Portal, Provider } from 'react-native-paper';
+import { Button, Paragraph, Dialog, Portal, Provider, RadioButton } from 'react-native-paper';
 import { TextInput } from 'react-native-gesture-handler';
 import styles from './styles';
 import Header from '../../components/Header';
 import { db } from '../../firebase';
-import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
-
-import { RadioButton } from 'react-native-paper';
+import { collection, getDocs, doc, getDoc, addDoc } from 'firebase/firestore';
 
 const CadastroManutencao = ({ navigation }) => {
+
+    //Dados da manutenção  
+    const [nomeManutencao, setNomeManutencao] = useState("");
+    const [prioridade, setPrioridade] = useState("");
+    const [descricao, setDescricao] = useState("");
+    const [estimativa, setEstimativa] = useState("");
+    const [idAeronave, setIdAeronave] = useState("");
+    const [idMecanicoResponsavel, setIdMecanicoResponsavel] = useState("");
+    const [statusManutencao, setStatusManutencao] = useState("");
+
+    //dados que vamos recuperar da aeronave
     const [modeloAeronave, setModeloAeronave] = useState("");
     const [matriculaAeronave, setMatriculaAeronave] = useState("");
     const [nacionalidadeAeronave, setNacionalidadeAeronave] = useState("");
 
-    const [prioridade, setPrioridade] = useState("");
+    //dados que vamos recuperar do mecanico
+    const [mecanico, setMecanico] = useState("");
 
-    const [JSON_DATA, setJSON_DATA] = useState('');
+    //Variaveis que vao abrigar os jsons retornados
+    const [jsonDataAeronave, setJsonDataAeronave] = useState('');
+    const [jsonDataMecanico, setJsonDataMecanico] = useState('');
+
+
     const list = [];
 
     const showSelectedAeronaveDialog = () => setAeronaveVisibilityState(true);
@@ -33,13 +47,19 @@ const CadastroManutencao = ({ navigation }) => {
 
     const showSelectedPrioridadeDialog = () => setPrioridadeVisibilityState(true);
     const hideSelectedPrioridadeDialog = () => setPrioridadeVisibilityState(false);
-    var [propriedadeVisibilityState, setPrioridadeVisibilityState] = useState(false);
+    var [prioridadeVisibilityState, setPrioridadeVisibilityState] = useState(false);
     const [selectedPrioridade, setSelectedPrioridade] = React.useState(false);
+
+    const showSelectedMecanicoDialog = () => setMecanicoVisibilityState(true);
+    const hideSelectedMecanicoDialog = () => setMecanicoVisibilityState(false);
+    var [mecanicoVisibilityState, setMecanicoVisibilityState] = useState(false);
+    const [selectedMecanico, setSelectedMecanico] = React.useState(false);
+
 
     const handlePrioridade = async () => {
         hideSelectedPrioridadeDialog();
         console.log(selectedPrioridade)
-
+        setPrioridade(selectedPrioridade)
     }
 
     const handleDataAeronave = async () => {
@@ -47,9 +67,19 @@ const CadastroManutencao = ({ navigation }) => {
         const docRef = doc(db, "aeronave", selectedAeronave)
         const docSnap = await getDoc(docRef);
         console.log(docSnap.data())
+        setIdAeronave(selectedAeronave)
         setMatriculaAeronave((docSnap.data().matriculaAeronave).toString())
         setModeloAeronave((docSnap.data().modeloAeronave).toString())
         setNacionalidadeAeronave((docSnap.data().nacionalidadeAeronave).toString())
+    }
+
+    const handleDataMecanico = async () => {
+        hideSelectedMecanicoDialog();
+        const docRef = doc(db, "mecanicoGeral", selectedMecanico)
+        const docSnap = await getDoc(docRef);
+        console.log(docSnap.data())
+        setIdMecanicoResponsavel(selectedMecanico)
+        setMecanico((docSnap.data().nome).toString())
     }
 
     useEffect(() => {
@@ -59,13 +89,51 @@ const CadastroManutencao = ({ navigation }) => {
                 querySnapshot.forEach((doc) => {
                     list.push({ ...doc.data(), id: doc.id });
                 });
-                setJSON_DATA(list);
+                setJsonDataAeronave(list);
             } catch (e) {
                 console.error('erro: ', e);
             }
         }
-        listAeronaves();
+        async function listMecanico() {
+            try {
+                const querySnapshot = await getDocs(collection(db, 'mecanicoGeral'));
+                querySnapshot.forEach((doc) => {
+                    list.push({ ...doc.data(), id: doc.id });
+                });
+                setJsonDataMecanico(list);
+            } catch (e) {
+                console.error('erro: ', e);
+            }
+        }
+        listAeronaves()
+        listMecanico();
     }, []);
+
+    const adicionarManutencao = async () => {
+        try {
+            // aqui é atribuido a função addDoc (cuja função é adicionar um documento no firebase) a constante docRef
+            // os parâmetros são a ligação pro firestore ( getFirestore()) e a collection que o documento será adicionado
+            const docRef = await addDoc(collection(db, 'manutencao'), {
+                nomeManutencao: nomeManutencao,
+                prioridade: prioridade,
+                descricao: descricao,
+                estimativa: estimativa,
+                idAeronave: idAeronave,
+                idMecanicoResponsavel: idMecanicoResponsavel,
+                statusManutencao: statusManutencao,
+            });
+            console.log('Documento adicionado com sucesso! ID: ', docRef.id);
+            setNomeManutencao('');
+            setPrioridade('');
+            setDescricao('');
+            setEstimativa('');
+            setIdAeronave('');
+            setIdMecanicoResponsavel('');
+            setStatusManutencao("");
+        } catch (e) {
+            console.error('Erro adicionando o documento: ', e);
+        }
+    };
 
     // createThreeButtonAlert = () =>
     //     Alert.alert(
@@ -95,6 +163,37 @@ const CadastroManutencao = ({ navigation }) => {
                 <View style={styles.scrollview}>
                     <View style={styles.loginBox}>
                         <Text style={styles.loginText}>
+                            Nome da manutenção:
+                        </Text>
+                        <TextInput
+                            style={styles.input}
+                            value={nomeManutencao}
+                            onChangeText={(text) => setNomeManutencao(text)} />
+
+                        <Text style={styles.loginText}>Prioridade:</Text>
+                        <TouchableOpacity style={styles.select} onPress={showSelectedPrioridadeDialog}>
+
+                            {selectedPrioridade ? <Text>{selectedPrioridade}</Text> : (<Text>Selecione a aeronave desejada</Text>)}
+
+                        </TouchableOpacity>
+
+                        <Text style={styles.loginText}>Descrição:</Text>
+                        <TextInput multiline={true}
+                            style={styles.inputDescricao}
+                            value={descricao}
+                            onChangeText={(text) => setDescricao(text)}
+                        />
+
+                        <Text style={styles.loginText}>
+                            Tempo estimado para manutenção:
+                        </Text>
+                        <TextInput
+                            style={styles.input}
+                            value={estimativa}
+                            onChangeText={(text) => setEstimativa(text)} />
+
+
+                        <Text style={styles.loginText}>
                             Selecionar Aeronave:
                         </Text>
                         <TouchableOpacity style={styles.select} onPress={showSelectedAeronaveDialog}>
@@ -113,15 +212,9 @@ const CadastroManutencao = ({ navigation }) => {
                                 }
                             </Text>
                         </View>
-                        <Text style={styles.loginText}>Prioridade:</Text>
-                        <View style={styles.select}>
-                            <TouchableOpacity onPress={showSelectedPrioridadeDialog}>
-                                {selectedPrioridade ? <Text>{selectedPrioridade}</Text> : (<Text>Selecione a aeronave desejada</Text>)}
-                            </TouchableOpacity>
-                        </View>
-                        <Text style={styles.loginText}>Resumo:</Text>
-                        <TextInput style={styles.input} />
-                        <Text style={styles.loginText}>Adicionar Tarefa:</Text>
+
+
+                        {/* <Text style={styles.loginText}>Adicionar Tarefa:</Text>
                         <View
                             style={{
                                 marginTop: '2%',
@@ -140,7 +233,8 @@ const CadastroManutencao = ({ navigation }) => {
                             <Text>
                                 ✅ Tarefa 1 {"\n"} ✅ Tarefa 2 {"\n"} ✅ Tarefa 3
                             </Text>
-                        </View>
+                        </View> 
+                        
                         <TouchableOpacity
                             style={styles.btnCadastro}
                             onPress={() => navigation.navigate('AddTarefa')}
@@ -164,18 +258,14 @@ const CadastroManutencao = ({ navigation }) => {
                                 Aqui aparecerão os Grupos de Tarefas Adicionados
                             </Text>
                         </View>
-                        <Text style={styles.loginText}>Alocar Mecânico:</Text>
-                        <View style={styles.select}>
-                            {/* <PickerSelect
-                                onValueChange={(value) => console.log(value)}
-                                items={[
-                                    { label: 'Jair', value: 'Jair' },
-                                    { label: 'Clóvis', value: 'Clóvis' },
-                                    { label: 'Augusto', value: 'Augusto' },
-                                ]}
-                            /> */}
-                        </View>
-                        <Text style={styles.loginText}>Troca de Componentes:</Text>
+                        */}
+                        <Text style={styles.loginText}>
+                            Selecionar mecanico resposável:
+                        </Text>
+                        <TouchableOpacity style={styles.select} onPress={showSelectedMecanicoDialog}>
+                            {selectedMecanico ? <Text>{mecanico}</Text> : (<Text>Selecione a aeronave desejada</Text>)}
+                        </TouchableOpacity>
+                        {/* <Text style={styles.loginText}>Troca de Componentes:</Text>
                         <TouchableOpacity
                             style={styles.btnCadastro}
                             onPress={() => navigation.navigate('AddPecas')}
@@ -186,20 +276,14 @@ const CadastroManutencao = ({ navigation }) => {
                         </TouchableOpacity>
                         <View style={styles.Adicionado}>
                             <Text>Aqui aparecerão os Componentes Adicionados:)</Text>
-                        </View>
+                        </View> */}
                     </View>
                 </View>
                 <TouchableOpacity
                     style={styles.btnCadastro}
-                //onPress={this.createThreeButtonAlert}
+                    onPress={adicionarManutencao}
                 >
-                    <Text style={styles.btnText}>Enviar</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.btnCadastro}
-                    onPress={() => navigation.navigate('Principal')}
-                >
-                    <Text style={styles.btnText}>Voltar</Text>
+                    <Text style={styles.btnText}>Cadastrar manutenção</Text>
                 </TouchableOpacity>
             </ScrollView>
 
@@ -211,8 +295,8 @@ const CadastroManutencao = ({ navigation }) => {
                             <Dialog.Content>
                                 <View style={styles.listBox}>
                                     <FlatList
-                                        style={{ width: '100%', backgroundColor: 'red' }}
-                                        data={JSON_DATA}
+                                        style={{ width: '100%'}}
+                                        data={jsonDataAeronave}
                                         keyExtractor={(item) => item.id}
                                         renderItem={({ item }) => (
                                             <View style={styles.caixona}>
@@ -245,7 +329,7 @@ const CadastroManutencao = ({ navigation }) => {
             <Provider>
                 <View>
                     <Portal>
-                        <Dialog visible={propriedadeVisibilityState} onDismiss={hideSelectedPrioridadeDialog} dismissable={true} style={{ height: '90%' }}>
+                        <Dialog visible={prioridadeVisibilityState} onDismiss={hideSelectedPrioridadeDialog} dismissable={true} style={{ height: '90%' }}>
                             <Dialog.Title>Selecione a prioridade adequada</Dialog.Title>
                             <Dialog.Content>
                                 <View style={styles.listBox}>
@@ -295,6 +379,43 @@ const CadastroManutencao = ({ navigation }) => {
                             </Dialog.Content>
                             <Dialog.Actions style={{ position: 'absolute', bottom: 0, right: 0, padding: 30 }}>
                                 <Button onPress={handlePrioridade}>Selecionar prioridade</Button>
+                            </Dialog.Actions>
+                        </Dialog>
+                    </Portal>
+                </View>
+            </Provider>
+
+            <Provider>
+                <View>
+                    <Portal>
+                        <Dialog visible={mecanicoVisibilityState} onDismiss={hideSelectedMecanicoDialog} dismissable={true} style={{ height: '90%' }}>
+                            <Dialog.Title>Selecione o mecanico responsável</Dialog.Title>
+                            <Dialog.Content>
+                                <View style={styles.listBox}>
+                                    <FlatList
+                                        style={{ width: '100%' }}
+                                        data={jsonDataMecanico}
+                                        keyExtractor={(item) => item.id}
+                                        renderItem={({ item }) => (
+                                            <View style={styles.caixona}>
+                                                <TouchableOpacity style={styles.innerCard} onPress={() => { setSelectedMecanico(item.id); console.log(item.id) }}>
+                                                    <View style={styles.esquerda}>
+                                                        <Text style={styles.textoNome}>{item.nome}</Text>
+                                                    </View>
+                                                    <View style={styles.direita}>
+                                                        <RadioButton
+                                                            value={item.id}
+                                                            status={selectedMecanico === item.id ? 'checked' : 'unchecked'}
+                                                        />
+                                                    </View>
+                                                </TouchableOpacity>
+                                            </View>
+                                        )}
+                                    />
+                                </View>
+                            </Dialog.Content>
+                            <Dialog.Actions style={{ position: 'absolute', bottom: 0, right: 0, padding: 30 }}>
+                                <Button onPress={handleDataMecanico}>Selecionar aeronave</Button>
                             </Dialog.Actions>
                         </Dialog>
                     </Portal>

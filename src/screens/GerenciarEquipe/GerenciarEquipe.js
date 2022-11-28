@@ -78,7 +78,7 @@ const GerenciarEquipe = ({ navigation }) => {
             >
                 <TouchableOpacity
                     style={{ borderRadius: 100 }}
-                    onPress={() => navigation.navigate('CadastroM')}
+                    onPress={() => navigation.navigate('Cadastro Mecânico')}
                 >
                     <MaterialIcons
                         name="add-circle"

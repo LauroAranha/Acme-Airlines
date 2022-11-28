@@ -33,12 +33,13 @@ export default function CardAeronave(props) {
                 <View>
                     <View style={styles.caixona}>
                         <View style={styles.esquerda}>
-                            <Text style={styles.textoNome}>{props.matriculaAeronave}</Text>
-                            <Text style={styles.textoNacionalidadeAeronave}>{props.nacionalidadeAeronave}</Text>
-                            <Text style={styles.ModeloAeronave}>{props.modeloAeronave}</Text>
-                            <Text style={styles.ModeloAeronave}>{props.hangar}</Text>
-                            <Text style={styles.ModeloAeronave}>{props.status}</Text>
+                            <Text style={styles.textoNome}>{props.nomeManutencao}</Text>
+                            <Text style={styles.textoNacionalidadeAeronave}>{props.prioridade}</Text>
                             <Text style={styles.ModeloAeronave}>{props.descricao}</Text>
+                            <Text style={styles.ModeloAeronave}>{props.estimativa}</Text>
+                            <Text style={styles.ModeloAeronave}>{props.idAeronave}</Text>
+                            <Text style={styles.ModeloAeronave}>{props.idMecanicoResponsavel}</Text>
+                            <Text style={styles.ModeloAeronave}>{props.statusManutencao}</Text>
                         </View>
                         <View style={styles.botaoCaixona}>
                             {/* <TouchableOpacity style={styles.botaoDeletar} onPress={() => { removeElement(); excluirDocumento(props.id) }} >

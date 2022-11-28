@@ -24,16 +24,17 @@ import {
     doc,
 } from 'firebase/firestore';
 import Header from '../../components/Header';
-import CardAeronave from '../../components/CardAeronave';
+import CardManutencao from '../../components/CardManutencao';
 
-const GerenciarAeronave = ({ navigation }) => {
+const GerenciarManutencao = ({ navigation }) => {
     //atributos que serão adicionados no formulario
-    const [matriculaAeronave, setMatriculaAeronave] = useState([]);
-    const [modeloAeronave, setModeloAeronave] = useState([]);
-    const [nacionalidadeAeronave, setNacionalidadeAeronave] = useState([]);
-    const [hangar, setHangar] = useState([]);
-    const [status, setStatus] = useState([]);
-    const [descricao, setDescricao] = useState([]);
+    const [nomeManutencao, setNomeManutencao] = useState("");
+    const [prioridade, setPrioridade] = useState("");
+    const [descricao, setDescricao] = useState("");
+    const [estimativa, setEstimativa] = useState("");
+    const [idAeronave, setIdAeronave] = useState("");
+    const [idMecanicoResponsavel, setIdMecanicoResponsavel] = useState("");
+    const [statusManutencao, setStatusManutencao] = useState("");
 
     const [JSON_DATA, setJSON_DATA] = useState('');
 
@@ -41,26 +42,26 @@ const GerenciarAeronave = ({ navigation }) => {
     const list = [];
 
     useEffect(() => {
-        async function listAeronaves() {
+        async function listManutencao() {
             try {
-                const querySnapshot = await getDocs(collection(db, 'aeronave'));
+                const querySnapshot = await getDocs(collection(db, 'manutencao'));
                 querySnapshot.forEach((doc) => {
                     list.push({ ...doc.data(), id: doc.id });
                 });
-                setMatriculaAeronave(list);
-                setModeloAeronave(list);
-                setNacionalidadeAeronave(list);
-
-                setHangar(list);
-                setStatus(list);
+                setNomeManutencao(list);
+                setPrioridade(list);
                 setDescricao(list);
+                setEstimativa(list);
+                setIdAeronave(list);
+                setIdMecanicoResponsavel(list);
+                setStatusManutencao(list);
 
                 setJSON_DATA(list);
             } catch (e) {
                 console.error('erro: ', e);
             }
         }
-        listAeronaves();
+        listManutencao();
     }, []);
 
     return (
@@ -71,15 +72,16 @@ const GerenciarAeronave = ({ navigation }) => {
                     style={{ width: '100%'}}
                     data={JSON_DATA}
                     renderItem={({ item }) => (
-                        <CardAeronave
+                        <CardManutencao
                             id={item.id}
-                            matriculaAeronave={item.matriculaAeronave}
-                            nacionalidadeAeronave={item.nacionalidadeAeronave}
-                            modeloAeronave={item.modeloAeronave}
-                            hangar={item.hangar}
-                            status={item.status}
+                            nomeManutencao={item.nomeManutencao}
+                            prioridade={item.prioridade}
                             descricao={item.descricao}
-                        ></CardAeronave>
+                            estimativa={item.estimativa}
+                            idAeronave={item.idAeronave}
+                            idMecanicoResponsavel={item.idMecanicoResponsavel}
+                            statusManutencao={item.statusManutencao}
+                        ></CardManutencao>
                     )}
                 />
             </View>
@@ -95,7 +97,7 @@ const GerenciarAeronave = ({ navigation }) => {
             >
                 <TouchableOpacity
                     style={{ borderRadius: 100, backgroundColor: 'white' }}
-                    onPress={() => navigation.navigate('Cadastro Aeronave')}
+                    onPress={() => navigation.navigate('Adicionar Manutenção')}
                 >
                     <MaterialIcons
                         name="add-circle"
@@ -108,4 +110,4 @@ const GerenciarAeronave = ({ navigation }) => {
     );
 };
 
-export default GerenciarAeronave;
+export default GerenciarManutencao;

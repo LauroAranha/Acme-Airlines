@@ -111,6 +111,33 @@ const styles = StyleSheet.create({
         borderColor: '#4589FF',
         paddingStart: 10,
     },
+    esquerda: {
+        textAlign: 'right',
+    },
+    direita: {
+        alignSelf: 'center',
+        position: 'absolute',
+        right: 0
+    },
+    innerCard: {
+        maxWidth: '100%',
+        flex: 1,
+        flexDirection: 'row',
+    },
+    caixona: {
+        backgroundColor: '#fff',
+        width: '100%',
+        padding: 20,
+        alignSelf: 'center',
+        borderBottomWidth: 4,
+        borderBottomColor: '#CCC',
+        flexDirection: 'row',
+    },
+    botaoCaixona: {
+        flexDirection: 'row-reverse',
+        alignItems: 'center',
+        marginTop: 10,
+    },
 });
 
 export default styles;

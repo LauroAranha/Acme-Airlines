@@ -11,7 +11,7 @@ import {
     ScrollView,
 } from 'react-native';
 import Header from '../../components/Header';
-
+import { Button, Paragraph, Dialog, Portal, Provider, RadioButton } from 'react-native-paper';
 import { TextInput } from 'react-native-gesture-handler';
 import { TextInputMask } from 'react-native-masked-text';
 import * as ImagePicker from 'expo-image-picker';
@@ -44,18 +44,34 @@ createThreeButtonAlert = () =>
     );
 
 const CadastroAeronave = ({ navigation }) => {
-    const [nome, setNome] = useState([]);
     const [matriculaAeronave, setMatriculaAeronave] = useState([]);
-    const [ultimoVoo, setUltimoVoo] = useState([]);
-    const [horarioChegada, setHorarioChegada] = useState([]);
-    const [nacionalidadeAeronave, setNacionalidadeAeronave] = useState([]);
     const [modeloAeronave, setModeloAeronave] = useState([]);
+    const [nacionalidadeAeronave, setNacionalidadeAeronave] = useState([]);
+    const [hangar, setHangar] = useState([]);
+    const [status, setStatus] = useState([]);
+    const [descricao, setDescricao] = useState([]);
+
     const [arquivo, setArquivo] = useState(null);
     const [uploadArquivo, setUploadArquivo] = useState(false);
+
     const [JSON_DATA, setJSON_DATA] = useState('');
-    const [showIndicator, setShowIndicator] = useState(true);
     const list = [];
 
+    const [showIndicator, setShowIndicator] = useState(true);
+
+
+    const [prioridade, setPrioridade] = useState("");
+
+    const showSelectedPrioridadeDialog = () => setPrioridadeVisibilityState(true);
+    const hideSelectedPrioridadeDialog = () => setPrioridadeVisibilityState(false);
+    var [propriedadeVisibilityState, setPrioridadeVisibilityState] = useState(false);
+    const [selectedPrioridade, setSelectedPrioridade] = React.useState(false);
+
+    const handlePrioridade = async () => {
+        hideSelectedPrioridadeDialog();
+        console.log(selectedPrioridade)
+        setStatus(selectedPrioridade)
+    }
 
     const pickFile = async () => {
         // No permissions request is necessary for launching the image library
@@ -101,20 +117,20 @@ const CadastroAeronave = ({ navigation }) => {
             // aqui é atribuido a função addDoc (cuja função é adicionar um documento no firebase) a constante docRef
             // os parâmetros são a ligação pro firestore ( getFirestore()) e a collection que o documento será adicionado
             const docRef = await addDoc(collection(db, 'aeronave'), {
-                nome: nome,
                 matriculaAeronave: matriculaAeronave,
-                ultimoVoo: ultimoVoo,
-                horarioChegada: horarioChegada,
                 nacionalidadeAeronave: nacionalidadeAeronave,
                 modeloAeronave: modeloAeronave,
+                hangar: hangar,
+                status: status,
+                descricao: descricao,
             });
             console.log('Documento adicionado com sucesso! ID: ', docRef.id);
-            setNome('');
             setMatriculaAeronave('');
-            setUltimoVoo('');
-            setHorarioChegada('');
             setNacionalidadeAeronave('');
             setModeloAeronave('');
+            setStatus('');
+            setHangar('');
+            setDescricao('');
         } catch (e) {
             console.error('Erro adicionando o documento: ', e);
         }
@@ -151,24 +167,6 @@ const CadastroAeronave = ({ navigation }) => {
                             value={matriculaAeronave}
                             onChangeText={(text) => setMatriculaAeronave(text)} />
 
-                        <Text style={styles.loginText}>Ultimo Voo:</Text>
-                        <TextInput style={styles.input}
-                            value={ultimoVoo}
-                            onChangeText={(text) => setUltimoVoo(text)} />
-
-                        <Text style={styles.loginText}>
-                            Horario de Chegada:
-                        </Text>
-                        <TextInputMask
-                            type={'datetime'}
-                            value={horarioChegada}
-                            options={{ format: 'HH:mm' }}
-                            keyboardType="numeric"
-                            placeholder="__:__"
-                            onChangeText={(text) => setHorarioChegada(text)}
-                            style={styles.inputLittle}
-                        />
-
                         <Text style={styles.loginText}>Nacionalidade da Aeronave
                         </Text>
                         <TextInput style={styles.input}
@@ -180,6 +178,27 @@ const CadastroAeronave = ({ navigation }) => {
                         <TextInput style={styles.input}
                             value={modeloAeronave}
                             onChangeText={(text) => setModeloAeronave(text)} />
+
+                        <Text style={styles.loginText}>Hangar atual da Aeronave
+                        </Text>
+                        <TextInput style={styles.input}
+                            value={hangar}
+                            onChangeText={(text) => setHangar(text)} />
+
+                        <Text style={styles.loginText}>Status atual da Aeronave
+                        </Text>
+                        <TouchableOpacity style={styles.select} onPress={showSelectedPrioridadeDialog}>
+                            {selectedPrioridade ? <Text>{selectedPrioridade}</Text> : (<Text>Selecione o status atual</Text>)}
+                        </TouchableOpacity>
+
+
+                        <Text style={styles.loginText}>Descrição da Aeronave
+                        </Text>
+                        <TextInput style={styles.input}
+                            value={descricao}
+                            onChangeText={(text) => setDescricao(text)} />
+
+
                         <Text style={styles.loginText}>
                             Manual da Aeronave:
                         </Text>
@@ -204,6 +223,50 @@ const CadastroAeronave = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
             </ScrollView>
+            <Provider>
+                <View>
+                    <Portal>
+                        <Dialog visible={propriedadeVisibilityState} onDismiss={hideSelectedPrioridadeDialog} dismissable={true} style={{ height: '90%' }}>
+                            <Dialog.Title>Selecione a prioridade adequada</Dialog.Title>
+                            <Dialog.Content>
+                                <View style={styles.listBox}>
+                                    <TouchableOpacity style={styles.caixona} onPress={() => { setSelectedPrioridade('ativa'); console.log('ativa') }}>
+                                        <View style={styles.innerCard}>
+                                            <View style={styles.esquerda}>
+                                                <Text style={styles.textoNome}>Aeronave ativa</Text>
+                                            </View>
+                                            <View style={styles.direita}>
+                                                <RadioButton
+                                                    value={'ativa'}
+                                                    status={selectedPrioridade === 'ativa' ? 'checked' : 'unchecked'}
+                                                    onPress={() => { setPrioridade('ativa'); console.log('ativa') }}
+                                                />
+                                            </View>
+                                        </View>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity style={styles.caixona} onPress={() => { setSelectedPrioridade('inativa'); console.log('inativa') }}>
+                                        <View style={styles.innerCard}>
+                                            <View style={styles.esquerda}>
+                                                <Text style={styles.textoNome}>Aeronave inativa</Text>
+                                            </View>
+                                            <View style={styles.direita}>
+                                                <RadioButton
+                                                    value={'inativa'}
+                                                    status={selectedPrioridade === 'inativa' ? 'checked' : 'unchecked'}
+                                                    onPress={() => { setPrioridade('inativa'); console.log('inativa') }}
+                                                />
+                                            </View>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
+                            </Dialog.Content>
+                            <Dialog.Actions style={{ position: 'absolute', bottom: 0, right: 0, padding: 30 }}>
+                                <Button onPress={handlePrioridade}>Selecionar prioridade</Button>
+                            </Dialog.Actions>
+                        </Dialog>
+                    </Portal>
+                </View>
+            </Provider>
         </View>
     );
 };

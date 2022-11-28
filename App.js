@@ -20,6 +20,7 @@ import GerenciarEquipe from './src/screens/GerenciarEquipe/GerenciarEquipe';
 import GerenciarAeronave from './src/screens/GerenciarAeronaves/GerenciarAeronave';
 import PagList from './src/screens/PagList/PagListScreen';
 import PagInsert from './src/screens/PagInsert/PagInsertScreen';
+import GerenciarManutencao from './src/screens/GerenciarManutencao/GerenciarManutencao';
 
 const AppStack = createStackNavigator();
 
@@ -43,7 +44,7 @@ const App = () => {
                     headerTitleAlign: 'center',
                 }}
             >
-                
+
                 <AppStack.Screen
                     name="Principal"
                     component={Principal}
@@ -55,13 +56,18 @@ const App = () => {
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="GerenciarEquipe"
+                    name="Gerenciar Equipe"
                     component={GerenciarEquipe}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="GerenciarAeronave"
+                    name="Gerenciar Aeronave"
                     component={GerenciarAeronave}
+                    options={{ headerShown: false }}
+                />
+                <AppStack.Screen
+                    name="Gerenciar Manutenção"
+                    component={GerenciarManutencao}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
@@ -75,7 +81,7 @@ const App = () => {
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="AddManutencao"
+                    name="Adicionar Manutenção"
                     component={AddManutencao}
                     options={{ headerShown: false }}
                 />
@@ -90,12 +96,12 @@ const App = () => {
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="CadastroM"
+                    name="Cadastro Mecânico"
                     component={CadastroM}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="CadastroA"
+                    name="Cadastro Aeronave"
                     component={CadastroAeronave}
                     options={{ headerShown: false }}
                 />
@@ -106,7 +112,7 @@ const App = () => {
                 />
 
                 <AppStack.Screen
-                    name="EditarAeronave"
+                    name="Editar Aeronave"
                     component={EditarAeronave}
                     options={{ headerShown: false }}
                 />

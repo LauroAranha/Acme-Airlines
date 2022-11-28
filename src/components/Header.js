@@ -8,9 +8,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingRight: 10,
-        paddingLeft: 10,
-        paddingTop: 15,
+        height: 100,
+        padding: 20,
+        marginTop: 30,
     },
     text: {
         fontSize: 25,
@@ -21,17 +21,39 @@ const styles = StyleSheet.create({
         marginTop: '5%',
         marginBottom: '15%',
     },
-    logo: {
-        width: 120,
-        height: 100,
-        resizeMode: 'contain',
-    },
 
     perfil: {
         width: 80,
         height: 60,
         resizeMode: 'contain',
     },
+
+    pageName: {
+        color: 'white',
+        fontSize: 20,
+    },
+
+    headerProperties: {
+        maxWidth: '100%',
+        flex: 1,
+        flexDirection: 'row',
+    },
+
+    esquerdaHeader: {
+        textAlign: 'left',
+        alignSelf: 'center',
+        padding: 20,
+        paddingLeft: 10,
+    },
+    direitaHeader: {
+        alignSelf: 'center',
+    },
+    logo: {
+        width: 120,
+        height: 100,
+        resizeMode: 'contain',
+    },
+
 });
 
 export default function Header() {
@@ -55,10 +77,24 @@ export default function Header() {
         <View>
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <Image
-                        style={styles.logo}
-                        source={require('../../assets/Acmelogo.png')}
-                    />
+
+                    {route.name == "Principal" ?
+                        <Image
+                            style={styles.logo}
+                            source={require('../../assets/Acmelogo.png')}
+                        /> : (
+                            <View style={styles.headerProperties}>
+                                <View style={styles.esquerdaHeader}>
+                                    <Image style={{ height: 20, width: 10 }}
+                                        source={require('../../assets/return.png')} />
+                                </View>
+                                <View style={styles.direitaHeader}>
+                                    <Text style={styles.pageName}>{route.name}</Text>
+                                </View>
+                            </View>
+                        )
+                    }
+
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
                     <Image
@@ -69,4 +105,6 @@ export default function Header() {
             </View>
         </View>
     );
+
+
 }
