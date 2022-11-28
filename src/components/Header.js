@@ -99,7 +99,7 @@ export default function Header() {
                 <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
                     <Image
                         style={styles.perfil}
-                        source={require('../../assets/user.png')}
+                        source={require('../../assets/testeicon.png')}
                     />
                 </TouchableOpacity>
             </View>

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, StyleSheet, TouchableOpacity, View } from 'react-native';
-import { deleteDoc, doc } from 'firebase/firestore';
+import { deleteDoc, collection, getDocs, doc, getDoc, addDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -21,8 +21,32 @@ async function excluirDocumento(input) {
     }
 }
 
+
 export default function CardAeronave(props) {
     var [visible, setVisible] = useState(true);
+    const [matriculaAeronave, setMatriculaAeronave] = useState("")
+    const [nomeMecanico, setNomeMecanico] = useState("")
+
+    useEffect(() => {
+        const handleDataAeronave = async () => {
+            const docRef = doc(db, "aeronave", props.idAeronave)
+            const docSnap = await getDoc(docRef);
+            console.log((docSnap.data().matriculaAeronave).toString())
+
+            setMatriculaAeronave((docSnap.data().matriculaAeronave).toString())
+        }
+        handleDataAeronave()
+
+        const handleDataMecanico = async () => {
+            console.log(props.idMecanicoResponsavel);
+            const docRef = doc(db, "mecanicoGeral", props.idMecanicoResponsavel)
+            const docSnap = await getDoc(docRef);
+            console.log((docSnap.data().nome).toString())
+            setNomeMecanico((docSnap.data().nome).toString())
+        }
+        handleDataMecanico()
+    }, []);
+
     const removeElement = () => {
         setVisible((prev) => !prev);
     };
@@ -34,12 +58,12 @@ export default function CardAeronave(props) {
                     <View style={styles.caixona}>
                         <View style={styles.esquerda}>
                             <Text style={styles.textoNome}>{props.nomeManutencao}</Text>
-                            <Text style={styles.textoNacionalidadeAeronave}>{props.prioridade}</Text>
-                            <Text style={styles.ModeloAeronave}>{props.descricao}</Text>
-                            <Text style={styles.ModeloAeronave}>{props.estimativa}</Text>
-                            <Text style={styles.ModeloAeronave}>{props.idAeronave}</Text>
-                            <Text style={styles.ModeloAeronave}>{props.idMecanicoResponsavel}</Text>
-                            <Text style={styles.ModeloAeronave}>{props.statusManutencao}</Text>
+                            <Text style={styles.propriedades}><Text style={{ fontWeight: 'bold' }}>Descrição </Text>{props.descricao}</Text>
+                            <Text style={styles.textoNacionalidadeAeronave}><Text style={{ fontWeight: 'bold' }}>Prioridade </Text>{props.prioridade}</Text>
+                            <Text style={styles.propriedades}><Text style={{ fontWeight: 'bold' }}>Estimativa </Text>{props.estimativa}</Text>
+                            <Text style={styles.propriedades}><Text style={{ fontWeight: 'bold' }}>Matrícula aeronave </Text>{matriculaAeronave}</Text>
+                            <Text style={styles.propriedades}><Text style={{ fontWeight: 'bold' }}>Mecânico Responsável </Text>{nomeMecanico}</Text>
+                            <Text style={styles.propriedades}><Text style={{ fontWeight: 'bold' }}>Status </Text>{props.statusManutencao}</Text>
                         </View>
                         <View style={styles.botaoCaixona}>
                             {/* <TouchableOpacity style={styles.botaoDeletar} onPress={() => { removeElement(); excluirDocumento(props.id) }} >
@@ -64,17 +88,6 @@ export default function CardAeronave(props) {
 
                             <TouchableOpacity
                                 style={styles.botaoEditar}
-                                onPress={() =>
-                                    navigation.navigate('Editar Aeronave', {
-                                        id: props.id,
-                                        nome: props.nome,
-                                        matriculaAeronave: props.matriculaAeronave,
-                                        ultimoVoo: props.ultimoVoo,
-                                        horarioChegada: props.horarioChegada,
-                                        nacionalidadeAeronave: props.nacionalidadeAeronave,
-                                        modeloAeronave: props.modeloAeronave,
-                                    })
-                                }
                             >
                                 <AntDesign
                                     name="edit"
@@ -91,6 +104,9 @@ export default function CardAeronave(props) {
 }
 
 const styles = StyleSheet.create({
+    propriedades: {
+        fontSize: 16
+    },
     caixona: {
         backgroundColor: '#fff',
         width: '100%',
@@ -138,7 +154,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     textoNome: {
-        fontSize: 20,
+        fontSize: 22,
+        fontWeight: 'bold'
     },
     textoEmail: {
         fontSize: 16,

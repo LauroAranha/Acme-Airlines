@@ -23,7 +23,7 @@ const CadastroManutencao = ({ navigation }) => {
     const [estimativa, setEstimativa] = useState("");
     const [idAeronave, setIdAeronave] = useState("");
     const [idMecanicoResponsavel, setIdMecanicoResponsavel] = useState("");
-    const [statusManutencao, setStatusManutencao] = useState("");
+    const [statusManutencao, setStatusManutencao] = useState("TO-DO");
 
     //dados que vamos recuperar da aeronave
     const [modeloAeronave, setModeloAeronave] = useState("");

@@ -57,6 +57,7 @@ const GerenciarManutencao = ({ navigation }) => {
                 setStatusManutencao(list);
 
                 setJSON_DATA(list);
+                console.log(list)
             } catch (e) {
                 console.error('erro: ', e);
             }
