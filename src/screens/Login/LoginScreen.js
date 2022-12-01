@@ -13,7 +13,9 @@ import {
     getDocs,
     doc,
 } from 'firebase/firestore';
-import { signInWithEmailAndPassword } from 'firebase/auth'
+import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
+
+
 
 const Login = ({ navigation }) => {
 
@@ -21,12 +23,24 @@ const Login = ({ navigation }) => {
     const [password, setPassword] = useState([]);
     const [erroLogin, setErroLogin] = useState(false)
 
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            const uid = user.uid;
+            const email = user.email;
+            navigation.navigate('Principal')
+        } else {
+            console.log("Nenhum usuário ativo")
+        }
+    });
+
     const logInWithEmailAndPassword = async () => {
         try {
             const res = await signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
                 let user = userCredential.user
                 console.log("Usuário autenticado! " + user.email)
-                navigation.navigate('Principal', { emailUser: user.email })
+                navigation.navigate('Principal')
             });
             setEmail('')
             setPassword('')

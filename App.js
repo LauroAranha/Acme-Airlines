@@ -46,13 +46,13 @@ const App = () => {
             >
 
                 <AppStack.Screen
-                    name="Principal"
-                    component={Principal}
+                    name="Login"
+                    component={Login}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen
-                    name="Login"
-                    component={Login}
+                    name="Principal"
+                    component={Principal}
                     options={{ headerShown: false }}
                 />
                 <AppStack.Screen

@@ -1,4 +1,5 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
+
 
 const styles = StyleSheet.create({
     esquerda: {
@@ -169,6 +170,7 @@ const styles = StyleSheet.create({
         padding: 5,
         fontSize: 18,
         fontWeight: 'bold',
+        underlineColorAndroid: 'transparent'
     },
     btnCadastro: {
         marginTop: 15,

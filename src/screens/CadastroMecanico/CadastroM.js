@@ -101,7 +101,8 @@ const CadastroM = ({ navigation }) => {
                         <Text style={styles.loginText}>Nome:</Text>
                         <TextInput
                             value={nome}
-                            style={styles.input} />
+                            style={styles.input}
+                            onChangeText={(text) => setNome(text)} />
 
                         <Text style={styles.loginText}>CPF:</Text>
                         <TextInputMask
@@ -113,17 +114,16 @@ const CadastroM = ({ navigation }) => {
                             onChangeText={(text) => setCpf(text)}
                         ></TextInputMask>
 
+
                         <Text style={styles.loginText}>RG:</Text>
-                        <TextInput
-                            type={'custom'}
+                        <TextInputMask
+                            type={'cpf'}
                             value={rg}
-                            options={{
-                                mask: '999.999.999-SS'
-                            }}
-                            placeholder="000.000.000-00"
+                            keyboardType="numeric"
                             style={styles.input}
+                            placeholder="__.___.___-_"
                             onChangeText={(text) => setRg(text)}
-                        ></TextInput>
+                        ></TextInputMask>
 
                         <Text style={styles.loginText}>Email:</Text>
                         <TextInput value={email}

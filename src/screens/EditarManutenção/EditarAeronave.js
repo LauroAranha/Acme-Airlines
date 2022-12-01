@@ -95,7 +95,7 @@ const EditarAeronave = ({ navigation, route }) => {
             }
             );
 
-            navigation.navigate('Gerenciar Aeronave');
+            navigation.navigate('GerenciarAeronave');
         } catch (e) {
             console.error('Erro adicionando o documento: ', e);
 

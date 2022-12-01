@@ -94,6 +94,7 @@ const CadastroManutencao = ({ navigation }) => {
                 console.error('erro: ', e);
             }
         }
+        listAeronaves();
         async function listMecanico() {
             try {
                 const querySnapshot = await getDocs(collection(db, 'mecanicoGeral'));
@@ -105,7 +106,6 @@ const CadastroManutencao = ({ navigation }) => {
                 console.error('erro: ', e);
             }
         }
-        listAeronaves()
         listMecanico();
     }, []);
 
@@ -389,7 +389,7 @@ const CadastroManutencao = ({ navigation }) => {
                 <View>
                     <Portal>
                         <Dialog visible={mecanicoVisibilityState} onDismiss={hideSelectedMecanicoDialog} dismissable={true} style={{ height: '90%' }}>
-                            <Dialog.Title>Selecione o mecanico responsável</Dialog.Title>
+                            <Dialog.Title>Selecione o mecânico responsável</Dialog.Title>
                             <Dialog.Content>
                                 <View style={styles.listBox}>
                                     <FlatList

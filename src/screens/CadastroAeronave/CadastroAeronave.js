@@ -183,22 +183,6 @@ const CadastroAeronave = ({ navigation }) => {
                             value={descricao}
                             onChangeText={(text) => setDescricao(text)} />
 
-
-                        <Text style={styles.loginText}>
-                            Manual da Aeronave:
-                        </Text>
-                        <TouchableOpacity
-                            style={styles.btnLogin}
-                            onPress={pickFile}
-                        >
-                            <Text>Selecione a arquivo do manual</Text>
-                        </TouchableOpacity>
-                        {image && (
-                            <Image
-                                source={{ uri: image.uri }}
-                                style={{ width: 200, height: 200 }}
-                            />
-                        )}
                     </View>
                     <TouchableOpacity
                         style={styles.btnCadastro}
