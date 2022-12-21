@@ -2,47 +2,13 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#030A31',
+        backgroundColor: '#F0F0F0',
         height: '100%',
-    },
-    header: {
-        backgroundColor: '#4589FF',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingRight: 10,
-        paddingLeft: 10,
-        paddingTop: 15,
-    },
-    text: {
-        fontSize: 25,
-        fontWeight: 'bold',
-        color: 'white',
-        width: '103%',
-        textAlign: 'center',
-        marginTop: '5%',
-        marginBottom: '15%',
-    },
-    logo: {
-        width: 120,
-        height: 100,
-        resizeMode: 'contain',
-    },
-
-    perfil: {
-        width: 80,
-        height: 60,
-        resizeMode: 'contain',
     },
     imageBtn: {
         width: 80,
         height: 60,
         resizeMode: 'contain',
-    },
-    loginText: {
-        padding: 5,
-        fontSize: 18,
-        fontWeight: 'bold',
     },
     btnPrincipal: {
         borderRadius: 15,
@@ -61,9 +27,53 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     btnText: {
+        textAlign: 'center',
         fontSize: 18,
         fontWeight: 'bold',
+        color: '#D0E2FF',
     },
+    text: {
+        fontSize: 25,
+        fontWeight: 'bold',
+        color: '#303030',
+        width: '103%',
+        textAlign: 'left',
+        padding: 30,
+        marginTop: 10,
+    },
+    btnPrincipalTeste: {
+        backgroundColor: '#ffffff',
+        borderWidth: 1,
+        borderColor: '#B0B0B0',
+        padding: 12,
+        maxWidth: '100%',
+        minWidth: '100%',
+        alignSelf: 'center',
+        flexDirection: 'row',
+        verticalAlign: 'middle',
+
+    },
+    imageBtnTeste: {
+        width: 80,
+        height: 60,
+        resizeMode: 'contain',
+        padding: '5%',
+    },
+    btnTextTeste: {
+        textAlign: 'left',
+        fontSize: 22,
+        fontWeight: 'bold',
+        color: '#404040',
+    },
+    btnSubTextTeste: {
+        textAlign: 'left',
+        fontSize: 14,
+        fontWeight: 'bold',
+        color: '#888888',
+    },
+    teste: {
+        flex: 1,
+    }
 });
 
 export default styles;

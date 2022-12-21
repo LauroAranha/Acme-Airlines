@@ -5,58 +5,134 @@ import {
     Image,
     SafeAreaView,
     TouchableOpacity,
+    ScrollView,
 } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import Header from '../../components/Header';
+import { roundToNearestPixel } from 'react-native/Libraries/Utilities/PixelRatio';
 
-const Principal = ({ navigation }) => {
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { collection, query, where, getDocs } from "firebase/firestore";
+
+import { db, auth } from '../../firebase';
+
+const Principal = ({ navigation, route }) => {
+    const [activeUserEmail, setActiveUserEmail] = useState([])
+    const [activeUserName, setActiveUserName] = useState([])
+
+    useEffect(() => {
+        async function listUser() {
+            try {
+                const q = query(collection(db, "mecanicoGeral"), where("email", "==", activeUserEmail));
+
+                const querySnapshot = await getDocs(q);
+                querySnapshot.forEach((doc) => {
+                    // doc.data() is never undefined for query doc snapshots
+                    setActiveUserName(doc.data().nome)
+                    console.log(doc.data().nome);
+                })
+            } catch (e) {
+                console.log(e)
+            }
+        }
+        listUser();
+
+        const user = auth.currentUser
+        if (user) {
+            const uid = user.uid;
+            const email = (user.email).toString();
+            console.log(uid);
+            console.log(email);
+            setActiveUserEmail(email)
+            console.log("Usuário logado: \n      uid:" + uid + "\n      Email " + email)
+        } else {
+            console.log("Nenhum usuário ativo")
+        }
+
+    }, [activeUserEmail]);
+
     return (
         <SafeAreaView>
-            <View style={styles.container}>
-                <View style={styles.header}>
-                    <Image
-                        style={styles.logo}
-                        source={require('../../../assets/Acmelogo.png')}
-                    />
-                    <Image
-                        style={styles.perfil}
-                        source={require('../../../assets/user.png')}
-                    />
-                </View>
-                <Text style={styles.text}>Tela Principal</Text>
+            <Header />
+            <ScrollView>
+                <Text style={{ fontSize: 24, padding: 20  }}>Olá, {activeUserName}!</Text>
+                <View style={styles.container}>
+                    <Text style={{ fontSize: 18, padding: 20,backgroundColor: 'white' }}>Acesso rápido</Text>
 
-                
-                <View style={styles.containerBtn}>
+                    {/* <Text style={styles.text}>Olá + {route.params.emailUser}!</Text> */}
                     <TouchableOpacity
-                        style={styles.btnPrincipal}
-                        onPress={() => navigation.navigate('SelectServ')}
+                        style={styles.btnPrincipalTeste}
+                        onPress={() => navigation.navigate('Gerenciar Manutenção')}
                     >
                         <Image
-                            style={styles.imageBtn}
+                            style={styles.imageBtnTeste}
                             source={require('../../../assets/service.png')}
                         />
-                        <Text style={styles.btnText}>Serviços</Text>
+                        <View style={styles.teste}>
+                            <Text style={styles.btnTextTeste}>
+                                Gerencie as manutenções
+                                <Text style={styles.btnSubTextTeste}>
+                                    {'\n'}Uma lista simples de problemas
+                                    relatados
+                                </Text>
+                            </Text>
+                        </View>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        style={styles.btnPrincipal}
-                        onPress={() => navigation.navigate('ManutencoesAndamento')}
+                        style={styles.btnPrincipalTeste}
+                        onPress={() => navigation.navigate('Gerenciar Aeronave')}
                     >
                         <Image
-                            style={styles.imageBtn}
-                            source={require('../../../assets/worker.png')}
-                        />
-                        <Text style={styles.btnText}>Manutenção</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={styles.btnPrincipal}
-                        onPress={() => navigation.navigate('ListaAeronaves')}
-                    >
-                        <Image
-                            style={styles.perfil}
+                            style={styles.imageBtnTeste}
                             source={require('../../../assets/engine.png')}
                         />
-                        <Text style={styles.btnText}>Aeronaves</Text>
+                        <View style={styles.teste}>
+                            <Text style={styles.btnTextTeste}>
+                                Gerenciar aeronaves
+                                <Text style={styles.btnSubTextTeste}>
+                                    {'\n'}Gerencie as aeronaves cadastradas ou
+                                    adicione novas.
+                                </Text>
+                            </Text>
+                        </View>
                     </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.btnPrincipalTeste}
+                        onPress={() => navigation.navigate('Gerenciar Equipe')}
+                    >
+                        <Image
+                            style={styles.imageBtnTeste}
+                            source={require('../../../assets/worker.png')}
+                        />
+                        <View style={styles.teste}>
+                            <Text style={styles.btnTextTeste}>
+                                Gerenciar equipe
+                                <Text style={styles.btnSubTextTeste}>
+                                    {'\n'}Gerencie sua equipe
+                                </Text>
+                            </Text>
+                        </View>
+                    </TouchableOpacity>
+                    {/* <TouchableOpacity
+                        style={styles.btnPrincipalTeste}
+                        onPress={() => navigation.navigate('ErrorEnc')}
+                    >
+                        <Image
+                            style={styles.imageBtnTeste}
+                            source={require('../../screens/Assets/warning.png')}
+                        />
+                        <View style={styles.teste}>
+                            <Text style={styles.btnTextTeste}>
+                                Problemas Relatados
+                                <Text style={styles.btnSubTextTeste}>
+                                    {'\n'}Uma lista simples de problemas
+                                    relatados
+                                </Text>
+                            </Text>
+                        </View>
+                    </TouchableOpacity> */}
                 </View>
-            </View>
+            </ScrollView>
         </SafeAreaView>
     );
 };
