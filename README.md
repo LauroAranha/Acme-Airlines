@@ -1,9 +1,9 @@
 # Acme Airlines
 
-### Escopo do projeto
+## Escopo do projeto
 Auxílio e suporte ligado ao gerenciamento de manutenções de aeronaves por meio de uma aplicaçao mobile para que a utilização do mesmo seja fácil em qualquer ambiente, seja em um hangar, seja em um campo aberto.
 
-### Resumo da aplicação
+## Resumo da aplicação
 
 A aplicação conta com dois tipos de usuário, o mecânico chefe e mecânico convencional. 
 
@@ -11,7 +11,7 @@ A aplicação conta com dois tipos de usuário, o mecânico chefe e mecânico co
 
 **Mecânico convencional** Gerencia as manutenções atribuídas ao mesmo, controlando o fluxo de tarefas pessoal.
 
-### Desenvolvida utilizando as seguintes tecnologias:
+## Desenvolvido utilizando as seguintes tecnologias:
 
 **Javascript**: Linguagem de programação interpretada estruturada. 
 
