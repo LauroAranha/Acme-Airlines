@@ -1,43 +1,36 @@
-# Projeto Integrador
-Repositório destinado ao desenvolvimento do projeto integrador.
+# Acme Airlines
 
-## GitHub:
-A branch **main** é a nossa branch principal, NÃO FAÇA COMMIT DIRETAMENTE nela pra que evitemos conflitos entre arquivos e pra que possamos manter um bom monitoramento do projeto. Pra adicionar novas funcionalidades tanto de front, quanto de back ao projeto, **façam uma branch paralela à main e façam suas alterações e commits nela pra que posteriormente seja feito um merge seguro entre as branchs**.
+### Escopo do projeto
+Auxílio e suporte ligado ao gerenciamento de manutenções de aeronaves por meio de uma aplicaçao mobile para que a utilização do mesmo seja fácil em qualquer ambiente, seja em um hangar, seja em um campo aberto.
 
-### GitHub Desktop
-Caso se sintam confortáveis, o GitHub Desktop facilita o trabalho e manutenção do fluxo de commits do repositório.
+### Resumo da aplicação
 
-#### **Página de instação:**
-https://desktop.github.com
+A aplicação conta com dois tipos de usuário, o mecânico chefe e mecânico convencional. 
 
-## Quick start:
-Pro projeto, precisamos instalar o React Native, NodeJS, Android Studio e Yarn.
-### React native
+**Mecânico chefe** Gerencia os usuários, manutenções relacionadas a aeronave e os registros das aeronaves.
 
-#### Assiste aí.
-https://www.youtube.com/watch?v=09X9gDj3fec
+**Mecânico convencional** Gerencia as manutenções atribuídas ao mesmo, controlando o fluxo de tarefas pessoal.
 
-------------
-### NodeJS
+### Desenvolvida utilizando as seguintes tecnologias:
 
-#### Página de instação:
-https://nodejs.org/en/download/
+**Javascript**: Linguagem de programação interpretada estruturada. 
 
-------------
+**React Native**: Biblioteca javascript que possibilita a criação de aplicativos nativos multi-plataforma. 
 
-### Android Studio
+**Firebase**: Plataforma online, proveniente da empresa Google, onde possibilita a integração de aplicações com diversas ferramentas.
 
-#### **Página de instação**
-https://developer.android.com/studio
+**Expo**: Plataforma online e open-source, destinada a criação, deploy e manutenção de aplicações nativas que utilizam Javascript e React.
 
-------------
+**Yarn**: Gerenciador de pacotes utilizados pela aplicação.
+
+
+TO-DO
+### Configurando o ambiente:
 
 ### Yarn
-Só rodar esse comando to terminal (não precisa ser necessariamente executado na pasta do projeto).
 
 `npm install --global yarn`
 
-------------
+TO-DO
+### Alterando as configurações da aplicação:
 
-### Bibliotecas Npm
-------------
